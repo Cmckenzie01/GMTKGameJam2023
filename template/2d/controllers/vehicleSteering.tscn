@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=3 uid="uid://dqof2fqhgffmq"]
+
+[ext_resource type="Script" path="res://template/2d/controllers/vehicleSteering.gd" id="1_02jx4"]
+[ext_resource type="Texture2D" uid="uid://crhojssufoh5f" path="res://assets/2d/characters/spritesheet_player.png" id="1_f7usv"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rrpau"]
+radius = 24.0
+height = 48.0
+
+[node name="vehicleSteering" type="CharacterBody2D"]
+position = Vector2(111, 527)
+scale = Vector2(2, 2)
+script = ExtResource("1_02jx4")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+rotation = 1.5708
+texture = ExtResource("1_f7usv")
+hframes = 3
+vframes = 3
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1)
+shape = SubResource("CapsuleShape2D_rrpau")
