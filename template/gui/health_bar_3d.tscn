@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cpja8sfh2e44t"]
+
+[ext_resource type="PackedScene" uid="uid://cm438a03jv8pl" path="res://template/gui/health_bar_2d.tscn" id="2_ec0ww"]
+
+[sub_resource type="GDScript" id="GDScript_081w6"]
+script/source = "extends Sprite3D
+
+func _ready():
+	texture = $SubViewport.get_texture()
+	
+func update_health(_value, max_value):
+	$SubViewport/HealthBar2D.update_health(_value, max_value)
+"
+
+[node name="HealthBar3D" type="Sprite3D"]
+billboard = 1
+script = SubResource("GDScript_081w6")
+
+[node name="SubViewport" type="SubViewport" parent="."]
+disable_3d = true
+transparent_bg = true
+handle_input_locally = false
+size = Vector2i(200, 26)
+render_target_update_mode = 4
+
+[node name="HealthBar2D" parent="SubViewport" instance=ExtResource("2_ec0ww")]
