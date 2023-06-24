@@ -23,6 +23,16 @@ Input Map
 	- update to left/right/up/down cntrols = +AWSD
 	- steering controls left/right/accelerate/brake = +AWSD, +LRUP
 	- jump = Space Bar
+	
+	#Spaceship
+	- roll_right = D
+	- roll_left = A
+	- pitch_up = S
+	- pitch-down = W
+	- yaw_right = E
+	- yaw_left = Q
+	- throttle_up = X
+	- throttle_down = Z
 
 
 # Asset Credits
@@ -31,6 +41,6 @@ Input Map
 - Pixel SHMUP Ships Free - https://livingtheindie.itch.io/pixel-shmup-ships-free
 - Pixel Effects Pack - https://codemanu.itch.io/pixelart-effect-pack
 
-
-
+# Base Godot Recipes
+- https://kidscancode.org/godot_recipes
 

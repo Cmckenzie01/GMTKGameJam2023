@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://cpgwwp20ggwq0"
+path="res://.godot/imported/DST-RailJet [qubodup short-cut loop].ogg-637b776c3e472a4e953880a68a4cab50.oggvorbisstr"
+
+[deps]
+
+source_file="res://assets/3d/spaceship/DST-RailJet [qubodup short-cut loop].ogg"
+dest_files=["res://.godot/imported/DST-RailJet [qubodup short-cut loop].ogg-637b776c3e472a4e953880a68a4cab50.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
