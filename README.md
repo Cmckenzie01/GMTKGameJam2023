@@ -44,3 +44,4 @@ Input Map
 # Base Godot Recipes
 - https://kidscancode.org/godot_recipes
 
+Now with webhooks!
