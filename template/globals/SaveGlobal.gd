@@ -25,7 +25,7 @@ func load_data():
 		#GlobalGame.from_dictionary(data.game)
 		GlobalInventory.from_dictionary(data.inventory)
 		
-func _input(event):
+func _input(_event):
 	#if event.is_action_pressed("ui_save"): #Globals.can_save == true &&
 	#	save()
 	#	print("I've saved the game")
