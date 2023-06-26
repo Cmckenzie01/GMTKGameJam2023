@@ -7,7 +7,7 @@ signal statsUpdated
 signal character_died
 
 # INITIAL VARIABLES
-@onready var characterSprite: Object = load("res://assets/sprites/Ass-Ass-In.png")
+@onready var characterSprite: Object #= load("res://assets/sprites/Ass-Ass-In.png")
 @onready var characterName: String = "Ass-Ass-In"
 #@onready var characterFreeItem: String
 @onready var characterShipName: String = "Swift Wind"
