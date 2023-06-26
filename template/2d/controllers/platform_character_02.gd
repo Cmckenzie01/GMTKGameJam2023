@@ -40,6 +40,8 @@ func get_input(delta):
 		jumping = true
 	
 func _physics_process(delta):
+	if Input.is_action_just_pressed("roll"):
+		gravity = -gravity
 	velocity.y += gravity * delta
 	if dead:
 		$AnimatedSprite2d.play("dead")

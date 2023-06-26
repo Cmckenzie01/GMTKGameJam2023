@@ -1,0 +1,106 @@
+[gd_scene load_steps=9 format=3 uid="uid://ug1mogbw0ht0"]
+
+[ext_resource type="Script" path="res://template/gui/dialogue_box/DialogueInterface.gd" id="2"]
+[ext_resource type="Texture2D" uid="uid://b1welgf61s4of" path="res://assets/gui/Hero.png" id="2_fx4b2"]
+[ext_resource type="Texture2D" uid="uid://c237ybut8r8ko" path="res://assets/gui/BlueTileSmall.png" id="2_hjbmf"]
+[ext_resource type="JSON" path="res://assets/dialogues/test_dialogue.json" id="2_smbmf"]
+[ext_resource type="Texture2D" uid="uid://da6dwo02dxk70" path="res://assets/gui/NPC.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://bkikqp84gh2ix" path="res://assets/gui/WhiteDownArrow.png" id="5"]
+
+[sub_resource type="Animation" id="1"]
+resource_name = "Idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1086, 117), Vector2(1086, 110)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ap82s"]
+_data = {
+"Idle": SubResource("1")
+}
+
+[node name="DialoguePlayer" type="CanvasLayer"]
+script = ExtResource("2")
+dialogue_file = ExtResource("2_smbmf")
+
+[node name="Sprites" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Sprite1" type="Sprite2D" parent="Sprites"]
+position = Vector2(-460, -260)
+scale = Vector2(5, 5)
+texture = ExtResource("2_fx4b2")
+
+[node name="Sprite2" type="Sprite2D" parent="Sprites"]
+position = Vector2(407, -261)
+scale = Vector2(5, 5)
+texture = ExtResource("4")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -565.0
+offset_top = -184.0
+offset_right = 548.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_hjbmf")
+region_rect = Rect2(0.15456, -0.222021, 31.3322, 32.2274)
+patch_margin_left = 8
+patch_margin_top = 9
+patch_margin_right = 8
+patch_margin_bottom = 8
+metadata/_edit_lock_ = true
+
+[node name="Message" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.011
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.757
+offset_top = 40.0
+offset_right = -38.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hello world this is a long dialogue soooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooooo longg sdlkd lkjsd lkjsdfl kjfslkfjsdlkfjslfkjs flskdjf slkfjsdlfk jsflskjfsldfj slfkjsflksjflskfj slfjslkfjslfkjsflksjflksdjfslkfjsdklfjslkfsjflksdjfsklfjslkfjslkfjsdlkfjsdf jkldjlsdfjkl jkl jkl jk sdfjkl dsf jkljkljklsd jklfdsjklfsdjkldf"
+
+[node name="Name" type="RichTextLabel" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 8.0
+offset_right = 562.0
+offset_bottom = 38.0
+text = "Name"
+
+[node name="next-indicator" type="Sprite2D" parent="NinePatchRect"]
+position = Vector2(1086, 117)
+texture = ExtResource("5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="NinePatchRect/next-indicator"]
+autoplay = "Idle"
+libraries = {
+"": SubResource("AnimationLibrary_ap82s")
+}

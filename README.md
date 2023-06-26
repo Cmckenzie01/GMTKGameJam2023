@@ -18,6 +18,7 @@ Layer Names - 2D Physics
 	- Layer 7 = Interaction
 
 Input Map
+	- action = Space Bar
 	- attack = Left Mouse Click
 	- roll = Space Bar
 	- update to left/right/up/down cntrols = +AWSD

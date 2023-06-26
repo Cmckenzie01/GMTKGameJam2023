@@ -1,0 +1,113 @@
+[gd_scene load_steps=7 format=3 uid="uid://d8dh7cc31k56"]
+
+[ext_resource type="Texture2D" uid="uid://b1welgf61s4of" path="res://assets/gui/Hero.png" id="1_ae8q7"]
+[ext_resource type="Script" path="res://template/gui/hud_overlay/hud.gd" id="1_jppvv"]
+[ext_resource type="Texture2D" uid="uid://sd5n5ieuscar" path="res://assets/gui/HealthBar.png" id="2_45pdl"]
+[ext_resource type="Texture2D" uid="uid://b6r2b41lh52k7" path="res://assets/gui/ManaBar.png" id="3_wnson"]
+[ext_resource type="Texture2D" uid="uid://bl2dpb6kx2bh8" path="res://assets/gui/SalvosHUD.png" id="4_l608g"]
+[ext_resource type="Texture2D" uid="uid://cdemlemjfo2m0" path="res://assets/gui/skull.png" id="6_gx1ca"]
+
+[node name="HUD" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_jppvv")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+position = Vector2(88, 99)
+scale = Vector2(3, 3)
+texture = ExtResource("1_ae8q7")
+
+[node name="healthBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 152.0
+offset_top = 51.0
+offset_right = 393.0
+offset_bottom = 91.0
+value = 100.0
+texture_progress = ExtResource("2_45pdl")
+
+[node name="manaBar" type="TextureProgressBar" parent="."]
+layout_mode = 0
+offset_left = 162.0
+offset_top = 86.0
+offset_right = 403.0
+offset_bottom = 126.0
+value = 50.0
+texture_progress = ExtResource("3_wnson")
+
+[node name="HUDBase" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -31.0
+offset_top = -22.0
+offset_right = 419.0
+offset_bottom = 178.0
+texture = ExtResource("4_l608g")
+
+[node name="healthNumbers" type="Label" parent="HUDBase"]
+layout_mode = 0
+offset_left = 271.0
+offset_top = 77.0
+offset_right = 337.0
+offset_bottom = 97.0
+text = "10 / 10"
+
+[node name="manaNumbers" type="Label" parent="HUDBase"]
+layout_mode = 0
+offset_left = 277.0
+offset_top = 109.0
+offset_right = 343.0
+offset_bottom = 129.0
+scale = Vector2(0.78, 0.78)
+text = "10 / 10"
+
+[node name="bodyStat" type="Label" parent="HUDBase"]
+layout_mode = 0
+offset_left = 221.0
+offset_top = 132.0
+offset_right = 233.0
+offset_bottom = 152.0
+text = "0"
+
+[node name="mindStat" type="Label" parent="HUDBase"]
+layout_mode = 0
+offset_left = 271.0
+offset_top = 132.0
+offset_right = 283.0
+offset_bottom = 152.0
+text = "0"
+
+[node name="soulStat" type="Label" parent="HUDBase"]
+layout_mode = 0
+offset_left = 321.0
+offset_top = 132.0
+offset_right = 333.0
+offset_bottom = 152.0
+text = "0"
+
+[node name="luckStat" type="Label" parent="HUDBase"]
+layout_mode = 0
+offset_left = 372.0
+offset_top = 133.0
+offset_right = 384.0
+offset_bottom = 153.0
+text = "0"
+
+[node name="skull" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(119, 114)
+scale = Vector2(2, 2)
+texture = ExtResource("6_gx1ca")
+
+[node name="characterName" type="Label" parent="."]
+layout_mode = 0
+offset_left = 181.0
+offset_top = 22.0
+offset_right = 362.0
+offset_bottom = 42.0
+text = "TheCharacterName"
+horizontal_alignment = 1
+vertical_alignment = 1

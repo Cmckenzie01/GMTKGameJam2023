@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://b81fcvbv5070"]
 
 [ext_resource type="Script" path="res://template/3d/enemies/mob.gd" id="1_7p7iu"]
-[ext_resource type="PackedScene" uid="uid://cpja8sfh2e44t" path="res://template/gui/health_bar_3d.tscn" id="2_4cwlh"]
+[ext_resource type="PackedScene" uid="uid://cpja8sfh2e44t" path="res://template/gui/health_bars/health_bar_3d.tscn" id="2_4cwlh"]
 [ext_resource type="Texture2D" uid="uid://dsbo70k018xbf" path="res://assets/3d/texture_08.png" id="2_qachn"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_y5vl0"]

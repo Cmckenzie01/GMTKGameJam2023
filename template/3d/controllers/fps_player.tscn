@@ -96,7 +96,7 @@ shape = SubResource("CapsuleShape3D_pimsc")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.08165e-12, 1.6, 2.08165e-12)
 
 [node name="Shotgun" type="MeshInstance3D" parent="Camera3D"]
-transform = Transform3D(-10, 3.48786e-15, -2.53518e-05, 3.48787e-15, 10, -3.48787e-15, 2.53518e-05, -3.48788e-15, -10, 0.260305, -0.173, -0.181481)
+transform = Transform3D(-10, 3.48786e-15, -2.53518e-05, 3.48787e-15, 10, -3.48787e-15, 2.53518e-05, -3.48788e-15, -10, 0.246, -0.173, -0.237)
 mesh = ExtResource("2_04cj3")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]

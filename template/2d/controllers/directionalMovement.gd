@@ -39,6 +39,7 @@ func _physics_process(delta):
 			state = MOVE
 		ATTACK:
 			attack_state()
+		
 			
 func move_state(delta):
 	var input_vector = Vector2.ZERO
@@ -65,6 +66,7 @@ func move_state(delta):
 	
 	if Input.is_action_just_pressed("attack"):
 		state = ATTACK
+		
 
 func roll_state():
 	velocity = roll_vector * ROLL_SPEED
