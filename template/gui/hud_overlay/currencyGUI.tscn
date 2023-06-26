@@ -1,0 +1,160 @@
+[gd_scene load_steps=6 format=3 uid="uid://ve664lqnuyla"]
+
+[ext_resource type="Script" path="res://template/gui/hud_overlay/currencyGUI.gd" id="1_4hsie"]
+[ext_resource type="Texture2D" uid="uid://yc6wkngp8mx3" path="res://assets/gui/SilverCoin.png" id="2"]
+[ext_resource type="Texture2D" uid="uid://cnjk1mq4kw0r7" path="res://assets/gui/GoldCoin.png" id="4"]
+[ext_resource type="Texture2D" uid="uid://dt0r3venjkrws" path="res://assets/gui/CopperCoin.png" id="5"]
+[ext_resource type="Texture2D" uid="uid://b2alwnbkimbdp" path="res://assets/gui/DarkPheonixCoin.png" id="5_rx4io"]
+
+[node name="currencyUI" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4hsie")
+
+[node name="GoldCounter" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -245.0
+offset_top = 689.0
+offset_right = -229.0
+offset_bottom = 705.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Gold" type="Label" parent="GoldCounter"]
+layout_mode = 0
+offset_left = -11.0
+offset_top = -29.0
+offset_right = 12.0
+offset_bottom = -9.0
+scale = Vector2(3, 3)
+text = "99"
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="GoldCounter"]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 2.0
+offset_top = -84.0
+offset_right = 322.0
+offset_bottom = 236.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4")
+
+[node name="SilverCounter" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -164.0
+offset_top = 689.0
+offset_right = -148.0
+offset_bottom = 705.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Silver" type="Label" parent="SilverCounter"]
+layout_mode = 0
+offset_left = -11.0
+offset_top = -29.0
+offset_right = 12.0
+offset_bottom = -9.0
+scale = Vector2(3, 3)
+text = "99"
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="SilverCounter"]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 2.0
+offset_top = -84.0
+offset_right = 322.0
+offset_bottom = 236.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2")
+
+[node name="CopperCounter" type="NinePatchRect" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -83.0
+offset_top = 689.0
+offset_right = -67.0
+offset_bottom = 705.0
+grow_horizontal = 0
+scale = Vector2(0.5, 0.5)
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Copper" type="Label" parent="CopperCounter"]
+layout_mode = 0
+offset_left = -11.0
+offset_top = -29.0
+offset_right = 12.0
+offset_bottom = -9.0
+scale = Vector2(3, 3)
+text = "99"
+horizontal_alignment = 2
+
+[node name="TextureRect" type="TextureRect" parent="CopperCounter"]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = 2.0
+offset_top = -84.0
+offset_right = 322.0
+offset_bottom = 236.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5")
+
+[node name="EmblemCounter" type="NinePatchRect" parent="."]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_right = 16.0
+offset_bottom = 16.0
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Emblems" type="Label" parent="EmblemCounter"]
+layout_mode = 0
+offset_left = -147.0
+offset_top = 33.0
+offset_right = -135.0
+offset_bottom = 53.0
+scale = Vector2(3, 3)
+text = "0"
+
+[node name="TextureRect" type="TextureRect" parent="EmblemCounter"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -157.0
+offset_top = -21.0
+offset_right = 483.0
+offset_bottom = 619.0
+grow_horizontal = 0
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("5_rx4io")

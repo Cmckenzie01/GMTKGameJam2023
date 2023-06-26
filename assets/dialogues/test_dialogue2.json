@@ -1,0 +1,10 @@
+[
+	{"active_sprite": 2, "name": "NPC", "text": "Fantastic! Here's your new boat!"},
+	{"active_sprite": 1, "name": "Hero", "text": "OMG my very own boat!"},
+	{"active_sprite": 2, "name": "NPC", "text": "You should spend the night in it, see how it feels"},
+	{"active_sprite": 1, "name": "Hero", "text": "That sounds like a great idea! Nothing unexpected could happen"},
+	{"active_sprite": 2, "name": "NPC", "text": "Nope, Not while docked at port, definately safe! Well, enjoy the Adventure!"},
+	{"active_sprite": 1, "name": "Antagonist", "text": "Mwhahahaha!"},
+	{"active_sprite": 2, "name": "Antagonist", "text": "Mwhahahahahahahahahah!"},
+	{"active_sprite": 1, "name": "Antagonist", "text": "Mwhahahahahahahahahahahahahahahahahahahahaha!"}
+]

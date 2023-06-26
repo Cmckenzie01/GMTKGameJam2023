@@ -1,0 +1,172 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwxp6v376nkhf"]
+
+[ext_resource type="Script" path="res://template/gui/settings/settings_menu.gd" id="1_q0040"]
+[ext_resource type="Texture2D" uid="uid://yl3wvt8181tp" path="res://assets/gui/closebutton.svg" id="2_fptj5"]
+[ext_resource type="Theme" uid="uid://ded8jya3i5e1c" path="res://template/gui/settings/settings_menu.theme" id="3_ocfyc"]
+
+[node name="settings_menu" type="Popup"]
+position = Vector2i(150, 50)
+size = Vector2i(1000, 600)
+visible = true
+script = ExtResource("1_q0040")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.733333, 1, 0.941176)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 30.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.321569, 0.027451, 0.286275, 1)
+
+[node name="CloseSettings" type="Button" parent="ColorRect2"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -24.0
+offset_top = -45.0
+offset_bottom = -21.0
+grow_horizontal = 0
+scale = Vector2(2.5, 2.5)
+focus_mode = 0
+mouse_default_cursor_shape = 2
+icon = ExtResource("2_fptj5")
+flat = true
+
+[node name="SettingTabs" type="TabContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_right = -20.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_default_cursor_shape = 2
+theme = ExtResource("3_ocfyc")
+drag_to_rearrange_enabled = true
+
+[node name="Video" type="TabBar" parent="SettingTabs"]
+layout_mode = 2
+mouse_default_cursor_shape = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SettingTabs/Video"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 10.0
+offset_right = -10.0
+offset_bottom = -9.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VideoSettings" type="GridContainer" parent="SettingTabs/Video/MarginContainer"]
+layout_mode = 2
+columns = 2
+
+[node name="Fullscreen" type="Label" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+text = "Fullscreen (borderless)"
+
+[node name="FullscreenOption" type="CheckButton" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+
+[node name="Borderless" type="Label" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+text = "Borderless"
+
+[node name="BorderlessOption" type="CheckButton" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+
+[node name="Vsync" type="Label" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+text = "Vsync"
+
+[node name="VsyncOption" type="CheckButton" parent="SettingTabs/Video/MarginContainer/VideoSettings"]
+layout_mode = 2
+size_flags_horizontal = 3
+focus_mode = 0
+mouse_default_cursor_shape = 2
+
+[node name="Audio" type="TabBar" parent="SettingTabs"]
+visible = false
+layout_mode = 2
+
+[node name="MarginContainer2" type="MarginContainer" parent="SettingTabs/Audio"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="AudioSettings" type="GridContainer" parent="SettingTabs/Audio/MarginContainer2"]
+layout_mode = 2
+columns = 2
+
+[node name="MasterVol" type="Label" parent="SettingTabs/Audio/MarginContainer2/AudioSettings"]
+layout_mode = 2
+text = "Master Volume"
+
+[node name="MasterSlider" type="HSlider" parent="SettingTabs/Audio/MarginContainer2/AudioSettings"]
+custom_minimum_size = Vector2(400, 44)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+min_value = -50.0
+max_value = 0.0
+value = -15.0
+rounded = true
+
+[node name="MusicVol" type="Label" parent="SettingTabs/Audio/MarginContainer2/AudioSettings"]
+layout_mode = 2
+text = "Music Volume"
+
+[node name="MusicSlider" type="HSlider" parent="SettingTabs/Audio/MarginContainer2/AudioSettings"]
+custom_minimum_size = Vector2(400, 44)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+min_value = -50.0
+max_value = 0.0
+value = -15.0
+rounded = true
+
+[node name="SfxVol" type="Label" parent="SettingTabs/Audio/MarginContainer2/AudioSettings"]
+layout_mode = 2
+text = "SFX Volume"
+
+[node name="SfxSlider" type="HSlider" parent="SettingTabs/Audio/MarginContainer2/AudioSettings"]
+custom_minimum_size = Vector2(400, 44)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_default_cursor_shape = 2
+min_value = -50.0
+max_value = 0.0
+value = -15.0
+rounded = true
+
+[connection signal="pressed" from="ColorRect2/CloseSettings" to="." method="_on_close_settings_pressed"]
+[connection signal="toggled" from="SettingTabs/Video/MarginContainer/VideoSettings/FullscreenOption" to="." method="_on_FullscreenOption_toggled"]
+[connection signal="toggled" from="SettingTabs/Video/MarginContainer/VideoSettings/BorderlessOption" to="." method="_on_BorderlessOption_toggled"]
+[connection signal="toggled" from="SettingTabs/Video/MarginContainer/VideoSettings/VsyncOption" to="." method="_on_VsyncOption_toggled"]
+[connection signal="value_changed" from="SettingTabs/Audio/MarginContainer2/AudioSettings/MasterSlider" to="." method="_on_MasterSlider_value_changed"]
+[connection signal="value_changed" from="SettingTabs/Audio/MarginContainer2/AudioSettings/MusicSlider" to="." method="_on_MusicSlider_value_changed"]
+[connection signal="value_changed" from="SettingTabs/Audio/MarginContainer2/AudioSettings/SfxSlider" to="." method="_on_SfxSlider_value_changed"]

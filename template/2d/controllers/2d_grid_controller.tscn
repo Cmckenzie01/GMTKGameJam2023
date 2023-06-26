@@ -98,3 +98,6 @@ root_node = NodePath("../RayCast2d")
 libraries = {
 "": SubResource("AnimationLibrary_e3qh4")
 }
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
