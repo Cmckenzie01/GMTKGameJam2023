@@ -47,6 +47,7 @@ Input Map
 - 2D Vehicles Packs - https://turbo-developement-team.itch.io/2d-top-down-vehicles
 - Pixel SHMUP Ships Free - https://livingtheindie.itch.io/pixel-shmup-ships-free
 - Pixel Effects Pack - https://codemanu.itch.io/pixelart-effect-pack
+- Kenny's 1-Bit Pack - https://kenney.nl/assets/1-bit-pack
 
 # Base Godot Recipes
 - https://kidscancode.org/godot_recipes

@@ -14,6 +14,7 @@ func update_health(_value, max_value):
 
 [node name="HealthBar3D" type="Sprite3D"]
 billboard = 1
+transparent = false
 script = SubResource("GDScript_081w6")
 
 [node name="SubViewport" type="SubViewport" parent="."]
