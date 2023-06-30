@@ -11,3 +11,6 @@ func start_tween():
 	tween.set_loops().set_parallel(false)
 	tween.tween_property($AnimatableBody2d, "position", offset, duration / 2)
 	tween.tween_property($AnimatableBody2d, "position", Vector2.ZERO, duration / 2)
+	
+func _on_timer_timeout():
+	pass # Replace with function body.

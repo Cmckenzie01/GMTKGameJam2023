@@ -60,6 +60,7 @@ func _process(delta):
 	
 func _on_player_laser_shot(laser_scene, location):
 	var laser = laser_scene.instantiate()
+	laser.test_function()
 	laser.global_position = location
 	laser_container.add_child(laser)
 	laser_sound.play()

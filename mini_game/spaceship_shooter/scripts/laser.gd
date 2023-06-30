@@ -15,3 +15,6 @@ func _on_area_entered(area):
 	if area is Enemy:
 		area.take_damage(damage)
 		queue_free()
+
+func test_function():
+	print("laser test")
