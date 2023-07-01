@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://bukq6qt7s4oi"]
+
+[ext_resource type="PackedScene" uid="uid://bbey7dudus0uf" path="res://mini_game/basic_tower_defense/Towers/red_panel_tower.tscn" id="1_i60cu"]
+[ext_resource type="Script" path="res://mini_game/basic_tower_defense/GUI/Health.gd" id="2_5si3u"]
+[ext_resource type="Script" path="res://mini_game/basic_tower_defense/GUI/Gold.gd" id="3_xedqv"]
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="Panel" type="Panel" parent="."]
+offset_left = 2947.0
+offset_right = 3584.0
+offset_bottom = 2048.0
+
+[node name="FlowContainer" type="FlowContainer" parent="Panel"]
+layout_mode = 0
+offset_left = 36.9999
+offset_top = 56.0
+offset_right = 117.0
+offset_bottom = 696.0
+scale = Vector2(3, 3)
+
+[node name="RedPanelTower" parent="Panel/FlowContainer" instance=ExtResource("1_i60cu")]
+layout_mode = 2
+
+[node name="RedPanelTower2" parent="Panel/FlowContainer" instance=ExtResource("1_i60cu")]
+layout_mode = 2
+
+[node name="RedPanelTower3" parent="Panel/FlowContainer" instance=ExtResource("1_i60cu")]
+layout_mode = 2
+
+[node name="RedPanelTower4" parent="Panel/FlowContainer" instance=ExtResource("1_i60cu")]
+layout_mode = 2
+
+[node name="RedPanelTower5" parent="Panel/FlowContainer" instance=ExtResource("1_i60cu")]
+layout_mode = 2
+
+[node name="RedPanelTower6" parent="Panel/FlowContainer" instance=ExtResource("1_i60cu")]
+layout_mode = 2
+
+[node name="RedPanelTower7" parent="Panel/FlowContainer" instance=ExtResource("1_i60cu")]
+layout_mode = 2
+
+[node name="RedPanelTower8" parent="Panel/FlowContainer" instance=ExtResource("1_i60cu")]
+layout_mode = 2
+
+[node name="RedPanelTower9" parent="Panel/FlowContainer" instance=ExtResource("1_i60cu")]
+layout_mode = 2
+
+[node name="RedPanelTower10" parent="Panel/FlowContainer" instance=ExtResource("1_i60cu")]
+layout_mode = 2
+
+[node name="RedPanelTower11" parent="Panel/FlowContainer" instance=ExtResource("1_i60cu")]
+layout_mode = 2
+
+[node name="RedPanelTower12" parent="Panel/FlowContainer" instance=ExtResource("1_i60cu")]
+layout_mode = 2
+
+[node name="RedPanelTower13" parent="Panel/FlowContainer" instance=ExtResource("1_i60cu")]
+layout_mode = 2
+
+[node name="Health" type="Label" parent="."]
+offset_right = 696.0
+offset_bottom = 145.0
+theme_override_font_sizes/font_size = 100
+text = "Health: "
+script = ExtResource("2_5si3u")
+
+[node name="Gold" type="Label" parent="."]
+offset_left = 738.0
+offset_top = 7.0
+offset_right = 1434.0
+offset_bottom = 152.0
+theme_override_font_sizes/font_size = 100
+text = "Gold: "
+script = ExtResource("3_xedqv")
