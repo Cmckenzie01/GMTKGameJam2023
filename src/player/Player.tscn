@@ -211,6 +211,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_ua8jn")
 hframes = 8
 vframes = 10
+frame = 66
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -45)
@@ -221,3 +222,6 @@ autoplay = "Idle"
 libraries = {
 "": SubResource("AnimationLibrary_aar4j")
 }
+
+[node name="GridMarker" type="Marker2D" parent="."]
+position = Vector2(64, -32)

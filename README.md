@@ -1,6 +1,13 @@
 # GMTKGameJam2023
 Game submission for the 2023 GMTK Game Jam
 
+# SRC Practice Game - Tower-Defence Platformer!
+	- Main Tower-Defence code is run from the Global Mechanic Script
+	
+# SRC Controls
+	- Right-Click = Toggle Tower-Defence Placement Grid
+	- E = Place Object will Tower-Defence Placement Grid is active
+
 
 # Project Settings
 Display Window - Viewport Width/Height updated to 1280/720
@@ -18,7 +25,7 @@ Layer Names - 2D Physics
 	- Layer 7 = Interaction
 
 Input Map
-	- action = Space Bar
+	- action = Space Bar 
 	- attack = Left Mouse Click
 	- shoot = Space Bar / Left Mouse Click
 	- roll = Space Bar
@@ -27,6 +34,7 @@ Input Map
 	- jump = Space Bar
 	- quit = Escape
 	- restart = R
+	- interact - E
 	
 	#3D Spaceship
 	- roll_right = D

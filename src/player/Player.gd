@@ -22,6 +22,9 @@ enum {
 
 @onready var state = IDLE
 
+# NEW
+@onready var gridMarker = $GridMarker
+
 func _ready():
 	pass
 	
@@ -29,8 +32,10 @@ func _ready():
 func state_machine():
 	if velocity.x < 0:
 		$Sprite.flip_h = true
+		gridMarker.position.x = -74
 	if velocity.x > 0:
 		$Sprite.flip_h = false
+		gridMarker.position.x = 64
 	match(state):
 		IDLE:
 			$AnimationPlayer.play("Idle")
@@ -55,6 +60,9 @@ func state_machine():
 
 
 func _physics_process(delta):
+	#if Input.is_action_just_pressed("right_click"):
+	#	placementBlock.visible = !placementBlock.visible
+	
 	if state != SLIDE:
 		velocity.y += gravity * delta
 		var dir = Input.get_axis("ui_left", "ui_right")
