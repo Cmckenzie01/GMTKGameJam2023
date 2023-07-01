@@ -11,6 +11,7 @@ config_version=5
 [application]
 
 config/name="Gmtk Game Jam 2023"
+run/main_scene="res://src/level/level_one.tscn"
 config/features=PackedStringArray("4.0", "Forward Plus")
 config/icon="res://icon.svg"
 
@@ -24,6 +25,7 @@ SaveSettings="*res://template/globals/SaveSettings.gd"
 StageManager="*res://template/globals/StageManager.tscn"
 GlobalGame="*res://template/globals/GlobalGame.gd"
 GlobalCharacter="*res://template/globals/GlobalCharacter.gd"
+Game="*res://mini_game/basic_tower_defense/Global/Game.gd"
 
 [display]
 
@@ -170,7 +172,9 @@ reset={
 [layer_names]
 
 2d_physics/layer_1="World"
+2d_navigation/layer_1="Open"
 2d_physics/layer_2="Player"
+2d_navigation/layer_2="Blocked"
 2d_physics/layer_3="PlayerHurtBox"
 2d_physics/layer_4="Enemy"
 2d_physics/layer_5="EnemyHurtBox"

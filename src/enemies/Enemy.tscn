@@ -4,20 +4,17 @@
 [ext_resource type="Texture2D" uid="uid://c1ojw87435pcb" path="res://icon.svg" id="1_xuo8v"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ie5vy"]
-radius = 16.0
+radius = 8.0
 
-[node name="Enemy" type="CharacterBody2D" node_paths=PackedStringArray("navigation_agent")]
+[node name="Enemy" type="CharacterBody2D"]
 collision_layer = 8
-collision_mask = 3
+collision_mask = 11
 script = ExtResource("1_tcjao")
-navigation_agent = NodePath("NavigationAgent2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.25, 0.25)
 texture = ExtResource("1_xuo8v")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 8)
 shape = SubResource("CircleShape2D_ie5vy")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true

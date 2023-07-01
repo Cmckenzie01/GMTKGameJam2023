@@ -41,6 +41,8 @@ Input Map
 # Mini-Games
 	- spaceship-shooter
 		# Best to adjust the screen resolution in Project Settings to (540, 960) for correct gameplay
+	- basic-tower_defense
+		# Best to adjust the screen resolution in Project Settings to (3584, 2048), with Width/Height Overide (1194, 682)
 
 # Asset Credits
 - Mystic Woods (Free) - https://game-endeavor.itch.io/mystic-woods
@@ -49,7 +51,9 @@ Input Map
 - Pixel Effects Pack - https://codemanu.itch.io/pixelart-effect-pack
 - Kenny's 1-Bit Pack - https://kenney.nl/assets/1-bit-pack
 
-# Base Godot Recipes
+# Base Godot Recipes & Tutorials
 - https://kidscancode.org/godot_recipes
+- https://www.youtube.com/@KaanAlpar (Spaceship Shooter)
+- https://www.youtube.com/@CodingQuests (Tower Defense)
 
 Now with webhooks!
