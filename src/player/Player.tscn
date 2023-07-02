@@ -122,7 +122,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="25"]
 resource_name = "Melee_Attack"
-length = 0.14
+length = 0.25
 step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -131,7 +131,7 @@ tracks/0/path = NodePath("Sprite:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.03, 0.06, 0.09, 0.12),
+"times": PackedFloat32Array(0, 0.05, 0.1, 0.15, 0.2),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [43, 44, 45, 46, 47]
@@ -211,7 +211,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_ua8jn")
 hframes = 8
 vframes = 10
-frame = 66
+frame = 43
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -45)
@@ -225,3 +225,8 @@ libraries = {
 
 [node name="GridMarker" type="Marker2D" parent="."]
 position = Vector2(64, -32)
+
+[node name="CoyoteTimer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]

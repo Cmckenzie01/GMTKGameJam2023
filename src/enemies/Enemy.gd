@@ -21,14 +21,8 @@ func _ready():
 	pass
 
 func _physics_process(delta):
-	
-	
-	
 	#if Input.is_action_just_pressed("action"):
 	velocity.y += gravity * delta
-		
-		#if navigation_agent.is_navigation_finished():
-		#	return
 		
 	var current_agent_position: Vector2 = global_position
 	
@@ -55,8 +49,7 @@ func _physics_process(delta):
 	
 		velocity.x = new_velocity.x
 		
-	var blocker = true
-	if is_on_floor() and y_distance < -10 and velocity.x < 10 and blocker:
+	if is_on_floor() and y_distance < -10 and velocity.x < 10:
 		jumps_made = 0 
 		if jump_delay_timer < 0 and jumps_made != 1:
 			jumps_made += 1
