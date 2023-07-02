@@ -12,6 +12,8 @@ func _ready():
 func _process(_delta):
 	if Input.is_action_just_pressed("reset"):
 		get_tree().reload_current_scene()
-		
 
-
+# Testing: Kill mobs when they touch the killer
+func _on_mob_killer_body_entered(body):
+	if body.is_in_group("mobs"):
+		body.free()
