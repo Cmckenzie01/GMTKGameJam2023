@@ -1,9 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://bq70ykx08c6k0"]
+[gd_scene load_steps=29 format=3 uid="uid://bq70ykx08c6k0"]
 
 [ext_resource type="Script" path="res://src/level/level_one.gd" id="1_nc5ri"]
 [ext_resource type="PackedScene" uid="uid://cxfftwf4j4alt" path="res://src/player/Player.tscn" id="1_s60qi"]
 [ext_resource type="Texture2D" uid="uid://c6ms5b33w3xkm" path="res://src/assets/WoodenWall.png" id="2_gg5jr"]
-[ext_resource type="Texture2D" uid="uid://c6upt07ocno5a" path="res://assets/2d/tilesets/tileBlack_01.png" id="2_ik654"]
 [ext_resource type="Texture2D" uid="uid://cuny377gec3ek" path="res://src/assets/Boxes/WoodenBoxTile.png" id="3_1q5mg"]
 [ext_resource type="Texture2D" uid="uid://brde2jkrpao2u" path="res://assets/2d/tilesets/sokoban_tilesheet.png" id="3_15wcd"]
 [ext_resource type="Texture2D" uid="uid://d2blc5nrwewac" path="res://src/assets/Boxes/RedBoxTile.png" id="4_5scfs"]
@@ -144,7 +143,7 @@ texture_region_size = Vector2i(32, 32)
 12:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_emtti"]
-texture = ExtResource("2_ik654")
+texture = ExtResource("6_87a6j")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
