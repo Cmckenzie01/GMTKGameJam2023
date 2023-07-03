@@ -2,7 +2,7 @@ extends Node
 
 const MOB_NORMAL = preload("res://src/enemies/Enemy.tscn")
 
-const SECS_BETWEEN_WAVES = 5.0
+const SECS_BETWEEN_WAVES = 500.0
 
 enum State {
 	SPAWNING,

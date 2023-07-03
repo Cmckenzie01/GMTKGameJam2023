@@ -15,4 +15,5 @@ func _process(_delta):
 # Testing: Kill mobs when they touch the killer
 func _on_mob_killer_body_entered(body):
 	if body.is_in_group("mobs"):
+		GlobalGame.damage_heart(1)
 		body.free()
