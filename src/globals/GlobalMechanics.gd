@@ -11,19 +11,29 @@ extends Node
 @onready var flipped = scene_root.get_node("LevelOne/Player/GridMarker").position.x < 0
 
 ### TEMP
-@onready var towersBox = scene_root.get_node("LevelOne/CanvasLayer/TowerBar/Towers")
-@onready var towerSelector = scene_root.get_node("LevelOne/CanvasLayer/TowerBar/Towers/selector")
+@onready var towersBox = scene_root.get_node("LevelOne/GUI/TowerBar/Towers")
+@onready var towerSelector = scene_root.get_node("LevelOne/GUI/TowerBar/Towers/selector")
 
-@onready var tower1 = scene_root.get_node("LevelOne/CanvasLayer/TowerBar/Towers/tower1")
-@onready var tower2 = scene_root.get_node("LevelOne/CanvasLayer/TowerBar/Towers/tower2")
-@onready var tower3 = scene_root.get_node("LevelOne/CanvasLayer/TowerBar/Towers/tower3")
-@onready var tower4 = scene_root.get_node("LevelOne/CanvasLayer/TowerBar/Towers/tower4")
-@onready var tower5 = scene_root.get_node("LevelOne/CanvasLayer/TowerBar/Towers/tower5")
+@onready var tower1 = scene_root.get_node("LevelOne/GUI/TowerBar/Towers/tower1")
+@onready var tower2 = scene_root.get_node("LevelOne/GUI/TowerBar/Towers/tower2")
+@onready var tower3 = scene_root.get_node("LevelOne/GUI/TowerBar/Towers/tower3")
+@onready var tower4 = scene_root.get_node("LevelOne/GUI/TowerBar/Towers/tower4")
+@onready var tower5 = scene_root.get_node("LevelOne/GUI/TowerBar/Towers/tower5")
 
 @onready var overlayIndex = towerIndex
 
+@onready var stock = [
+	"tower1",
+	"tower2",
+	"tower3",
+	"tower4",
+	"tower5"
+]
+
 # Tiles
 var markedTile: Vector2i
+var adjacentTile: Vector2i
+
 var activeTile = null
 
 # Tower Grid/Atlas Coordinates
@@ -84,6 +94,7 @@ func _process(_delta):
 			
 		# Current Marked Tile
 		markedTile = tileGrid.local_to_map(playerMarker)
+		adjacentTile = markedTile + Vector2i(1, 0)
 			
 		# Initialise First Selected Tile (if there is no active tile and the marked tile exists)
 		if activeTile == null and tileGrid.get_cell_tile_data(0, markedTile):
@@ -92,6 +103,12 @@ func _process(_delta):
 			
 			# Set the active tile as the current marked tile
 			activeTile = markedTile
+			
+			# Check if there is an adjacentTile
+			if tileGrid.get_cell_tile_data(0, adjacentTile):
+				tileGrid.set_layer_modulate(1, Color(1, 1, 1, 0.3))
+			else:
+				tileGrid.set_layer_modulate(1, Color(1, 0, 0, 0.3))
 
 				
 		# Switch Active Tiles (if active tile exists, new marked tile exists, and they're not the same tile)
@@ -105,6 +122,12 @@ func _process(_delta):
 
 			# Set the active tile as the current marked tile
 			activeTile = markedTile
+			
+			# Check if there is an adjacentTile
+			if tileGrid.get_cell_tile_data(0, adjacentTile):
+				tileGrid.set_layer_modulate(1, Color(1, 1, 1, 0.3))
+			else:
+				tileGrid.set_layer_modulate(1, Color(1, 0, 0, 0.3))
 				
 				
 		# Switch Tiles (when no new marked tile is available
@@ -129,16 +152,26 @@ func _process(_delta):
 		
 	# Place Tower when grid is active, and there is a selected tile/tower
 	if Input.is_action_just_pressed("interact") and tileGrid.visible and activeTile:
-			activeTower = availableTowers[towerIndex]
-			
-			# Set Tower in Object Grid
-			objectGrid.set_cell(1, activeTile, 1, activeTower, 0)
-			
-			# Remove Tower Hologram
-			tileGrid.erase_cell(1, activeTile)
-			activeTile = null
-			
-	if Input.is_action_just_released("ui_text_scroll_up") and tileGrid.visible and activeTile:
+		# Check if adjacent tile exists
+		if tileGrid.get_cell_tile_data(0, adjacentTile):
+			# Check if unit available in stock
+			if GlobalGame.towerStock[stock[towerIndex]] > 0:
+				GlobalGame.reduce_stock(stock[towerIndex])
+
+				activeTower = availableTowers[towerIndex]
+				
+				# Set Tower in Object Grid
+				objectGrid.set_cell(1, activeTile, 1, activeTower, 0)
+				
+				# Remove Tower Hologram
+				tileGrid.erase_cell(1, activeTile)
+				# Remove Adjacent Tile
+				tileGrid.erase_cell(0, adjacentTile)
+				activeTile = null
+			else:
+				GlobalGame.no_stock(stock[towerIndex])
+				
+	if Input.is_action_just_released("ui_text_scroll_up"):
 		towerIndex += 1
 		if towerIndex > availableTowers.size() - 1:
 			towerIndex = 0
@@ -150,7 +183,7 @@ func _process(_delta):
 		setOverlay()
 
 
-	if Input.is_action_just_released("ui_text_scroll_down") and tileGrid.visible and activeTile:
+	if Input.is_action_just_released("ui_text_scroll_down"):
 		towerIndex -= 1
 		if towerIndex < 0:
 			towerIndex = availableTowers.size() - 1

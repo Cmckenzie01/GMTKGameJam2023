@@ -203,6 +203,7 @@ _data = {
 }
 
 [node name="Player" type="CharacterBody2D"]
+z_index = 10
 script = ExtResource("1_frkso")
 
 [node name="Sprite" type="Sprite2D" parent="."]
@@ -211,7 +212,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_ua8jn")
 hframes = 8
 vframes = 10
-frame = 43
+frame = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -45)
