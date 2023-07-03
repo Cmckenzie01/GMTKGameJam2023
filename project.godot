@@ -18,8 +18,8 @@ config/icon="res://icon.svg"
 [autoload]
 
 Game="*res://mini_game/basic_tower_defense/Global/Game.gd"
-SrcGlobalGame="*res://src/globals/SRC_GlobalGame.gd"
-SrcGlobalMechanics="*res://src/globals/SRC_GlobalMechanics.gd"
+GlobalGame="*res://src/globals/GlobalGame.gd"
+GlobalMechanics="*res://src/globals/GlobalMechanics.gd"
 Spawner="*res://src/globals/Spawner.gd"
 
 [display]
