@@ -1,92 +1,69 @@
-[gd_scene load_steps=22 format=3 uid="uid://bq70ykx08c6k0"]
+[gd_scene load_steps=30 format=3 uid="uid://bq70ykx08c6k0"]
 
 [ext_resource type="Script" path="res://src/level/level_one.gd" id="1_nc5ri"]
 [ext_resource type="PackedScene" uid="uid://cxfftwf4j4alt" path="res://src/player/Player.tscn" id="1_s60qi"]
 [ext_resource type="Texture2D" uid="uid://c6ms5b33w3xkm" path="res://src/assets/WoodenWall.png" id="2_gg5jr"]
 [ext_resource type="Texture2D" uid="uid://c6upt07ocno5a" path="res://assets/2d/tilesets/tileBlack_01.png" id="2_ik654"]
+[ext_resource type="Texture2D" uid="uid://cuny377gec3ek" path="res://src/assets/Boxes/WoodenBoxTile.png" id="3_1q5mg"]
 [ext_resource type="Texture2D" uid="uid://brde2jkrpao2u" path="res://assets/2d/tilesets/sokoban_tilesheet.png" id="3_15wcd"]
+[ext_resource type="Texture2D" uid="uid://d2blc5nrwewac" path="res://src/assets/Boxes/RedBoxTile.png" id="4_5scfs"]
 [ext_resource type="Texture2D" uid="uid://c7pym35gvn38e" path="res://src/assets/GoldCoin.png" id="4_qjpkh"]
+[ext_resource type="Texture2D" uid="uid://jyl8f4vqjy2a" path="res://src/assets/Boxes/BlueBoxTile.png" id="5_1p7ef"]
 [ext_resource type="Texture2D" uid="uid://vn5ntjm1a6yi" path="res://src/assets/woodTile.png" id="5_e7u6o"]
 [ext_resource type="Texture2D" uid="uid://dcsnsny6y0lhl" path="res://src/assets/woodTileBlock.png" id="6_87a6j"]
-[ext_resource type="Texture2D" uid="uid://dehwa6bauqirp" path="res://src/assets/TealDiamond.png" id="8_8uair"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sj3xk"]
-texture = ExtResource("2_ik654")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-0:0/0/physics_layer_0/angular_velocity = 0.0
-0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+[ext_resource type="Texture2D" uid="uid://bp73f37ssp4bt" path="res://src/assets/Boxes/GreenBoxTile.png" id="6_y6khk"]
+[ext_resource type="Texture2D" uid="uid://7x667u6c1kkp" path="res://src/assets/Boxes/MetalBoxTile.png" id="7_hh8ny"]
+[ext_resource type="Texture2D" uid="uid://djv7yabyi03lb" path="res://src/assets/Boxes/PurpleBoxTile.png" id="8_a8n74"]
+[ext_resource type="Texture2D" uid="uid://c1p08mn0eggfv" path="res://src/assets/Boxes/BoxTileSet.png" id="8_p7aqb"]
+[ext_resource type="Texture2D" uid="uid://b0f3ibhv0pxn4" path="res://src/assets/Heart.png" id="9_0e2ln"]
+[ext_resource type="Texture2D" uid="uid://ci0xpdkrwuou7" path="res://src/assets/Boxes/PinkBoxTile.png" id="9_xvi8p"]
+[ext_resource type="Script" path="res://src/level/RaindropSprinkler.gd" id="18_njf3h"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_csdji"]
-texture = ExtResource("3_15wcd")
+texture = ExtResource("8_p7aqb")
 texture_region_size = Vector2i(32, 32)
-14:12/size_in_atlas = Vector2i(1, 2)
-14:12/0 = 0
-14:12/0/texture_origin = Vector2i(0, 16)
-14:12/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-14:12/0/physics_layer_0/angular_velocity = 0.0
-14:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.5, -31.5, 15.5, -32, 16, 32.5, -15.5, 31.5)
-16:12/size_in_atlas = Vector2i(1, 2)
-16:12/0 = 0
-16:12/0/texture_origin = Vector2i(0, 16)
-16:12/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-16:12/0/physics_layer_0/angular_velocity = 0.0
-16:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.5, -32.5, 16.5, -33, 15.5, 32.5, -16.5, 31.5)
-18:12/size_in_atlas = Vector2i(1, 2)
-18:12/0 = 0
-18:12/0/texture_origin = Vector2i(0, 16)
-18:12/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-18:12/0/physics_layer_0/angular_velocity = 0.0
-18:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-17.5, -32, 16, -31.5, 16, 33.5, -15.5, 33)
-20:12/size_in_atlas = Vector2i(1, 2)
-20:12/0 = 0
-20:12/0/texture_origin = Vector2i(0, 16)
-20:12/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-20:12/0/physics_layer_0/angular_velocity = 0.0
-20:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-17, -32, 16.5, -32, 16, 31.5, -16.5, 32.5)
-22:12/size_in_atlas = Vector2i(1, 2)
-22:12/0 = 0
-22:12/0/texture_origin = Vector2i(0, 16)
-22:12/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-22:12/0/physics_layer_0/angular_velocity = 0.0
-22:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-17, -31.5, 16.5, -32, 17.5, 32.5, -16.5, 33)
-24:12/size_in_atlas = Vector2i(1, 2)
-24:12/0 = 0
-24:12/0/texture_origin = Vector2i(0, 16)
-24:12/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-24:12/0/physics_layer_0/angular_velocity = 0.0
-24:12/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -32, 15, -32, 15.5, 32.5, -17.5, 32.5)
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(-16, 16)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -48, 48, -48, 48, 16, -16, 16)
 2:0/size_in_atlas = Vector2i(2, 2)
 2:0/0 = 0
 2:0/0/texture_origin = Vector2i(-16, 16)
 2:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 2:0/0/physics_layer_0/angular_velocity = 0.0
-2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15, -47, 47, -48, 49, 17, -16, 16)
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.5, -46.5, 48, -46.5, 48, 16.5, -16, 16)
 4:0/size_in_atlas = Vector2i(2, 2)
 4:0/0 = 0
 4:0/0/texture_origin = Vector2i(-16, 16)
 4:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 4:0/0/physics_layer_0/angular_velocity = 0.0
-4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15, -45.5, 48, -47.5, 46.5, 13.5, -16, 16)
+4:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-17, -48, 49.5, -47, 47.5, 15.5, -16, 16)
 6:0/size_in_atlas = Vector2i(2, 2)
 6:0/0 = 0
 6:0/0/texture_origin = Vector2i(-16, 16)
 6:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 6:0/0/physics_layer_0/angular_velocity = 0.0
-6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -48, 48, -48, 47.5, 15.5, -16, 16)
+6:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.5, -48, 48, -47.5, 48, 17, -16, 16)
 8:0/size_in_atlas = Vector2i(2, 2)
 8:0/0 = 0
 8:0/0/texture_origin = Vector2i(-16, 16)
 8:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 8:0/0/physics_layer_0/angular_velocity = 0.0
-8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.5, -49, 47.5, -48, 48, 16.5, -16, 16)
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16.5, -49, 49, -49, 47.5, 16.5, -16, 16)
 10:0/size_in_atlas = Vector2i(2, 2)
 10:0/0 = 0
 10:0/0/texture_origin = Vector2i(-16, 16)
 10:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:0/0/physics_layer_0/angular_velocity = 0.0
-10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15.5, -47.5, 47.5, -47.5, 49.5, 17, -16, 16)
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -47.5, 48.5, -47, 47.5, 16.5, -16, 16)
+12:0/size_in_atlas = Vector2i(2, 2)
+12:0/0 = 0
+12:0/0/texture_origin = Vector2i(-16, 16)
+12:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+12:0/0/physics_layer_0/angular_velocity = 0.0
+12:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-15, -50, 47, -47, 47.5, 15.5, -16, 16)
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y2dix"]
 texture = ExtResource("5_e7u6o")
@@ -108,7 +85,6 @@ texture_region_size = Vector2i(32, 32)
 tile_size = Vector2i(32, 32)
 physics_layer_0/collision_layer = 1
 sources/1 = SubResource("TileSetAtlasSource_csdji")
-sources/0 = SubResource("TileSetAtlasSource_sj3xk")
 sources/2 = SubResource("TileSetAtlasSource_y2dix")
 sources/4 = SubResource("TileSetAtlasSource_2u8lk")
 
@@ -118,7 +94,7 @@ polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
 outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)])
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1gq4u"]
-texture = ExtResource("2_ik654")
+texture = ExtResource("6_87a6j")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 0:0/0/navigation_layer_0/polygon = SubResource("NavigationPolygon_tfwls")
@@ -129,38 +105,13 @@ navigation_layer_0/layers = 1
 sources/3 = SubResource("TileSetAtlasSource_1gq4u")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uocjk"]
-texture = ExtResource("3_15wcd")
+texture = ExtResource("8_p7aqb")
 texture_region_size = Vector2i(32, 32)
-14:12/size_in_atlas = Vector2i(1, 2)
-14:12/0 = 0
-14:12/0/texture_origin = Vector2i(0, 16)
-14:12/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-14:12/0/physics_layer_0/angular_velocity = 0.0
-16:12/size_in_atlas = Vector2i(1, 2)
-16:12/0 = 0
-16:12/0/texture_origin = Vector2i(0, 16)
-16:12/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-16:12/0/physics_layer_0/angular_velocity = 0.0
-18:12/size_in_atlas = Vector2i(1, 2)
-18:12/0 = 0
-18:12/0/texture_origin = Vector2i(0, 16)
-18:12/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-18:12/0/physics_layer_0/angular_velocity = 0.0
-20:12/size_in_atlas = Vector2i(1, 2)
-20:12/0 = 0
-20:12/0/texture_origin = Vector2i(0, 16)
-20:12/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-20:12/0/physics_layer_0/angular_velocity = 0.0
-22:12/size_in_atlas = Vector2i(1, 2)
-22:12/0 = 0
-22:12/0/texture_origin = Vector2i(0, 16)
-22:12/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-22:12/0/physics_layer_0/angular_velocity = 0.0
-24:12/size_in_atlas = Vector2i(1, 2)
-24:12/0 = 0
-24:12/0/texture_origin = Vector2i(0, 16)
-24:12/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-24:12/0/physics_layer_0/angular_velocity = 0.0
+0:0/size_in_atlas = Vector2i(2, 2)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(-16, 16)
+0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+0:0/0/physics_layer_0/angular_velocity = 0.0
 2:0/size_in_atlas = Vector2i(2, 2)
 2:0/0 = 0
 2:0/0/texture_origin = Vector2i(-16, 16)
@@ -186,31 +137,11 @@ texture_region_size = Vector2i(32, 32)
 10:0/0/texture_origin = Vector2i(-16, 16)
 10:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 10:0/0/physics_layer_0/angular_velocity = 0.0
-2:6/size_in_atlas = Vector2i(2, 2)
-2:6/0 = 0
-2:6/0/texture_origin = Vector2i(-16, 16)
-2:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-2:6/0/physics_layer_0/angular_velocity = 0.0
-4:6/size_in_atlas = Vector2i(2, 2)
-4:6/0 = 0
-4:6/0/texture_origin = Vector2i(-16, 16)
-4:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-4:6/0/physics_layer_0/angular_velocity = 0.0
-6:6/size_in_atlas = Vector2i(2, 2)
-6:6/0 = 0
-6:6/0/texture_origin = Vector2i(-16, 16)
-6:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-6:6/0/physics_layer_0/angular_velocity = 0.0
-8:6/size_in_atlas = Vector2i(2, 2)
-8:6/0 = 0
-8:6/0/texture_origin = Vector2i(-16, 16)
-8:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-8:6/0/physics_layer_0/angular_velocity = 0.0
-10:6/size_in_atlas = Vector2i(2, 2)
-10:6/0 = 0
-10:6/0/texture_origin = Vector2i(-16, 16)
-10:6/0/physics_layer_0/linear_velocity = Vector2(0, 0)
-10:6/0/physics_layer_0/angular_velocity = 0.0
+12:0/size_in_atlas = Vector2i(2, 2)
+12:0/0 = 0
+12:0/0/texture_origin = Vector2i(-16, 16)
+12:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
+12:0/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_emtti"]
 texture = ExtResource("2_ik654")
@@ -299,6 +230,24 @@ offset_bottom = 65.0
 text = "0"
 horizontal_alignment = 2
 
+[node name="tower6" type="Label" parent="GUI/TowerBar/TowerLabels"]
+layout_mode = 0
+offset_left = 419.0
+offset_top = 45.0
+offset_right = 459.0
+offset_bottom = 65.0
+text = "0"
+horizontal_alignment = 2
+
+[node name="tower7" type="Label" parent="GUI/TowerBar/TowerLabels"]
+layout_mode = 0
+offset_left = 496.0
+offset_top = 45.0
+offset_right = 536.0
+offset_bottom = 65.0
+text = "0"
+horizontal_alignment = 2
+
 [node name="Towers" type="VBoxContainer" parent="GUI/TowerBar"]
 layout_mode = 0
 offset_right = 921.0
@@ -307,42 +256,37 @@ offset_bottom = 69.0
 [node name="tower1" type="Sprite2D" parent="GUI/TowerBar/Towers"]
 self_modulate = Color(1, 1, 1, 0.270588)
 position = Vector2(42, 32)
-texture = ExtResource("3_15wcd")
-hframes = 13
-vframes = 8
-frame = 1
+texture = ExtResource("3_1q5mg")
 
 [node name="tower2" type="Sprite2D" parent="GUI/TowerBar/Towers"]
 self_modulate = Color(1, 1, 1, 0.270588)
 position = Vector2(119, 32)
-texture = ExtResource("3_15wcd")
-hframes = 13
-vframes = 8
-frame = 2
+texture = ExtResource("4_5scfs")
 
 [node name="tower3" type="Sprite2D" parent="GUI/TowerBar/Towers"]
 self_modulate = Color(1, 1, 1, 0.270588)
 position = Vector2(194, 32)
-texture = ExtResource("3_15wcd")
-hframes = 13
-vframes = 8
-frame = 3
+texture = ExtResource("5_1p7ef")
 
 [node name="tower4" type="Sprite2D" parent="GUI/TowerBar/Towers"]
 self_modulate = Color(1, 1, 1, 0.270588)
 position = Vector2(272, 32)
-texture = ExtResource("3_15wcd")
-hframes = 13
-vframes = 8
-frame = 4
+texture = ExtResource("6_y6khk")
 
 [node name="tower5" type="Sprite2D" parent="GUI/TowerBar/Towers"]
 self_modulate = Color(1, 1, 1, 0.270588)
 position = Vector2(350, 32)
-texture = ExtResource("3_15wcd")
-hframes = 13
-vframes = 8
-frame = 5
+texture = ExtResource("7_hh8ny")
+
+[node name="tower6" type="Sprite2D" parent="GUI/TowerBar/Towers"]
+self_modulate = Color(1, 1, 1, 0.270588)
+position = Vector2(428, 32)
+texture = ExtResource("8_a8n74")
+
+[node name="tower7" type="Sprite2D" parent="GUI/TowerBar/Towers"]
+self_modulate = Color(1, 1, 1, 0.270588)
+position = Vector2(506, 32)
+texture = ExtResource("9_xvi8p")
 
 [node name="selector" type="Sprite2D" parent="GUI/TowerBar/Towers"]
 position = Vector2(195, 32)
@@ -442,12 +386,14 @@ layer_2/tile_data = PackedInt32Array()
 [node name="Player" parent="." instance=ExtResource("1_s60qi")]
 position = Vector2(78, 187)
 scale = Vector2(0.5, 0.5)
+collision_layer = 2
+collision_mask = 73
 
 [node name="TheGoal" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(631, 114)
-scale = Vector2(0.5, 0.5)
-texture = ExtResource("8_8uair")
+position = Vector2(644, 118)
+scale = Vector2(10, 10)
+texture = ExtResource("9_0e2ln")
+hframes = 5
 
 [node name="TheGoalMarker" type="Marker2D" parent="." groups=["goal_markers"]]
 position = Vector2(641, 181)
@@ -466,6 +412,16 @@ collision_layer = 0
 collision_mask = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="MobKiller"]
+position = Vector2(1, -4)
 shape = SubResource("RectangleShape2D_qe6sk")
 
+[node name="RaindropSprinkler" type="Node2D" parent="."]
+position = Vector2(600, -100)
+script = ExtResource("18_njf3h")
+
+[node name="RaindropSpawnTimer" type="Timer" parent="RaindropSprinkler"]
+wait_time = 2.0
+autostart = true
+
 [connection signal="body_entered" from="MobKiller" to="." method="_on_mob_killer_body_entered"]
+[connection signal="timeout" from="RaindropSprinkler/RaindropSpawnTimer" to="RaindropSprinkler" method="_on_raindrop_spawn_timer_timeout"]
