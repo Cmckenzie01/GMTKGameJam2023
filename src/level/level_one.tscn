@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://bq70ykx08c6k0"]
+[gd_scene load_steps=33 format=3 uid="uid://bq70ykx08c6k0"]
 
 [ext_resource type="Script" path="res://src/level/level_one.gd" id="1_nc5ri"]
 [ext_resource type="PackedScene" uid="uid://cxfftwf4j4alt" path="res://src/player/Player.tscn" id="1_s60qi"]
@@ -16,7 +16,11 @@
 [ext_resource type="Texture2D" uid="uid://c1p08mn0eggfv" path="res://src/assets/Boxes/BoxTileSet.png" id="8_p7aqb"]
 [ext_resource type="Texture2D" uid="uid://b0f3ibhv0pxn4" path="res://src/assets/Heart.png" id="9_0e2ln"]
 [ext_resource type="Texture2D" uid="uid://ci0xpdkrwuou7" path="res://src/assets/Boxes/PinkBoxTile.png" id="9_xvi8p"]
+[ext_resource type="PackedScene" uid="uid://tq5jqsdpk6xe" path="res://src/towers/shooter_tower.tscn" id="18_eao33"]
 [ext_resource type="Script" path="res://src/level/RaindropSprinkler.gd" id="18_njf3h"]
+[ext_resource type="PackedScene" uid="uid://b8c0u85mnrtu6" path="res://src/towers/aura_tower.tscn" id="19_bsgdq"]
+[ext_resource type="PackedScene" uid="uid://bbnlj5khuuajk" path="res://src/towers/caltrops_tower.tscn" id="20_dtqjb"]
+[ext_resource type="PackedScene" uid="uid://bv0dewu06bl1j" path="res://src/towers/caltrop.tscn" id="21_0sn7f"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_csdji"]
 texture = ExtResource("8_p7aqb")
@@ -352,7 +356,6 @@ layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array()
 
 [node name="TileNav" type="TileMap" parent="."]
-visible = false
 self_modulate = Color(0.709804, 1, 0.541176, 0.572549)
 tile_set = SubResource("TileSet_t3edv")
 cell_quadrant_size = 32
@@ -399,7 +402,7 @@ position = Vector2(641, 181)
 
 [node name="Line2D" type="Line2D" parent="."]
 
-[node name="LeftSpawn" type="Marker2D" parent="." groups=["spawners"]]
+[node name="LeftSpawn" type="Marker2D" parent="."]
 position = Vector2(-16, 688)
 
 [node name="RightSpawn" type="Marker2D" parent="." groups=["spawners"]]
@@ -421,6 +424,19 @@ script = ExtResource("18_njf3h")
 [node name="RaindropSpawnTimer" type="Timer" parent="RaindropSprinkler"]
 wait_time = 2.0
 autostart = true
+
+[node name="ShooterTower" parent="." instance=ExtResource("18_eao33")]
+position = Vector2(1053, 544)
+
+[node name="AuraTower" parent="." instance=ExtResource("19_bsgdq")]
+position = Vector2(846, 672)
+strength = 0.02
+
+[node name="caltrops_tower" parent="." instance=ExtResource("20_dtqjb")]
+position = Vector2(830, 161)
+
+[node name="Caltrop" parent="." instance=ExtResource("21_0sn7f")]
+position = Vector2(1224, 660)
 
 [connection signal="body_entered" from="MobKiller" to="." method="_on_mob_killer_body_entered"]
 [connection signal="timeout" from="RaindropSprinkler/RaindropSpawnTimer" to="RaindropSprinkler" method="_on_raindrop_spawn_timer_timeout"]
