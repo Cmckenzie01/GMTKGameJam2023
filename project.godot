@@ -197,6 +197,8 @@ interact={
 2d_physics/layer_5="EnemyHurtBox"
 2d_physics/layer_6="SoftCollisions"
 2d_physics/layer_7="Interaction"
+2d_physics/layer_8="Bullets"
+2d_physics/layer_9="Auras"
 
 [rendering]
 

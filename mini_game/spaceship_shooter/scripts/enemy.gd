@@ -1,4 +1,4 @@
-class_name Enemy extends Area2D
+class_name EnemyTutorial extends Area2D
 
 signal killed(points)
 signal hit
@@ -8,24 +8,24 @@ signal hit
 @export var points = 100
 
 func _physics_process(delta):
-	global_position.y += speed * delta
+    global_position.y += speed * delta
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
-	queue_free()
+    queue_free()
 
 func die():
-	queue_free()
+    queue_free()
 
 func _on_body_entered(body):
-	if body is Player:
-		body.die()
-		die()
+    if body is Player:
+        body.die()
+        die()
 
 func take_damage(amount):
-	hp -= amount
-	if hp <= 0:
-		killed.emit(points)
-		die()
-	else:
-		hit.emit()
+    hp -= amount
+    if hp <= 0:
+        killed.emit(points)
+        die()
+    else:
+        hit.emit()
 

@@ -6,13 +6,13 @@ signal game_over
 
 # Towers collected and available for placement
 @onready var towerStock: Dictionary = {
-	"tower1": 0,
-	"tower2": 0,
-	"tower3": 0,
-	"tower4": 0,
-	"tower5": 0,
-	"tower6": 0,
-	"tower7": 0
+    "tower1": 0,
+    "tower2": 0,
+    "tower3": 0,
+    "tower4": 0,
+    "tower5": 0,
+    "tower6": 0,
+    "tower7": 0
 }
 
 @onready var gold: set = set_gold
@@ -28,101 +28,93 @@ signal game_over
 # Currency System
 @onready var currencyLabel = scene_root.get_node("LevelOne/GUI/Currency/Label")
 
-
 # Game Health
 @onready var gameHealth: set = set_game_health
-		
+        
 @onready var heartSprite: Sprite2D = scene_root.get_node("LevelOne/TheGoal")
 
-
 func _ready():
-	# Initialise Starting Values
-	gold = 50
-	towerStock.tower1 = 1
-	towerStock.tower2 = 1
-	towerStock.tower3 = 1
-	towerStock.tower4 = 1
-	towerStock.tower5 = 1
-	towerStock.tower6 = 1
-	towerStock.tower7 = 1
-	update_towerStock()
-	
-	gameHealth = 4
-	gold = 40
-
+    # Initialise Starting Values
+    
+    towerStock.tower1 = 1
+    towerStock.tower2 = 1
+    towerStock.tower3 = 1
+    towerStock.tower4 = 1
+    towerStock.tower5 = 1
+    towerStock.tower6 = 1
+    towerStock.tower7 = 1
+    update_towerStock()
+    
+    gameHealth = 4
+    gold = 40
 
 # Game Health System
 func set_game_health(new_value):
-	gameHealth = clamp(new_value, 0, 4)
-	heartSprite.frame = 4 - gameHealth # Heart Frames are in reverse order
-	
-	if gameHealth == 0:
-		game_over.emit()
-	
+    gameHealth = clamp(new_value, 0, 4)
+    heartSprite.frame = 4 - gameHealth # Heart Frames are in reverse order
+    
+    if gameHealth == 0:
+        game_over.emit()
+    
 func damage_heart(damage):
-	gameHealth -= damage
-	
+    gameHealth -= damage
+    
 func heal_heart(health):
-	gameHealth += health
+    gameHealth += health
 
 # Tower System
 func reduce_stock(tower):
-	towerStock[tower] -= 1
-	update_towerStock()
-	
+    towerStock[tower] -= 1
+    update_towerStock()
+    
 func increase_stock(tower, quantity):
-	towerStock[tower] += quantity
-	update_towerStock()
-	
+    towerStock[tower] += quantity
+    update_towerStock()
+    
 func no_stock(tower):
-	match tower:
-		"tower1":
-			tower1Label.self_modulate = Color(1, 0, 0, 1)
-			var tween = get_tree().create_tween()
-			tween.tween_property(tower1Label, "self_modulate", Color(1, 1, 1, 1), 1)
-		"tower2":
-			tower2Label.self_modulate = Color(1, 0, 0, 1)
-			var tween = get_tree().create_tween()
-			tween.tween_property(tower2Label, "self_modulate", Color(1, 1, 1, 1), 1)
-		"tower3":
-			tower3Label.self_modulate = Color(1, 0, 0, 1)
-			var tween = get_tree().create_tween()
-			tween.tween_property(tower3Label, "self_modulate", Color(1, 1, 1, 1), 1)
-		"tower4":
-			tower4Label.self_modulate = Color(1, 0, 0, 1)
-			var tween = get_tree().create_tween()
-			tween.tween_property(tower4Label, "self_modulate", Color(1, 1, 1, 1), 1)
-		"tower5":
-			tower5Label.self_modulate = Color(1, 0, 0, 1)
-			var tween = get_tree().create_tween()
-			tween.tween_property(tower5Label, "self_modulate", Color(1, 1, 1, 1), 1)
-		"tower6":
-			tower6Label.self_modulate = Color(1, 0, 0, 1)
-			var tween = get_tree().create_tween()
-			tween.tween_property(tower5Label, "self_modulate", Color(1, 1, 1, 1), 1)
-		"tower7":
-			tower7Label.self_modulate = Color(1, 0, 0, 1)
-			var tween = get_tree().create_tween()
-			tween.tween_property(tower5Label, "self_modulate", Color(1, 1, 1, 1), 1)
-			
+    match tower:
+        "tower1":
+            tower1Label.self_modulate = Color(1, 0, 0, 1)
+            var tween = get_tree().create_tween()
+            tween.tween_property(tower1Label, "self_modulate", Color(1, 1, 1, 1), 1)
+        "tower2":
+            tower2Label.self_modulate = Color(1, 0, 0, 1)
+            var tween = get_tree().create_tween()
+            tween.tween_property(tower2Label, "self_modulate", Color(1, 1, 1, 1), 1)
+        "tower3":
+            tower3Label.self_modulate = Color(1, 0, 0, 1)
+            var tween = get_tree().create_tween()
+            tween.tween_property(tower3Label, "self_modulate", Color(1, 1, 1, 1), 1)
+        "tower4":
+            tower4Label.self_modulate = Color(1, 0, 0, 1)
+            var tween = get_tree().create_tween()
+            tween.tween_property(tower4Label, "self_modulate", Color(1, 1, 1, 1), 1)
+        "tower5":
+            tower5Label.self_modulate = Color(1, 0, 0, 1)
+            var tween = get_tree().create_tween()
+            tween.tween_property(tower5Label, "self_modulate", Color(1, 1, 1, 1), 1)
+        "tower6":
+            tower6Label.self_modulate = Color(1, 0, 0, 1)
+            var tween = get_tree().create_tween()
+            tween.tween_property(tower5Label, "self_modulate", Color(1, 1, 1, 1), 1)
+        "tower7":
+            tower7Label.self_modulate = Color(1, 0, 0, 1)
+            var tween = get_tree().create_tween()
+            tween.tween_property(tower5Label, "self_modulate", Color(1, 1, 1, 1), 1)    
 
 func update_towerStock() -> void:
-	tower1Label.text = str(towerStock.tower1)
-	tower2Label.text = str(towerStock.tower2)
-	tower3Label.text = str(towerStock.tower3)
-	tower4Label.text = str(towerStock.tower4)
-	tower5Label.text = str(towerStock.tower5)
-	tower6Label.text = str(towerStock.tower6)
-	tower7Label.text = str(towerStock.tower7)
-
+    tower1Label.text = str(towerStock.tower1)
+    tower2Label.text = str(towerStock.tower2)
+    tower3Label.text = str(towerStock.tower3)
+    tower4Label.text = str(towerStock.tower4)
+    tower5Label.text = str(towerStock.tower5)
+    tower6Label.text = str(towerStock.tower6)
+    tower7Label.text = str(towerStock.tower7)
 
 # Currency System
 func set_gold(new_gold) -> void:
-	gold = new_gold
-	currencyLabel.text = str(gold)
-
-
-
+    gold = new_gold
+    currencyLabel.text = str(gold)
 
 func _process(_delta):
-	pass
+    pass
