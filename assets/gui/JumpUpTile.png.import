@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byx5wqeo7ck74"
-path="res://.godot/imported/JumpUpTile.png-2aec19cf57d82ae06595053bbfa840d2.ctex"
+uid="uid://b5dhbe5vu5pkx"
+path="res://.godot/imported/slime.png-20e16f43fff3eaff275a76ca372530f8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/JumpUpTile.png"
-dest_files=["res://.godot/imported/JumpUpTile.png-2aec19cf57d82ae06595053bbfa840d2.ctex"]
+source_file="res://assets/2d/characters/slime.png"
+dest_files=["res://.godot/imported/slime.png-20e16f43fff3eaff275a76ca372530f8.ctex"]
 
 [params]
 
