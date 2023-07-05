@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7pym35gvn38e"
-path="res://.godot/imported/GoldCoin.png-243af318fb9222dec89c270f239b39f4.ctex"
+uid="uid://dq5q0lxwt6236"
+path="res://.godot/imported/SpeedUpTile.png-cf5bfd1db92250302a2798cf69fde1e9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/GoldCoin.png"
-dest_files=["res://.godot/imported/GoldCoin.png-243af318fb9222dec89c270f239b39f4.ctex"]
+source_file="res://assets/gui/SpeedUpTile.png"
+dest_files=["res://.godot/imported/SpeedUpTile.png-cf5bfd1db92250302a2798cf69fde1e9.ctex"]
 
 [params]
 

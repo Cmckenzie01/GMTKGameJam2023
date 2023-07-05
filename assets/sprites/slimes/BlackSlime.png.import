@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7pym35gvn38e"
-path="res://.godot/imported/GoldCoin.png-243af318fb9222dec89c270f239b39f4.ctex"
+uid="uid://nporxepahcqa"
+path="res://.godot/imported/BlackSlime.png-454591356446a7f58e92d3241f601b24.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/GoldCoin.png"
-dest_files=["res://.godot/imported/GoldCoin.png-243af318fb9222dec89c270f239b39f4.ctex"]
+source_file="res://assets/sprites/slimes/BlackSlime.png"
+dest_files=["res://.godot/imported/BlackSlime.png-454591356446a7f58e92d3241f601b24.ctex"]
 
 [params]
 

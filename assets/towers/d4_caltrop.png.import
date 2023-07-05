@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7pym35gvn38e"
-path="res://.godot/imported/GoldCoin.png-243af318fb9222dec89c270f239b39f4.ctex"
+uid="uid://dmfydiivlbia5"
+path="res://.godot/imported/d4_caltrop.png-6b95ba964fec697815d02d6a9bba9e97.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/GoldCoin.png"
-dest_files=["res://.godot/imported/GoldCoin.png-243af318fb9222dec89c270f239b39f4.ctex"]
+source_file="res://assets/towers/d4_caltrop.png"
+dest_files=["res://.godot/imported/d4_caltrop.png-6b95ba964fec697815d02d6a9bba9e97.ctex"]
 
 [params]
 

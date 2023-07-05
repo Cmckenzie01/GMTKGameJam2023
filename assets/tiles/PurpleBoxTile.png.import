@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7pym35gvn38e"
-path="res://.godot/imported/GoldCoin.png-243af318fb9222dec89c270f239b39f4.ctex"
+uid="uid://djv7yabyi03lb"
+path="res://.godot/imported/PurpleBoxTile.png-c652adfa3e1b11294dccb483869dbab6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/GoldCoin.png"
-dest_files=["res://.godot/imported/GoldCoin.png-243af318fb9222dec89c270f239b39f4.ctex"]
+source_file="res://assets/tiles/PurpleBoxTile.png"
+dest_files=["res://.godot/imported/PurpleBoxTile.png-c652adfa3e1b11294dccb483869dbab6.ctex"]
 
 [params]
 

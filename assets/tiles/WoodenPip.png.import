@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7pym35gvn38e"
-path="res://.godot/imported/GoldCoin.png-243af318fb9222dec89c270f239b39f4.ctex"
+uid="uid://65v3s4slrek2"
+path="res://.godot/imported/WoodenPip.png-e01fe372199a7e9d47db480fed19329f.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/GoldCoin.png"
-dest_files=["res://.godot/imported/GoldCoin.png-243af318fb9222dec89c270f239b39f4.ctex"]
+source_file="res://assets/tiles/WoodenPip.png"
+dest_files=["res://.godot/imported/WoodenPip.png-e01fe372199a7e9d47db480fed19329f.ctex"]
 
 [params]
 

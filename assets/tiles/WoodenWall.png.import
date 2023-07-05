@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7pym35gvn38e"
-path="res://.godot/imported/GoldCoin.png-243af318fb9222dec89c270f239b39f4.ctex"
+uid="uid://c6ms5b33w3xkm"
+path="res://.godot/imported/WoodenWall.png-a8b6179ea637557e24682e9c11079abd.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/GoldCoin.png"
-dest_files=["res://.godot/imported/GoldCoin.png-243af318fb9222dec89c270f239b39f4.ctex"]
+source_file="res://assets/tiles/WoodenWall.png"
+dest_files=["res://.godot/imported/WoodenWall.png-a8b6179ea637557e24682e9c11079abd.ctex"]
 
 [params]
 

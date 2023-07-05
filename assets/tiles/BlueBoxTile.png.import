@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c7pym35gvn38e"
-path="res://.godot/imported/GoldCoin.png-243af318fb9222dec89c270f239b39f4.ctex"
+uid="uid://jyl8f4vqjy2a"
+path="res://.godot/imported/BlueBoxTile.png-2e1785a532110443bcf00c9c5aba57ae.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/gui/GoldCoin.png"
-dest_files=["res://.godot/imported/GoldCoin.png-243af318fb9222dec89c270f239b39f4.ctex"]
+source_file="res://assets/tiles/BlueBoxTile.png"
+dest_files=["res://.godot/imported/BlueBoxTile.png-2e1785a532110443bcf00c9c5aba57ae.ctex"]
 
 [params]
 
