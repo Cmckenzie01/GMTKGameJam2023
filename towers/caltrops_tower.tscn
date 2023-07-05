@@ -11,3 +11,10 @@ texture = ExtResource("1_t3pyu")
 
 [node name="CaltropSpawner" type="Marker2D" parent="."]
 position = Vector2(0, -14)
+
+[node name="CaltropsBag" type="Node2D" parent="."]
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[connection signal="timeout" from="Timer" to="." method="create_caltrop"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dxbsis6mtqm45"]
+[gd_scene load_steps=29 format=3 uid="uid://dxbsis6mtqm45"]
 
 [ext_resource type="Script" path="res://level/level_one.gd" id="1_nc5ri"]
 [ext_resource type="PackedScene" uid="uid://cxfftwf4j4alt" path="res://player/Player.tscn" id="1_s60qi"]
@@ -16,7 +16,6 @@
 [ext_resource type="PackedScene" uid="uid://tq5jqsdpk6xe" path="res://towers/shooter_tower.tscn" id="18_eao33"]
 [ext_resource type="PackedScene" uid="uid://b8c0u85mnrtu6" path="res://towers/aura_tower.tscn" id="19_bsgdq"]
 [ext_resource type="PackedScene" uid="uid://bbnlj5khuuajk" path="res://towers/caltrops_tower.tscn" id="20_dtqjb"]
-[ext_resource type="PackedScene" uid="uid://bv0dewu06bl1j" path="res://towers/caltrop.tscn" id="21_0sn7f"]
 [ext_resource type="PackedScene" uid="uid://d2cu6ulmxui5k" path="res://level/shop_zone.tscn" id="23_ypseh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_csdji"]
@@ -161,11 +160,13 @@ size = Vector2(122.5, 126.5)
 
 [node name="LevelOne" type="Node2D"]
 script = ExtResource("1_nc5ri")
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="."]
 top_level = true
 position = Vector2(852, 253)
 zoom = Vector2(0.75, 0.75)
+metadata/_edit_lock_ = true
 
 [node name="Background" type="Sprite2D" parent="."]
 z_index = -1
@@ -279,7 +280,7 @@ autostart = true
 
 [node name="EnemyContainer" type="Node2D" parent="."]
 
-[node name="LeftSpawn" type="Marker2D" parent="EnemyContainer"]
+[node name="LeftSpawn" type="Marker2D" parent="EnemyContainer" groups=["spawners"]]
 position = Vector2(-16, 688)
 
 [node name="RightSpawn" type="Marker2D" parent="EnemyContainer" groups=["spawners"]]
@@ -299,18 +300,21 @@ shape = SubResource("RectangleShape2D_qe6sk")
 [node name="ShooterTower" parent="TowerContainer" instance=ExtResource("18_eao33")]
 position = Vector2(1401, 544)
 
-[node name="AuraTower" parent="TowerContainer" instance=ExtResource("19_bsgdq")]
-position = Vector2(846, 672)
+[node name="SlowTower" parent="TowerContainer" instance=ExtResource("19_bsgdq")]
+position = Vector2(1360, 676)
+strength = 0.2
 
 [node name="caltrops_tower" parent="TowerContainer" instance=ExtResource("20_dtqjb")]
 position = Vector2(1263, 157)
 
+[node name="BurnTower" parent="TowerContainer" instance=ExtResource("19_bsgdq")]
+position = Vector2(1528, 674)
+aura = 1
+
 [node name="BulletContainer" type="Node2D" parent="."]
 
-[node name="Caltrop" parent="BulletContainer" instance=ExtResource("21_0sn7f")]
-position = Vector2(1499, 686)
-
 [node name="Line2D" type="Line2D" parent="."]
+width = 2.0
 
 [connection signal="timeout" from="GiantDieSprinkler/GiantDieTimer" to="GiantDieSprinkler" method="_on_giant_die_timer_timeout"]
 [connection signal="body_entered" from="EnemyContainer/MobKiller" to="." method="_on_mob_killer_body_entered"]
