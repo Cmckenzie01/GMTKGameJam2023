@@ -11,7 +11,7 @@ signal enemy_killed(enemy: Enemy)
 @export_range(0.0, 1.0) var friction: float = 1
 @export_range(0.0, 1.0) var acceleration: float = 1
 @export var movement_target: Node2D
-@export var health = 10
+@export var health = 5
 @export var gold = 1 
 
 var jumps_made: int = 0
@@ -35,6 +35,13 @@ var _effects = {}
 
 # Random Special
 @onready var specialSprite = preload("res://assets/sprites/slimes/GoldSlime.png")
+
+enum STATE {
+    NORMAL,
+    KNOCKBACK
+}
+var current_state
+@onready var knockback_timer = $KnockbackTimer
 
 func _ready():
     # Slightly randomise the speed of the mob - makes it look a bit more chaotic
@@ -69,6 +76,8 @@ func _ready():
     health_bar.value = self.health
     
     health_bar.visible = false 
+    
+    current_state = STATE.NORMAL
 
 # Combat
 func hit(damage: int):
@@ -215,13 +224,30 @@ func seek_and_destroy():
         else:
             jump_delay_timer -= 1
         
+func knockback(distance: Vector2) -> void:
+    if knockback_timer.is_stopped():
+        self.current_state = STATE.KNOCKBACK
+        velocity = distance
+        
+        print(self.velocity)
+        
+        knockback_timer.start()
+    
 # Physics
 func _physics_process(delta):
     velocity.y += gravity * delta
 
-    # Pathfinding
-    seek_and_destroy()
+    if knockback_timer.is_stopped():
+        self.current_state = STATE.NORMAL
+        
+    if self.current_state == STATE.NORMAL:
+        # Pathfinding
+        seek_and_destroy()
 
+    if self.current_state == STATE.KNOCKBACK:
+        # self.position += self.velocity * delta
+        pass
+        
     move_and_slide()
     
 func _on_damage_text_timer_timeout() -> void:
