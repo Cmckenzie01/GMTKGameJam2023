@@ -15,7 +15,7 @@ bg_color = Color(0.133333, 0.564706, 0.160784, 1)
 
 [node name="Enemy" type="CharacterBody2D"]
 z_index = 1
-collision_layer = 8
+collision_layer = 12
 collision_mask = 3
 script = ExtResource("1_t7hqv")
 
