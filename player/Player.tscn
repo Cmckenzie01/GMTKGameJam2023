@@ -1,9 +1,9 @@
-[gd_scene load_steps=21 format=3 uid="uid://cxfftwf4j4alt"]
+[gd_scene load_steps=22 format=3 uid="uid://cxfftwf4j4alt"]
 
 [ext_resource type="Script" path="res://player/Player.gd" id="1_ynuvx"]
 [ext_resource type="Texture2D" uid="uid://brjw8q8ebktcq" path="res://assets/sprites/platformer.png" id="2_18n6b"]
-[ext_resource type="Texture2D" uid="uid://beb8tx2niah00" path="res://assets/gui/EButtonPressed.png" id="2_kkm6y"]
-[ext_resource type="Texture2D" uid="uid://bciwvnffropnm" path="res://assets/gui/EButton.png" id="3_tatsy"]
+[ext_resource type="Texture2D" uid="uid://dn4d7e417wcvb" path="res://assets/gui/EButtonPressed.png" id="2_kkm6y"]
+[ext_resource type="Texture2D" uid="uid://b8llp0xyxmum0" path="res://assets/gui/EButton.png" id="3_tatsy"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6xjuc"]
 radius = 25.0
@@ -138,6 +138,20 @@ tracks/0/keys = {
 "update": 1,
 "values": [43, 44, 45, 46, 47]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.1),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"_enable_hurtbox"
+}]
+}
 
 [sub_resource type="Animation" id="33"]
 resource_name = "Ranged_Attack"
@@ -265,6 +279,9 @@ _data = {
 "RESET": SubResource("Animation_rluow")
 }
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ah4qc"]
+size = Vector2(72, 120)
+
 [node name="Player" type="CharacterBody2D"]
 z_index = 10
 script = ExtResource("1_ynuvx")
@@ -275,7 +292,7 @@ scale = Vector2(0.1, 0.1)
 texture = ExtResource("2_18n6b")
 hframes = 8
 vframes = 10
-frame = 2
+frame = 45
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -45)
@@ -315,4 +332,19 @@ libraries = {
 "": SubResource("AnimationLibrary_0pwal")
 }
 
+[node name="Hurtbox" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2(36, -52)
+shape = SubResource("RectangleShape2D_ah4qc")
+disabled = true
+debug_color = Color(0.92549, 0.247059, 0.301961, 0.419608)
+
+[node name="HurtboxTimer" type="Timer" parent="."]
+wait_time = 0.14
+
 [connection signal="timeout" from="CoyoteTimer" to="." method="_on_coyote_timer_timeout"]
+[connection signal="body_entered" from="Hurtbox" to="." method="_on_hurtbox_body_entered"]
+[connection signal="timeout" from="HurtboxTimer" to="." method="_disable_hurtbox"]

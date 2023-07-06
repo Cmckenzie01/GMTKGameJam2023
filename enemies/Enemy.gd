@@ -37,6 +37,9 @@ var _effects = {}
 @onready var specialSprite = preload("res://assets/sprites/slimes/GoldSlime.png")
 
 func _ready():
+    # Slightly randomise the speed of the mob - makes it look a bit more chaotic
+    movement_speed += randf_range(0.0, 20.0)
+
     enemy_killed.connect(GlobalMechanics.enemy_killed)
     
     # Chris playing around with Sprites

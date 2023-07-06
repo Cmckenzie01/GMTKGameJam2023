@@ -7,6 +7,8 @@ extends CharacterBody2D
 @export var maximum_jumps: int = 2
 @export var coyote_frames = 30
 @export var gravity: float = 600
+@export var melee_strength: int = 3
+@export var melee_speed_mult: float = 0.3
 @export_range(0.0, 1.0) var friction: float = 0.5
 @export_range(0.0, 1.0) var acceleration: float = 0.5
 
@@ -27,6 +29,7 @@ enum {
 	ATTACK
 }
 @onready var state = IDLE
+var facing_right = true
 
 
 # INTERACTIONS
@@ -35,19 +38,20 @@ var interaction = null: set = interacting
 # GRID MARKER
 @onready var gridMarker = $GridMarker
 
-
 func _ready():
 	$CoyoteTimer.wait_time = coyote_frames / 60.0
 	
 
 func state_machine():
 	# Left/Right Animation Flips
-	if velocity.x < 0:
-		$Sprite.flip_h = true
-		gridMarker.position.x = -74
-	if velocity.x > 0:
+	if facing_right:
 		$Sprite.flip_h = false
+		$Hurtbox/CollisionShape2D.transform.origin.x = abs($Hurtbox/CollisionShape2D.transform.origin.x)
 		gridMarker.position.x = 64
+	else:
+		$Sprite.flip_h = true
+		$Hurtbox/CollisionShape2D.transform.origin.x = -abs($Hurtbox/CollisionShape2D.transform.origin.x)
+		gridMarker.position.x = -74
 	
 	# Animations
 	match(state):
@@ -92,7 +96,7 @@ func _physics_process(delta):
 	var CAN_SLIDE: bool = velocity.x != 0 and !AIRBORNE and !ATTACKING
 	
 	# movement
-	var direction = Input.get_axis("ui_left", "ui_right")
+	var direction = Input.get_axis("left", "right")
 	if !SLIDING:
 		if direction != 0:
 			# speed up
@@ -100,6 +104,10 @@ func _physics_process(delta):
 		else:
 			# slow down
 			velocity.x = lerp(velocity.x, 0.0, friction)
+
+	# Inhibit movement when attacking
+	if ATTACKING and is_on_floor():
+		velocity.x = clamp(velocity.x, -speed / 2.0, speed / 2.0)
 	
 	# set default IDLE when not moving or attacking	
 	if !ATTACKING and !AIRBORNE:
@@ -110,12 +118,12 @@ func _physics_process(delta):
 			state = RUNNING
 	
 	# slide
-	if Input.is_action_just_pressed("ui_down") and CAN_SLIDE:
+	if Input.is_action_just_pressed("slide") and CAN_SLIDE:
 		velocity.x *= 1.5
 		SLIDING = true
 		state = SLIDE
 	
-	# attack 	
+	# attack
 	if Input.is_action_just_pressed("attack"):
 		ATTACKING = true
 		state = ATTACK
@@ -130,7 +138,7 @@ func _physics_process(delta):
 		interaction.interact()
 
 	# jump
-	if Input.is_action_just_pressed("ui_up"):
+	if Input.is_action_just_pressed("jump"):
 		# has jumps left
 		if jumps_made < maximum_jumps:
 			# first jump
@@ -147,9 +155,8 @@ func _physics_process(delta):
 			jumps_made += 1
 				
 	# cancelled jump
-	if Input.is_action_just_released("ui_up") and velocity.y < jump_speed * 0.5:
+	if Input.is_action_just_released("jump") and velocity.y < jump_speed * 0.5:
 		velocity.y = jump_speed * 0.5
-			
 
 	# prolonged state animations
 	if not is_on_floor() and !ATTACKING:
@@ -169,7 +176,12 @@ func _physics_process(delta):
 		$CoyoteTimer.start()	
 	last_floor = is_on_floor()
 
-	# loop	
+	if velocity.x > 0.0:
+		facing_right = true
+	elif velocity.x < 0.0:
+		facing_right = false
+
+	# loop
 	velocity.y += gravity * delta
 	move_and_slide()
 	state_machine()
@@ -190,3 +202,19 @@ func interacting(new_interaction):
 		$ActionButton.hide()
 		$ButtonAnimation.stop()
 	interaction = new_interaction
+
+
+# ATTACKS
+func _enable_hurtbox():
+	$Hurtbox/CollisionShape2D.disabled = false;
+	# Note: No race condition here, the animation will finish after this timer elapses
+	$HurtboxTimer.start()
+
+func _disable_hurtbox():
+	$Hurtbox/CollisionShape2D.disabled = true;
+
+func _on_hurtbox_body_entered(body):
+	assert(body is Enemy)
+	var distance = $Hurtbox/CollisionShape2D.global_transform.get_origin() - body.global_transform.get_origin()
+	# TODO: Distance is a knockback direction
+	body.apply_damage(melee_strength)
