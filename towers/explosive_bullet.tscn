@@ -1,7 +1,7 @@
 [gd_scene load_steps=6 format=3 uid="uid://c7plv6t1yja0o"]
 
 [ext_resource type="Script" path="res://towers/explosive_bullet.gd" id="1_jm0mk"]
-[ext_resource type="Texture2D" uid="uid://b3ru2lcwsehln" path="res://assets/gui/ExplosiveGoldCoin.png" id="2_42up7"]
+[ext_resource type="Texture2D" uid="uid://b3ru2lcwsehln" path="res://assets/towers/ExplosiveGoldCoin.png" id="2_42up7"]
 [ext_resource type="Texture2D" uid="uid://x2s6hy8m82tl" path="res://assets/towers/explosion.png" id="3_6bjxm"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_704i7"]

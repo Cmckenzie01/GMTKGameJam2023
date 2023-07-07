@@ -66,5 +66,9 @@ theme_override_styles/fill = SubResource("StyleBoxFlat_smpcg")
 step = 1.0
 show_percentage = false
 
+[node name="KnockbackTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [connection signal="timeout" from="EffectTimer" to="." method="apply_periodic_effects"]
 [connection signal="timeout" from="DamageTextTimer" to="." method="_on_damage_text_timer_timeout"]
