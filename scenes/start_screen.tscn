@@ -1,0 +1,56 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddiwmaokiso8v"]
+
+[ext_resource type="Texture2D" uid="uid://d1b5wiyo3q8mq" path="res://assets/logo/trial-by-wire.png" id="1_1tuk4"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_u6byt"]
+font_size = 64
+
+[node name="StartScreen" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Background" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.133333, 0.133333, 0.133333, 1)
+metadata/_edit_lock_ = true
+
+[node name="Logo" type="Sprite2D" parent="CanvasLayer"]
+self_modulate = Color(1, 1, 1, 0.486275)
+position = Vector2(1162, 666)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("1_1tuk4")
+
+[node name="Title" type="MarginContainer" parent="CanvasLayer"]
+offset_left = 280.0
+offset_top = 71.0
+offset_right = 1019.0
+offset_bottom = 244.0
+
+[node name="Label" type="Label" parent="CanvasLayer/Title"]
+layout_mode = 2
+text = "THE GAME"
+label_settings = SubResource("LabelSettings_u6byt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Start" type="MarginContainer" parent="CanvasLayer"]
+offset_left = 475.0
+offset_top = 362.0
+offset_right = 819.0
+offset_bottom = 454.0
+
+[node name="StartButton" type="Button" parent="CanvasLayer/Start"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 34
+text = "PLAY"
