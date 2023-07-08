@@ -42,6 +42,8 @@ func expand(): # TODO If expanded and hover over another card in those bounds, s
     self.global_position = original_position
     self.z_index += 1
     
+    card_text.add_theme_font_size_override('expanded_font', 16)
+    
     self.expanded = true 
     
 func shrink():
@@ -49,6 +51,8 @@ func shrink():
     self.transform = self.transform.scaled(Vector2(0.5, 0.5))
     self.global_position = original_position
     self.z_index -= 1
+    
+    card_text.remove_theme_font_size_override('expanded_font')
     
     self.expanded = false 
     

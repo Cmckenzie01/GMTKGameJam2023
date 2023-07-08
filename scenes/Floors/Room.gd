@@ -1,6 +1,9 @@
 class_name Room extends Node2D
+ 
 
-@export var room_name: String = 'Test Room'
+@export var room_name: String = 'Test Room' # TODO The room's "type", e.g. spike trap.
+                                            # Unless we want to do multiple kinds of spike trap, for instance, 
+                                            # some of which are tougher or have other effects?
 
 @onready var room_name_node = $RoomName
 @onready var icon_node = $Icon
