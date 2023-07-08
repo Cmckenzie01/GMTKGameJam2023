@@ -18,19 +18,19 @@ func read_json_file(file_path):
 
 @onready var DungeonTiles: Dictionary = {
 	"TileOne": {
-		"name": "The Card",
+		"name": "Trap_Room",
 		"image": preload('res://assets/Cards/pig.jpg'),
 		"description": "I'm a card! Look at me! Card card card!",
 		"effects": [] # TODO: Make Effect
 	},
 	"TileTwo": {
-		"name": "Another Card",
+		"name": "Healing_Room",
 		"image": preload('res://assets/sprites/Placeholder.png'),
 		"description": "But am I a card? Really? When you think about it?",
 		"effects": [] # TODO: Make Effect
 	},
 	"TileThree": {
-		"name": "Different Card",
+		"name": "Weapon_Upgrade_Room",
 		"image": preload('res://assets/Cards/pig.jpg'),
 		"description": "It's okay, I'm a card! You can true me!",
 		"effects": [] # TODO: Make Effect
@@ -56,3 +56,5 @@ func read_json_file(file_path):
 	"CardNine": {},
 	"CardTen": {},
 }
+
+@onready var tile_selected = null

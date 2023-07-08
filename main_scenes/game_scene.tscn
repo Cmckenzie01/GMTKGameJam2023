@@ -16,6 +16,8 @@ grow_vertical = 2
 script = ExtResource("1_v6a74")
 
 [node name="Dungeon" parent="." instance=ExtResource("1_qwsle")]
+position = Vector2(-2, -11)
+metadata/_edit_lock_ = true
 
 [node name="GUI" parent="." instance=ExtResource("2_6xb1b")]
 

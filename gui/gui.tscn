@@ -65,16 +65,6 @@ grow_vertical = 2
 mouse_filter = 1
 metadata/_edit_lock_ = true
 
-[node name="ColorRect" type="ColorRect" parent="PartyUI"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 0.596078, 1, 0.231373)
-metadata/_edit_lock_ = true
-
 [node name="VBoxContainer" type="VBoxContainer" parent="PartyUI"]
 layout_mode = 0
 offset_left = 61.0
@@ -268,17 +258,7 @@ offset_right = -325.0
 offset_bottom = -253.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 1
-metadata/_edit_lock_ = true
-
-[node name="ColorRect" type="ColorRect" parent="GameUI"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.486275, 1, 1, 0.305882)
+mouse_filter = 2
 metadata/_edit_lock_ = true
 
 [node name="CardUI" type="Control" parent="."]
@@ -289,16 +269,6 @@ offset_top = 470.0
 offset_right = 1152.0
 offset_bottom = 714.0
 mouse_filter = 1
-metadata/_edit_lock_ = true
-
-[node name="ColorRect" type="ColorRect" parent="CardUI"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(1, 1, 0.592157, 0.247059)
 metadata/_edit_lock_ = true
 
 [node name="TileCards" type="Node" parent="CardUI"]
