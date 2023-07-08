@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://ddiwmaokiso8v"]
+[gd_scene load_steps=5 format=3 uid="uid://ddiwmaokiso8v"]
 
 [ext_resource type="Texture2D" uid="uid://d1b5wiyo3q8mq" path="res://assets/logo/trial-by-wire.png" id="1_1tuk4"]
+[ext_resource type="PackedScene" uid="uid://gxhrf1cwptdn" path="res://scenes/Cards/Card.tscn" id="2_q23ip"]
+[ext_resource type="PackedScene" uid="uid://bvxtwari425f0" path="res://scenes/Floors/Room.tscn" id="3_hplgj"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_u6byt"]
 font_size = 64
@@ -39,7 +41,7 @@ offset_bottom = 244.0
 
 [node name="Label" type="Label" parent="CanvasLayer/Title"]
 layout_mode = 2
-text = "THE GAME"
+text = "Jaffa's Game :3"
 label_settings = SubResource("LabelSettings_u6byt")
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -54,3 +56,15 @@ offset_bottom = 454.0
 layout_mode = 2
 theme_override_font_sizes/font_size = 34
 text = "PLAY"
+
+[node name="Unexpanded Card Example" parent="CanvasLayer/Start/StartButton" instance=ExtResource("2_q23ip")]
+z_index = 1
+position = Vector2(393, 255)
+
+[node name="Card" parent="CanvasLayer/Start/StartButton" instance=ExtResource("2_q23ip")]
+position = Vector2(609, 152)
+scale = Vector2(2, 2)
+
+[node name="Room" parent="CanvasLayer/Start/StartButton" instance=ExtResource("3_hplgj")]
+z_index = 1
+position = Vector2(245, 231)
