@@ -1,0 +1,10 @@
+{
+  "spike_trap": {
+    "entry_text": "Hahahaha! You fools, you have found my spike trap!",
+    "base_chance": 0.6,
+    "types": "Challenge",
+    "fail_text": "You fools! You have failed! Suffer!",
+    "fail_damage": 10,
+    "pass_text": "Aaargh! You have foiled me!",
+  }
+}

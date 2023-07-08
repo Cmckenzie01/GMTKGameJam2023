@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=3 uid="uid://dpo2caay8labl"]
+[gd_scene load_steps=5 format=3 uid="uid://dpo2caay8labl"]
 
-[ext_resource type="PackedScene" uid="uid://bc28pv7wmkxgr" path="res://levels/three_room_dungeon.tscn" id="1_088iq"]
-[ext_resource type="PackedScene" uid="uid://ctmrulo45br7" path="res://gui/gui.tscn" id="2_fkfsi"]
+[ext_resource type="PackedScene" uid="uid://bc28pv7wmkxgr" path="res://levels/three_room_dungeon.tscn" id="1_1hjwd"]
+[ext_resource type="Script" path="res://main_scenes/game_scene.gd" id="1_v6a74"]
+[ext_resource type="PackedScene" uid="uid://ctmrulo45br7" path="res://gui/gui.tscn" id="2_6xb1b"]
+[ext_resource type="Texture2D" uid="uid://dq6hlkvym48ok" path="res://assets/gui/A_Accept1.png" id="4_w07wg"]
 
 [node name="GameScene" type="Control"]
 layout_mode = 3
@@ -10,7 +12,22 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_v6a74")
 
 [node name="Dungeon" parent="." instance=ExtResource("1_088iq")]
 
-[node name="GUI" parent="." instance=ExtResource("2_fkfsi")]
+[node name="GUI" parent="." instance=ExtResource("2_6xb1b")]
+
+[node name="GoButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_left = 1160.0
+offset_top = 480.0
+offset_right = 1272.0
+offset_bottom = 704.0
+text = "GO"
+icon = ExtResource("4_w07wg")
+flat = true
+
+[connection signal="event_completed" from="." to="." method="_on_event_completed"]
+[connection signal="pressed" from="GoButton" to="." method="_on_go_button_pressed"]

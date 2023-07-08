@@ -17,7 +17,7 @@ var active_sprite = 0
 
 
 func _ready():
-	play()
+	pass
 
 func _process(_delta):
 	$"NinePatchRect/next-indicator".visible = dialog_finished
@@ -29,13 +29,12 @@ func play():
 	current_dialogue_id = -1
 	next_line()
 
-func _input(event):
-	if event.is_action_pressed("action") and dialog_finished:
-		next_line()
-	else:
-		pass # TODO: Option to speed up dialogue
-		
-		
+func play_data(data: Array):
+	dialogues = data
+	
+	current_dialogue_id = -1
+	next_line()
+
 func next_line():
 	current_dialogue_id += 1
 	
