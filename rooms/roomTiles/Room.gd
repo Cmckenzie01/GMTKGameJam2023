@@ -12,3 +12,6 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	pass
+	
+func set_card(card: Card):
+	print("Set card ", card.card_name, " on me")
