@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://ctmrulo45br7"]
+[gd_scene load_steps=15 format=3 uid="uid://ctmrulo45br7"]
 
 [ext_resource type="Script" path="res://gui/gui.gd" id="1_t2c0x"]
 [ext_resource type="Texture2D" uid="uid://coq86da7jap6p" path="res://assets/sprites/Placeholder.png" id="2_6vyb3"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://buibmlu7pmsp7" path="res://assets/gui/ManaBar.png" id="5_hxu6s"]
 [ext_resource type="PackedScene" uid="uid://gxhrf1cwptdn" path="res://rooms/roomCards/Card.tscn" id="6_gweis"]
 [ext_resource type="Script" path="res://gui/dialogue_interface.gd" id="6_mdyv5"]
+[ext_resource type="Texture2D" uid="uid://wygtwnsnhurl" path="res://assets/Cards/Skull.png" id="6_v2ju2"]
 [ext_resource type="JSON" path="res://assets/dialogues/introScene_dialogue.json" id="7_ksm37"]
 [ext_resource type="Texture2D" uid="uid://cwdckhpcsx6xj" path="res://assets/gui/BlueTileSmall.png" id="8_pymbg"]
 [ext_resource type="Texture2D" uid="uid://etarlxblvuk4" path="res://assets/gui/WhiteDownArrow.png" id="9_7uq5h"]
@@ -117,6 +118,18 @@ offset_right = 644.658
 offset_bottom = 62.6032
 text = "HERO 1: The Magificant"
 
+[node name="SkullIcon" type="Sprite2D" parent="PartyUI/VBoxContainer/Hero1"]
+position = Vector2(92, 146)
+texture = ExtResource("6_v2ju2")
+
+[node name="LevelLabel" type="RichTextLabel" parent="PartyUI/VBoxContainer/Hero1"]
+layout_mode = 0
+offset_left = 136.0
+offset_top = 138.0
+offset_right = 176.0
+offset_bottom = 178.0
+theme_override_font_sizes/normal_font_size = 24
+
 [node name="Hero2" type="Control" parent="PartyUI/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -160,6 +173,18 @@ offset_top = 36.6032
 offset_right = 644.658
 offset_bottom = 62.6032
 text = "HERO 2: The Beautiful"
+
+[node name="SkullIcon" type="Sprite2D" parent="PartyUI/VBoxContainer/Hero2"]
+visible = false
+position = Vector2(92, 146)
+texture = ExtResource("6_v2ju2")
+
+[node name="LevelLabel" type="RichTextLabel" parent="PartyUI/VBoxContainer/Hero2"]
+offset_left = 136.0
+offset_top = 138.0
+offset_right = 176.0
+offset_bottom = 178.0
+theme_override_font_sizes/normal_font_size = 24
 
 [node name="Hero3" type="Control" parent="PartyUI/VBoxContainer"]
 unique_name_in_owner = true
@@ -205,6 +230,18 @@ offset_right = 644.658
 offset_bottom = 62.6032
 text = "HERO 3: The Mighty"
 
+[node name="SkullIcon" type="Sprite2D" parent="PartyUI/VBoxContainer/Hero3"]
+visible = false
+position = Vector2(92, 146)
+texture = ExtResource("6_v2ju2")
+
+[node name="LevelLabel" type="RichTextLabel" parent="PartyUI/VBoxContainer/Hero3"]
+offset_left = 136.0
+offset_top = 138.0
+offset_right = 176.0
+offset_bottom = 178.0
+theme_override_font_sizes/normal_font_size = 24
+
 [node name="Hero4" type="Control" parent="PartyUI/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
@@ -248,6 +285,18 @@ offset_top = 36.6032
 offset_right = 644.658
 offset_bottom = 62.6032
 text = "HERO 1: The Wise"
+
+[node name="SkullIcon" type="Sprite2D" parent="PartyUI/VBoxContainer/Hero4"]
+visible = false
+position = Vector2(92, 146)
+texture = ExtResource("6_v2ju2")
+
+[node name="LevelLabel" type="RichTextLabel" parent="PartyUI/VBoxContainer/Hero4"]
+offset_left = 136.0
+offset_top = 138.0
+offset_right = 176.0
+offset_bottom = 178.0
+theme_override_font_sizes/normal_font_size = 24
 
 [node name="GameUI" type="Control" parent="."]
 layout_mode = 3
