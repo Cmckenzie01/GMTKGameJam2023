@@ -3,14 +3,14 @@
 [ext_resource type="Script" path="res://main_scenes/intro_scene.gd" id="1_pi0pd"]
 [ext_resource type="PackedScene" uid="uid://0u7op5yq0yde" path="res://gui/dialogue_interface.tscn" id="2_6t1y3"]
 [ext_resource type="Texture2D" uid="uid://o7gf0te6u550" path="res://assets/gui/scroll.png" id="2_n0thd"]
-[ext_resource type="Texture2D" uid="uid://cu3apdvh1ff" path="res://assets/portraits/portrait-with-border40.png" id="3_bxbfo"]
+[ext_resource type="Texture2D" uid="uid://bfmgjowpr0sci" path="res://assets/portraits/PurpleWizardPortrait.png" id="3_eh37g"]
 [ext_resource type="JSON" path="res://assets/dialogues/introScene_dialogue.json" id="3_kjrvd"]
 [ext_resource type="Texture2D" uid="uid://dq6hlkvym48ok" path="res://assets/gui/A_Accept1.png" id="4_dbbpt"]
 [ext_resource type="Script" path="res://main_scenes/LineEdit.gd" id="4_q32e3"]
-[ext_resource type="Texture2D" uid="uid://b86838q646824" path="res://assets/portraits/portrait-with-border44.png" id="5_iaiel"]
+[ext_resource type="Texture2D" uid="uid://516tlnuymcd6" path="res://assets/portraits/RegularTroubleMakerPortrait.png" id="5_l57dy"]
 [ext_resource type="Texture2D" uid="uid://da0xk11hj72k6" path="res://assets/gui/A_Restart1.png" id="5_xg0cr"]
-[ext_resource type="Texture2D" uid="uid://v6ipurl3cjku" path="res://assets/portraits/portrait-with-border75.png" id="6_oe3ue"]
-[ext_resource type="Texture2D" uid="uid://t3lu50ucou3e" path="res://assets/portraits/portrait-with-border82.png" id="7_2oyir"]
+[ext_resource type="Texture2D" uid="uid://clv8sbheo8n0i" path="res://assets/portraits/RedBeardPortrait.png" id="6_6afls"]
+[ext_resource type="Texture2D" uid="uid://crx5keqvt2cs6" path="res://assets/portraits/GoldenKnightPortrait.png" id="7_2oq41"]
 
 [node name="IntroScene" type="Control"]
 layout_mode = 3
@@ -41,7 +41,7 @@ texture = ExtResource("2_n0thd")
 [node name="Sprite2D" type="Sprite2D" parent="Hero1"]
 position = Vector2(187, 133)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("3_bxbfo")
+texture = ExtResource("3_eh37g")
 
 [node name="Name" type="Label" parent="Hero1"]
 layout_mode = 0
@@ -111,7 +111,7 @@ texture = ExtResource("2_n0thd")
 [node name="Sprite2D" type="Sprite2D" parent="Hero2"]
 position = Vector2(187, 133)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("5_iaiel")
+texture = ExtResource("5_l57dy")
 
 [node name="Name" type="Label" parent="Hero2"]
 layout_mode = 0
@@ -181,7 +181,7 @@ texture = ExtResource("2_n0thd")
 [node name="Sprite2D" type="Sprite2D" parent="Hero3"]
 position = Vector2(187, 133)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("6_oe3ue")
+texture = ExtResource("6_6afls")
 
 [node name="Name" type="Label" parent="Hero3"]
 layout_mode = 0
@@ -251,7 +251,7 @@ texture = ExtResource("2_n0thd")
 [node name="Sprite2D" type="Sprite2D" parent="Hero4"]
 position = Vector2(187, 133)
 scale = Vector2(1.5, 1.5)
-texture = ExtResource("7_2oyir")
+texture = ExtResource("7_2oq41")
 
 [node name="Name" type="Label" parent="Hero4"]
 layout_mode = 0
