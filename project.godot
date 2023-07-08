@@ -81,6 +81,8 @@ action={
 
 [layer_names]
 
+2d_physics/layer_1="World"
 2d_navigation/layer_1="Open"
+2d_physics/layer_2="Cards"
 2d_navigation/layer_2="Blocked"
 textures/canvas_textures/default_texture_filter=0
