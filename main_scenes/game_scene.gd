@@ -47,19 +47,24 @@ func _send_text(text: String):
 # Do the event (damage, randomness, update HP) and return whether it succeded or not
 func _do_event() -> bool:
 	var chance = current_event["base_chance"]
-	# TODO: Update this based on party skills
+
+	# NOTE: Bonuses don't stack
+	for b in current_event["bonuses"]:
+		if Party.AnyBonus(b):
+			chance += 0.2
+			break
 	
 	if randf_range(0.0, 1.0) < chance:
 		# Pass
 		print("Event passed")
-		# TODO: Update motivation
+		Party.MotivateParty(current_event["reward_motivation"], current_event["reward_bonuses"])
 		# TODO: Grant exp
 		return true
 	else:
 		# Fail
 		print("Event failed")
-		# TODO: Deal damage
-		# TODO: Deal motivation damage
+		Party.DealPartyDamage(current_event["fail_damage"])
+		Party.DemotivateParty(current_event["fail_demotivation"])
 		return false
 	
 

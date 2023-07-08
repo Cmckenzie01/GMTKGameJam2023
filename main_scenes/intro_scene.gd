@@ -6,6 +6,10 @@ func _on_dialogue_interface_dialog_completed():
 
 
 func _on_select_pressed():
+	# Create a test party
+	Party.MakeParty(["Knight", "Thief", "Wizard", "Bard"])
+	Party.DemotivateParty(50)
+
 	var main = get_tree().get_root().get_node("Main")
 	main.changeState(str(self.name), main.GameScene)
 
