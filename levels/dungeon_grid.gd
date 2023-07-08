@@ -21,7 +21,6 @@ const SlotClass = preload("res://levels/empty_dungeon_room.gd")
 @onready var no_of_rooms_occupied: int = 0
 
 @onready var default_room = preload("res://rooms/roomTiles/Room.tscn")
-@onready var card = ["Healing_room", "Trap_Room", "Weapon_Upgrade_Room"]
 
 
 func _ready():

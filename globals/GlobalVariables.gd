@@ -11,38 +11,80 @@ func read_json_file(file_path):
 
 
 @onready var DungeonFloors: Dictionary = {
-	"ThreeFloors": {},
-	"FourFloors": {},
-	"FiveFloors": {},
+	"ThreeRoomFloor": {
+		"scene": preload("res://levels/three_room_dungeon.tscn")
+	},
+	"FourRoomFloor": {
+		"scene": preload("res://levels/four_room_dungeon.tscn")
+	},
+	"FiveRoomFloor": {
+		"scene": preload("res://levels/five_room_dungeon.tscn")
+	},
 }
 
 @onready var DungeonTiles: Dictionary = {
-	"TileOne": {
-		"name": "Trap_Room",
-		"image": preload('res://assets/Cards/pig.jpg'),
-		"description": "I'm a card! Look at me! Card card card!",
+	"TrapTile": {
+		"name": "trap_room",
+		"image": preload("res://assets/floors/trap_room.png"),
+		"description": "A Room with a Trap!",
 		"effects": [] # TODO: Make Effect
 	},
-	"TileTwo": {
-		"name": "Healing_Room",
-		"image": preload('res://assets/sprites/Placeholder.png'),
-		"description": "But am I a card? Really? When you think about it?",
+	"CombatTile": {
+		"name": "combat_room",
+		"image": preload("res://assets/floors/combat_room.png"),
+		"description": "A Room to relax in!",
 		"effects": [] # TODO: Make Effect
 	},
-	"TileThree": {
-		"name": "Weapon_Upgrade_Room",
-		"image": preload('res://assets/Cards/pig.jpg'),
-		"description": "It's okay, I'm a card! You can true me!",
+	"PuzzleTile": {
+		"name": "puzzle_room",
+		"image": preload("res://assets/floors/puzzle_room.png"),
+		"description": "A Room with a Puzzle in it!",
 		"effects": [] # TODO: Make Effect
 	},
-	"TileFour": {},
-	"TileFive": {},
-	"TileSix": {},
-	"TileSeven": {},
-	"TileEight": {},
-	"TileNine": {},
-	"TileTen": {},
+	"SocialTile": {
+		"name": "social_room",
+		"image": preload("res://assets/floors/combat_room.png"),
+		"description": "A Room with a social dynamic!",
+		"effects": [] # TODO: Make Effect
+	},
+	"EnvironmentalTile": {
+		"name": "environmental_room",
+		"image": preload("res://assets/floors/environment_room.png"),
+		"description": "A Room with some natural wonder!",
+		"effects": [] # TODO: Make Effect
+	},
+	"RicesTile": {
+		"name": "riches_room",
+		"image": preload("res://assets/floors/combat_room.png"),
+		"description": "A Room with something shiny!",
+		"effects": [] # TODO: Make Effect
+	},
+	"KnowledgeTile": {
+		"name": "Knowledge_room",
+		"image": preload("res://assets/floors/Combat_room.png"),
+		"description": "A Room with some history!",
+		"effects": [] # TODO: Make Effect
+	},
+	"HonourTile": {
+		"name": "honour_room",
+		"image": preload("res://assets/floors/combat_room.png"),
+		"description": "A Room with a much deserved Shop!",
+		"effects": [] # TODO: Make Effect
+	},
+	"GloryTile": {
+		"name": "glory_room",
+		"image": preload("res://assets/floors/combat_room.png"),
+		"description": "A Room with some glory!",
+		"effects": [] # TODO: Make Effect
+	},
+	"HealTile": {
+		"name": "healing_room",
+		"image": preload("res://assets/floors/combat_room.png"),
+		"description": "A Room to take a deserved rest in!",
+		"effects": [] # TODO: Make Effect
+	},
 }
+
 
 @onready var BuffCards: Dictionary = {
 	"CardOne": {},

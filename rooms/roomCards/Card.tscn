@@ -1,11 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://gxhrf1cwptdn"]
 
 [ext_resource type="Script" path="res://rooms/roomCards/Card.gd" id="1_vltva"]
-[ext_resource type="Texture2D" uid="uid://uhtkfdniys7p" path="res://assets/Cards/Card.png" id="2_bh3id"]
+[ext_resource type="Texture2D" uid="uid://uhtkfdniys7p" path="res://assets/cards/Card.png" id="2_bh3id"]
 [ext_resource type="FontFile" uid="uid://bfx7o8u6rt3s6" path="res://assets/fonts/arcadeclassic/ARCADECLASSIC.TTF" id="3_yme5s"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_5r046"]
-size = Vector2(120, 189)
+[ext_resource type="Texture2D" uid="uid://csek5mrxx4hvv" path="res://assets/floors/combat_room.png" id="4_0x3m7"]
 
 [node name="Card" type="Node2D"]
 script = ExtResource("1_vltva")
@@ -14,18 +12,19 @@ script = ExtResource("1_vltva")
 texture = ExtResource("2_bh3id")
 
 [node name="CardName" type="RichTextLabel" parent="CardFrame"]
-offset_left = -57.0
-offset_top = -95.0
+offset_left = -58.0
+offset_top = -97.0
 offset_right = 61.0
 offset_bottom = -76.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_yme5s")
-theme_override_font_sizes/normal_font_size = 16
+theme_override_font_sizes/normal_font_size = 14
 
 [node name="CardImage" type="Sprite2D" parent="CardFrame"]
-position = Vector2(-2.62502, -39.375)
-scale = Vector2(0.10335, 0.105801)
+position = Vector2(0.499988, -36.5)
+scale = Vector2(0.960938, 0.570313)
+texture = ExtResource("4_0x3m7")
 
 [node name="CardText" type="RichTextLabel" parent="CardFrame"]
 offset_left = -57.0
@@ -40,12 +39,14 @@ text = "I'm   a   test card description!
 
 Look   at  how wordy  I  am!"
 
-[node name="Area2D" type="Area2D" parent="."]
-collision_layer = 2
+[node name="Card" type="Panel" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+offset_left = -72.0
+offset_top = -106.0
+offset_right = 72.0
+offset_bottom = 106.0
+mouse_filter = 1
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(12, 11.5)
-shape = SubResource("RectangleShape2D_5r046")
-
-[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
-[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]
+[connection signal="gui_input" from="Card" to="." method="_on_card_gui_input"]
+[connection signal="mouse_entered" from="Card" to="." method="_on_card_mouse_entered"]
+[connection signal="mouse_exited" from="Card" to="." method="_on_card_mouse_exited"]
