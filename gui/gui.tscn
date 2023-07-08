@@ -1,0 +1,397 @@
+[gd_scene load_steps=14 format=3 uid="uid://ctmrulo45br7"]
+
+[ext_resource type="Script" path="res://gui/gui.gd" id="1_t2c0x"]
+[ext_resource type="Texture2D" uid="uid://coq86da7jap6p" path="res://assets/sprites/Placeholder.png" id="2_6vyb3"]
+[ext_resource type="Texture2D" uid="uid://c8rln7lsati0b" path="res://assets/gui/CharacterHud.png" id="3_312qr"]
+[ext_resource type="Texture2D" uid="uid://dkfd67vrewnwp" path="res://assets/gui/HealthBar.png" id="4_y0dqi"]
+[ext_resource type="Texture2D" uid="uid://buibmlu7pmsp7" path="res://assets/gui/ManaBar.png" id="5_hxu6s"]
+[ext_resource type="PackedScene" uid="uid://gxhrf1cwptdn" path="res://rooms/roomCards/Card.tscn" id="6_gweis"]
+[ext_resource type="Script" path="res://gui/dialogue_interface.gd" id="6_mdyv5"]
+[ext_resource type="JSON" path="res://assets/dialogues/introScene_dialogue.json" id="7_ksm37"]
+[ext_resource type="Texture2D" uid="uid://cwdckhpcsx6xj" path="res://assets/gui/BlueTileSmall.png" id="8_pymbg"]
+[ext_resource type="Texture2D" uid="uid://etarlxblvuk4" path="res://assets/gui/WhiteDownArrow.png" id="9_7uq5h"]
+
+[sub_resource type="Animation" id="1"]
+resource_name = "Idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(863.842, 124.436), Vector2(865.133, 114.719)]
+}
+
+[sub_resource type="Animation" id="Animation_jrxsv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(854.751, 124.551)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ap82s"]
+_data = {
+"Idle": SubResource("1"),
+"RESET": SubResource("Animation_jrxsv")
+}
+
+[node name="GUI" type="CanvasLayer"]
+layer = 5
+script = ExtResource("1_t2c0x")
+
+[node name="PartyUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 950.0
+offset_bottom = -254.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="PartyUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0.596078, 1, 0.231373)
+metadata/_edit_lock_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PartyUI"]
+layout_mode = 0
+offset_left = 61.0
+offset_top = 16.0
+offset_right = 511.0
+offset_bottom = 828.0
+scale = Vector2(0.5, 0.5)
+
+[node name="Hero1" type="Control" parent="PartyUI/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="PartyUI/VBoxContainer/Hero1"]
+position = Vector2(119.162, 112.539)
+scale = Vector2(4, 4)
+texture = ExtResource("2_6vyb3")
+
+[node name="HUDBase" type="TextureRect" parent="PartyUI/VBoxContainer/Hero1"]
+layout_mode = 2
+offset_right = 450.0
+offset_bottom = 200.0
+texture = ExtResource("3_312qr")
+
+[node name="HealthBar" type="TextureProgressBar" parent="PartyUI/VBoxContainer/Hero1"]
+self_modulate = Color(1, 1, 1, 0.423529)
+layout_mode = 2
+offset_left = 183.401
+offset_top = 73.2692
+offset_right = 633.401
+offset_bottom = 273.269
+value = 100.0
+texture_progress = ExtResource("4_y0dqi")
+
+[node name="MotivationBar" type="TextureProgressBar" parent="PartyUI/VBoxContainer/Hero1"]
+self_modulate = Color(1, 1, 1, 0.517647)
+layout_mode = 2
+offset_left = 193.299
+offset_top = 108.13
+offset_right = 643.299
+offset_bottom = 308.13
+value = 100.0
+texture_progress = ExtResource("5_hxu6s")
+
+[node name="Label" type="Label" parent="PartyUI/VBoxContainer/Hero1"]
+layout_mode = 2
+offset_left = 194.658
+offset_top = 36.6032
+offset_right = 644.658
+offset_bottom = 62.6032
+text = "HERO 1: The Magificant"
+
+[node name="Hero2" type="Control" parent="PartyUI/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="PartyUI/VBoxContainer/Hero2"]
+position = Vector2(119.162, 112.539)
+scale = Vector2(4, 4)
+texture = ExtResource("2_6vyb3")
+
+[node name="HUDBase" type="TextureRect" parent="PartyUI/VBoxContainer/Hero2"]
+layout_mode = 2
+offset_right = 450.0
+offset_bottom = 200.0
+texture = ExtResource("3_312qr")
+
+[node name="HealthBar" type="TextureProgressBar" parent="PartyUI/VBoxContainer/Hero2"]
+self_modulate = Color(1, 1, 1, 0.423529)
+layout_mode = 2
+offset_left = 183.401
+offset_top = 73.2692
+offset_right = 633.401
+offset_bottom = 273.269
+value = 100.0
+texture_progress = ExtResource("4_y0dqi")
+
+[node name="MotivationBar" type="TextureProgressBar" parent="PartyUI/VBoxContainer/Hero2"]
+self_modulate = Color(1, 1, 1, 0.517647)
+layout_mode = 2
+offset_left = 193.299
+offset_top = 108.13
+offset_right = 643.299
+offset_bottom = 308.13
+value = 100.0
+texture_progress = ExtResource("5_hxu6s")
+
+[node name="Label" type="Label" parent="PartyUI/VBoxContainer/Hero2"]
+layout_mode = 2
+offset_left = 194.658
+offset_top = 36.6032
+offset_right = 644.658
+offset_bottom = 62.6032
+text = "HERO 2: The Beautiful"
+
+[node name="Hero3" type="Control" parent="PartyUI/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="PartyUI/VBoxContainer/Hero3"]
+position = Vector2(119.162, 112.539)
+scale = Vector2(4, 4)
+texture = ExtResource("2_6vyb3")
+
+[node name="HUDBase" type="TextureRect" parent="PartyUI/VBoxContainer/Hero3"]
+layout_mode = 2
+offset_right = 450.0
+offset_bottom = 200.0
+texture = ExtResource("3_312qr")
+
+[node name="HealthBar" type="TextureProgressBar" parent="PartyUI/VBoxContainer/Hero3"]
+self_modulate = Color(1, 1, 1, 0.423529)
+layout_mode = 2
+offset_left = 183.401
+offset_top = 73.2692
+offset_right = 633.401
+offset_bottom = 273.269
+value = 100.0
+texture_progress = ExtResource("4_y0dqi")
+
+[node name="MotivationBar" type="TextureProgressBar" parent="PartyUI/VBoxContainer/Hero3"]
+self_modulate = Color(1, 1, 1, 0.517647)
+layout_mode = 2
+offset_left = 193.299
+offset_top = 108.13
+offset_right = 643.299
+offset_bottom = 308.13
+value = 100.0
+texture_progress = ExtResource("5_hxu6s")
+
+[node name="Label" type="Label" parent="PartyUI/VBoxContainer/Hero3"]
+layout_mode = 2
+offset_left = 194.658
+offset_top = 36.6032
+offset_right = 644.658
+offset_bottom = 62.6032
+text = "HERO 3: The Mighty"
+
+[node name="Hero4" type="Control" parent="PartyUI/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Sprite2D" type="Sprite2D" parent="PartyUI/VBoxContainer/Hero4"]
+position = Vector2(119.162, 112.539)
+scale = Vector2(4, 4)
+texture = ExtResource("2_6vyb3")
+
+[node name="HUDBase" type="TextureRect" parent="PartyUI/VBoxContainer/Hero4"]
+layout_mode = 2
+offset_right = 450.0
+offset_bottom = 200.0
+texture = ExtResource("3_312qr")
+
+[node name="HealthBar" type="TextureProgressBar" parent="PartyUI/VBoxContainer/Hero4"]
+self_modulate = Color(1, 1, 1, 0.423529)
+layout_mode = 2
+offset_left = 183.401
+offset_top = 73.2692
+offset_right = 633.401
+offset_bottom = 273.269
+value = 100.0
+texture_progress = ExtResource("4_y0dqi")
+
+[node name="MotivationBar" type="TextureProgressBar" parent="PartyUI/VBoxContainer/Hero4"]
+self_modulate = Color(1, 1, 1, 0.517647)
+layout_mode = 2
+offset_left = 193.299
+offset_top = 108.13
+offset_right = 643.299
+offset_bottom = 308.13
+value = 100.0
+texture_progress = ExtResource("5_hxu6s")
+
+[node name="Label" type="Label" parent="PartyUI/VBoxContainer/Hero4"]
+layout_mode = 2
+offset_left = 194.658
+offset_top = 36.6032
+offset_right = 644.658
+offset_bottom = 62.6032
+text = "HERO 1: The Wise"
+
+[node name="GameUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -325.0
+offset_bottom = -253.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="GameUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.486275, 1, 1, 0.305882)
+metadata/_edit_lock_ = true
+
+[node name="CardUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_left = -3.0
+offset_top = 470.0
+offset_right = 1280.0
+offset_bottom = 714.0
+mouse_filter = 1
+metadata/_edit_lock_ = true
+
+[node name="ColorRect" type="ColorRect" parent="CardUI"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 0.592157, 0.247059)
+metadata/_edit_lock_ = true
+
+[node name="TileCards" type="Node" parent="CardUI"]
+
+[node name="Card" parent="CardUI/TileCards" instance=ExtResource("6_gweis")]
+position = Vector2(93.338, 603.869)
+
+[node name="Card2" parent="CardUI/TileCards" instance=ExtResource("6_gweis")]
+position = Vector2(253.144, 603.869)
+tile = "TileTwo"
+
+[node name="Card3" parent="CardUI/TileCards" instance=ExtResource("6_gweis")]
+position = Vector2(414.364, 605.283)
+tile = "TileThree"
+
+[node name="Card4" parent="CardUI/TileCards" instance=ExtResource("6_gweis")]
+position = Vector2(585.484, 605.283)
+tile = "TileTwo"
+
+[node name="BuffCards" type="Node" parent="CardUI"]
+
+[node name="DialogueInterface" type="CanvasLayer" parent="."]
+script = ExtResource("6_mdyv5")
+dialogue_file = ExtResource("7_ksm37")
+
+[node name="Sprites" type="Control" parent="DialogueInterface"]
+layout_mode = 3
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -37.0
+offset_top = -185.0
+offset_right = -37.0
+offset_bottom = -185.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Sprite1" type="Sprite2D" parent="DialogueInterface/Sprites"]
+visible = false
+position = Vector2(-456, -254)
+scale = Vector2(5, 5)
+texture = ExtResource("2_6vyb3")
+
+[node name="Sprite2" type="Sprite2D" parent="DialogueInterface/Sprites"]
+position = Vector2(218, -259)
+scale = Vector2(5, 5)
+texture = ExtResource("2_6vyb3")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="DialogueInterface"]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -602.0
+offset_top = -369.0
+offset_right = 286.0
+offset_bottom = -221.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("8_pymbg")
+region_rect = Rect2(0.15456, -0.222021, 31.3322, 32.2274)
+patch_margin_left = 8
+patch_margin_top = 9
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Message" type="RichTextLabel" parent="DialogueInterface/NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.011
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.757
+offset_top = 40.0
+offset_right = -38.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hello world this is a long piece of dialogue to test out the limits of the dialogue system. Hopefully you're not actually typing messages this long because that seems like a lot of reading, and while I'm not judging anyone, I don't know If I want to do a lot of reading. To ease their own you know, and if that's your thing, fair enough"
+
+[node name="Name" type="RichTextLabel" parent="DialogueInterface/NinePatchRect"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 8.0
+offset_right = 562.0
+offset_bottom = 38.0
+text = "Name"
+
+[node name="next-indicator" type="Sprite2D" parent="DialogueInterface/NinePatchRect"]
+position = Vector2(854.751, 124.551)
+texture = ExtResource("9_7uq5h")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="DialogueInterface/NinePatchRect/next-indicator"]
+autoplay = "Idle"
+libraries = {
+"": SubResource("AnimationLibrary_ap82s")
+}

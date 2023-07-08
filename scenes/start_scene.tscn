@@ -1,19 +1,27 @@
+<<<<<<< Updated upstream:scenes/start_screen.tscn
 [gd_scene load_steps=5 format=3 uid="uid://ddiwmaokiso8v"]
 
 [ext_resource type="Texture2D" uid="uid://d1b5wiyo3q8mq" path="res://assets/logo/trial-by-wire.png" id="1_1tuk4"]
 [ext_resource type="PackedScene" uid="uid://gxhrf1cwptdn" path="res://scenes/Cards/Card.tscn" id="2_q23ip"]
 [ext_resource type="PackedScene" uid="uid://bvxtwari425f0" path="res://scenes/Floors/Room.tscn" id="3_hplgj"]
+=======
+[gd_scene load_steps=4 format=3 uid="uid://ddiwmaokiso8v"]
+
+[ext_resource type="Script" path="res://scenes/start_scene.gd" id="1_iymv8"]
+[ext_resource type="Texture2D" uid="uid://d1b5wiyo3q8mq" path="res://assets/logo/trial-by-wire.png" id="2_hg055"]
+>>>>>>> Stashed changes:scenes/start_scene.tscn
 
 [sub_resource type="LabelSettings" id="LabelSettings_u6byt"]
 font_size = 64
 
-[node name="StartScreen" type="Control"]
+[node name="StartScene" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_iymv8")
 metadata/_edit_lock_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
@@ -31,7 +39,7 @@ metadata/_edit_lock_ = true
 self_modulate = Color(1, 1, 1, 0.486275)
 position = Vector2(1162, 666)
 scale = Vector2(0.25, 0.25)
-texture = ExtResource("1_1tuk4")
+texture = ExtResource("2_hg055")
 
 [node name="Title" type="MarginContainer" parent="CanvasLayer"]
 offset_left = 280.0
@@ -57,6 +65,7 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 34
 text = "PLAY"
 
+<<<<<<< Updated upstream:scenes/start_screen.tscn
 [node name="Unexpanded Card Example" parent="CanvasLayer/Start/StartButton" instance=ExtResource("2_q23ip")]
 z_index = 1
 position = Vector2(393, 255)
@@ -68,3 +77,6 @@ scale = Vector2(2, 2)
 [node name="Room" parent="CanvasLayer/Start/StartButton" instance=ExtResource("3_hplgj")]
 z_index = 1
 position = Vector2(245, 231)
+=======
+[connection signal="pressed" from="CanvasLayer/Start/StartButton" to="." method="_on_start_button_pressed"]
+>>>>>>> Stashed changes:scenes/start_scene.tscn

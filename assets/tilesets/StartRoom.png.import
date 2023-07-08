@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uhtkfdniys7p"
-path="res://.godot/imported/Card.png-172a4a79813e5300b860e7e9fb40e21a.ctex"
+uid="uid://wjwi5u1dvd4f"
+path="res://.godot/imported/StartRoom.png-1a733649925b1e04a3340908949cba0a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Card.png"
-dest_files=["res://.godot/imported/Card.png-172a4a79813e5300b860e7e9fb40e21a.ctex"]
+source_file="res://assets/tilesets/StartRoom.png"
+dest_files=["res://.godot/imported/StartRoom.png-1a733649925b1e04a3340908949cba0a.ctex"]
 
 [params]
 

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://uhtkfdniys7p"
-path="res://.godot/imported/Card.png-172a4a79813e5300b860e7e9fb40e21a.ctex"
+uid="uid://h6a6s1q5gmqk"
+path="res://.godot/imported/EndRoom.png-8eb73dda83356fe9e460516118c57db7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/cards/Card.png"
-dest_files=["res://.godot/imported/Card.png-172a4a79813e5300b860e7e9fb40e21a.ctex"]
+source_file="res://assets/tilesets/EndRoom.png"
+dest_files=["res://.godot/imported/EndRoom.png-8eb73dda83356fe9e460516118c57db7.ctex"]
 
 [params]
 
