@@ -25,7 +25,6 @@ func room_gui_input(event: InputEvent, room: Room):#: SlotClass):
 		if self.held_card:
 			current_dungeon.add_card(self.held_card.card_name)
 			
-			
 			# Dungeon checks if occupied
 				# If is, sends signal back like fail()
 				# Else
