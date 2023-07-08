@@ -56,8 +56,8 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if self.following_mouse:
-		self.global_position.x = clamp(get_viewport().get_mouse_position().x, 0 + self.original_width/2, world_right_x - self.original_width/2)
-		self.global_position.y = clamp(get_viewport().get_mouse_position().y, 0 + self.original_height/2, world_bottom_y - self.original_height/2)
+		self.global_position.x = clamp(get_viewport().get_mouse_position().x + 70, 0 + self.original_width/2, world_right_x - self.original_width/2)
+		self.global_position.y = clamp(get_viewport().get_mouse_position().y + 100, 0 + self.original_height/2, world_bottom_y - self.original_height/2)
 
 func _on_area_2d_mouse_entered() -> void:
 	self.expand()

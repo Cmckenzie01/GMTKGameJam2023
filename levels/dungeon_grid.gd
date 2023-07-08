@@ -1,8 +1,11 @@
 extends Node2D
 
 signal all_dungeon_slots_occupied
+signal room_set_in_slot_successfully
 
 const SlotClass = preload("res://levels/empty_dungeon_room.gd")
+
+@export var tile_cards_path =  "GUI/CardUI/TileCards/"
 
 @onready var empty_dungeon_room = preload("res://levels/empty_dungeon_room.tscn")
 @onready var grid_size = 128
@@ -20,6 +23,7 @@ const SlotClass = preload("res://levels/empty_dungeon_room.gd")
 @onready var default_room = preload("res://rooms/roomTiles/Room.tscn")
 @onready var card = ["Healing_room", "Trap_Room", "Weapon_Upgrade_Room"]
 
+
 func _ready():
 	for x in x_coord:
 		for y in y_coord:
@@ -32,11 +36,15 @@ func _ready():
 
 
 func _on_empty_dungeon_room_gui_input(event: InputEvent, slot: SlotClass):
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and GlobalVariables.tile_selected:
 		var room = default_room.instantiate()
-		var random_card = card.pick_random()
-		slot.occupySlot(room, random_card)
+		var tile = GlobalVariables.tile_selected
+		var tile_name = tile.card_name
+		var tile_id = tile.name
+		slot.occupySlot(room, tile_name)
 		slot.gui_input.disconnect(_on_empty_dungeon_room_gui_input)
+		var path = tile_cards_path + tile_id
+		get_parent().get_node(path).queue_free()
 		
 		#placeholder logic
 		no_of_rooms_occupied += 1
