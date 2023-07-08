@@ -1,6 +1,6 @@
 extends CanvasLayer
 
-signal dialog_completed 
+signal dialog_completed
 
 # Modular Dialogue Interface
 @export var dialogue_file: JSON
@@ -25,27 +25,27 @@ func _process(_delta):
 func play():
 	var data = dialogue_file.get_data()
 	dialogues = data #load_dialogue()
-	
+
 	current_dialogue_id = -1
 	next_line()
 
 func play_data(data: Array):
 	dialogues = data
-	
+
 	current_dialogue_id = -1
 	next_line()
 
 func next_line():
 	current_dialogue_id += 1
-	
+
 	if current_dialogue_id >= len(dialogues):
 		emit_signal("dialog_completed")
 		self.queue_free()
 		return
-	
+
 	current_speaker = dialogues[current_dialogue_id]['name']
 	active_sprite = dialogues[current_dialogue_id]['active_sprite']
-	
+
 	if active_sprite == 1:
 		sprite1.texture = load(str("res://assets/sprites/", current_speaker, ".png"))
 		sprite1.visible = true
@@ -54,7 +54,7 @@ func next_line():
 		sprite2.texture = load(str("res://assets/sprites/", current_speaker, ".png"))
 		sprite1.visible = false
 		sprite2.visible = true
-	
+
 	dialog_finished = false
 	$NinePatchRect/Name.text = dialogues[current_dialogue_id]['name']
 	$NinePatchRect/Message.text = dialogues[current_dialogue_id]['text']
@@ -64,10 +64,10 @@ func next_line():
 	tween.tween_callback(_on_Tween_tween_completed)
 	#tween.tween_callback(queue_free)
 #	$NinePatchRect/Tween.interpolate_property(
-#		$NinePatchRect/Message, "percent_visible", 0, 1, 1, 
+#		$NinePatchRect/Message, "percent_visible", 0, 1, 1,
 #		Tween.TRANS_LINEAR, Tween.EASE_IN_OUT
 #	)
-	
+
 
 #func load_dialogue():
 #	if FileAccess.file_exists(dialogue_file):
