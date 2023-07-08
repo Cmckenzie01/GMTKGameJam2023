@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=3 uid="uid://b1l157bnr6704"]
 
-[ext_resource type="Script" path="res://Main.gd" id="1_mauxd"]
-[ext_resource type="PackedScene" uid="uid://ddiwmaokiso8v" path="res://main_scenes/start_scene.tscn" id="2_8bb0x"]
+[ext_resource type="Script" path="res://main_scenes/Main.gd" id="1_cdip8"]
+[ext_resource type="PackedScene" uid="uid://ddiwmaokiso8v" path="res://main_scenes/start_scene.tscn" id="2_8crqo"]
 
 [sub_resource type="Animation" id="Animation_2doh5"]
 length = 0.001
@@ -92,7 +92,7 @@ _data = {
 }
 
 [node name="Main" type="Node2D"]
-script = ExtResource("1_mauxd")
+script = ExtResource("1_cdip8")
 
 [node name="StageManager" type="CanvasLayer" parent="."]
 layer = 10
@@ -123,4 +123,4 @@ text = "Loading..."
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="StartScreen" parent="." instance=ExtResource("2_8bb0x")]
+[node name="StartScreen" parent="." instance=ExtResource("2_8crqo")]
