@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://fbiofdctumc4"
-path="res://.godot/imported/pig.jpg-8b9ab79c9501512401197484285f0b6b.ctex"
+uid="uid://wygtwnsnhurl"
+path="res://.godot/imported/Skull.png-1ea48207778b178a7dadcc45b4c66b92.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/Cards/pig.jpg"
-dest_files=["res://.godot/imported/pig.jpg-8b9ab79c9501512401197484285f0b6b.ctex"]
+source_file="res://assets/Cards/Skull.png"
+dest_files=["res://.godot/imported/Skull.png-1ea48207778b178a7dadcc45b4c66b92.ctex"]
 
 [params]
 

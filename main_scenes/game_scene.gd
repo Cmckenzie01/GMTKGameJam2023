@@ -21,22 +21,34 @@ var event_state: EventState = EventState.IDLE
 var current_event = null
 signal event_completed
 
+const INSULTS = [
+	"Bumbling",
+	"Idiot", 
+	"Clumsy", 
+	"Buffonish",
+	"Smelly",
+	"Lazy",
+	"Oafish",
+	"Moronic",
+	"Vain"
+]
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_move_to_next_floor()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
 
-# Placeholders (stubs to be replaced when we figure out how the dungeon works)
 func _get_event() -> String:
-	return "spike_trap"
+	return "spike_trap" # TODO Replace when we figure out how the dungeon works
+	
 func _num_rooms() -> int:
-	return 4
+	return 4 # TODO Replace when we figure out how the dungeon works
+	
 func _get_room_pos(room_no: int) -> Vector2:
-	match room_no:
+	match room_no: # TODO Ideally get dynamically
 		0:
 			return Vector2(103.0, 104.0)
 		1:
@@ -48,7 +60,7 @@ func _get_room_pos(room_no: int) -> Vector2:
 		4:
 			return Vector2(872.0, 104.0)
 
-	assert(false)
+	assert(false, "Room index " + str(room_no) + " not >= 0 and <= 4")
 	return Vector2()
 
 # Tile movement logic
@@ -65,13 +77,17 @@ func _move_to_next_floor():
 func _start_moving_to_next_room():
 	if current_room >= _num_rooms():
 		_move_to_next_floor()
+		Party.HealParty(50) # TODO Temporary for testing
 		return
+		
 	current_room += 1
 
 	# TODO: This should maybe be a path of nodes, otherwise a right angle will result in diagonal movement
 	var target = _get_room_pos(current_room)
 	var tween = get_tree().create_tween()
+	
 	tween.tween_property($Party, "global_position", target, 2.0)
+	
 	tween.tween_callback(_finish_moving_to_next_room)
 
 func _finish_moving_to_next_room():
@@ -82,23 +98,32 @@ func run_event(event_id: String):
 	assert(event_state == EventState.IDLE)
 	assert(current_event == null)
 	current_event = GlobalVariables.EventData[event_id]
+	current_event['event_type'] = event_id
 
 	event_state = EventState.INITIAL_TEXT
 	_send_text(current_event["entry_text"])
 	$GoButton.visible = true
 
 # Send text to the dialogue box, and play it
-func _send_text(text: String):
+func _send_text(text: String, name: String = "Placeholder", use_right_sprite: bool = true):
+	
+	var active_sprite
+	if use_right_sprite:
+		active_sprite = 1
+	else:
+		active_sprite = 0
+	
 	# Create dialogue data
 	var data = [
 		{
 			"text": text,
-			"active_sprite": 1,
+			"active_sprite": active_sprite,
 			# Note: This is displayed as the name, and is also the name of the
 			# png to use.
-			"name": "Placeholder",
+			"name": name,
 		}
 	];
+	
 	$GUI/DialogueInterface.visible = true
 	$GUI/DialogueInterface.play_data(data)
 
@@ -112,17 +137,19 @@ func _do_event() -> bool:
 			chance += 0.2
 			break
 
-	if randf_range(0.0, 1.0) < chance:
-		# Pass
+	var succeeded
+	if false: # randf_range(0.0, 1.0) < chance:
 		Party.MotivateParty(current_event["reward_motivation"], current_event["reward_bonuses"])
+		Party.GrantExp(current_event["exp"], current_event["reward_bonuses"])
 		# TODO: Grant exp
-		return true
+		succeeded = true
 	else:
-		# Fail
 		Party.DealPartyDamage(current_event["fail_damage"])
-		Party.DemotivateParty(current_event["fail_demotivation"])
-		return false
-
+		Party.DemotivateParty(current_event["fail_demotivation"]) # Extra demotivate if it's your preferred task?
+		
+		succeeded = false
+		
+	return succeeded
 
 func _on_go_button_pressed():
 	match game_state:
@@ -135,18 +162,20 @@ func _on_go_button_pressed():
 				EventState.INITIAL_TEXT:
 					var result = _do_event()
 					var text
+					
 					if result:
 						text = current_event["pass_text"]
 					else:
 						text = current_event["fail_text"]
+						
 					_send_text(text)
+					
 					event_state = EventState.END_TEXT
 
 				EventState.END_TEXT:
 					current_event = null
 					event_state = EventState.IDLE
 					event_completed.emit()
-
-
+				
 func _on_event_completed():
 	_start_moving_to_next_room()

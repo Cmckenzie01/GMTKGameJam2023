@@ -1,5 +1,8 @@
 extends Node
 
+signal hero_died(hero_index: int)
+signal hero_resurrected(hero_index: int)
+
 # Resistance/Vulnerability Types
 enum BonusTypes {
 	# For challenges
@@ -25,6 +28,8 @@ const HeroClasses: Dictionary = {
 		"max_hp": 150,
 		"mv": 100,
 		"max_mv": 100,
+		"exp": 0,
+		"level": 0,
 		"name": "Nite",
 		"bonuses": [BonusTypes.COMBAT, BonusTypes.SOCIAL, BonusTypes.RICHES, BonusTypes.GLORY],
 	},
@@ -33,6 +38,8 @@ const HeroClasses: Dictionary = {
 		"max_hp": 75,
 		"mv": 150,
 		"max_mv": 150,
+		"exp": 0,
+		"level": 0,
 		"name": "Feif",
 		"bonuses": [BonusTypes.TRAP, BonusTypes.PUZZLE, BonusTypes.RICHES],
 	},
@@ -41,6 +48,8 @@ const HeroClasses: Dictionary = {
 		"max_hp": 75,
 		"mv": 100,
 		"max_mv": 100,
+		"exp": 0,
+		"level": 0,
 		"name": "W'izar'",
 		"bonuses": [BonusTypes.TRAP, BonusTypes.PUZZLE, BonusTypes.RICHES],
 	},
@@ -49,10 +58,19 @@ const HeroClasses: Dictionary = {
 		"max_hp": 100,
 		"mv": 150,
 		"max_mv": 150,
+		"exp": 0,
+		"level": 0,
 		"name": "Brad",
 		"bonuses": [BonusTypes.SOCIAL, BonusTypes.PUZZLE, BonusTypes.KNOWLEDGE, BonusTypes.HONOUR, BonusTypes.GLORY],
 	}
 }
+
+const LEVEL_THRESHOLDS = [ # TODO Add more levels
+	100,
+	200,
+	400,
+	800
+]
 
 # Fields of hero:
 # hp
@@ -62,6 +80,7 @@ const HeroClasses: Dictionary = {
 # name
 # bonuses
 var Heroes = null
+
 func MakeParty(classes: Array):
 	Heroes = []
 
@@ -72,45 +91,98 @@ func MakeParty(classes: Array):
 func _get_bonus(bonus: Variant) -> BonusTypes:
 	if bonus is String:
 		bonus = BonusTypes.get(bonus)
-		assert(bonus != null)
+		assert(bonus != null, "Bonus is null")
 
 	return bonus
 
+func HealParty(heal: int):
+	for i in range(len(Heroes)):
+		var hero = Heroes[i] # TODO Do we want this to work on dead heroes?
+		
+		var was_dead = (hero.hp == 0)
+		
+		hero.hp += heal
+		hero.hp = min(hero.hp, hero.max_hp)
+		
+		if was_dead:
+			hero_resurrected.emit(i)
+
 func DealPartyDamage(dmg: int):
-	for h in Heroes:
-		h.hp -= dmg
-		h.hp = max(h.hp, 0)
+	for i in range(len(Heroes)):
+		var hero = Heroes[i]
+		
+		hero.hp -= dmg
+		hero.hp = max(hero.hp, 0)
+		
+		if hero.hp == 0:
+			hero_died.emit(i)
 
 func DemotivateParty(dmg: int):
-	for h in Heroes:
-		h.mv -= dmg
-		h.mv = max(h.mv, 0)
+	for hero in Heroes:
+		hero.mv -= dmg
+		hero.mv = max(hero.mv, 0)
 
 func MotivateParty(heal: int, bonus: Variant = null):
-	for h in Heroes:
+	for hero in Heroes:
 		# Don't motivate dead heroes
-		if h.hp > 0:
+		if hero.hp > 0:
 			var with_bonus = heal
 
 			# Doesn't stack
 			if bonus != null:
 				for b in bonus:
 					b = _get_bonus(b)
-					if b in h.bonuses:
+					if b in hero.bonuses:
 						with_bonus *= 1.2
 						break
 
-			h.mv += heal
-			h.mv = min(h.mv, h.max_mv)
+			hero.mv += with_bonus
+			hero.mv = min(hero.mv, hero.max_mv)
+
+func GrantExp(exp: int, bonus: Variant = null):
+	for hero in Heroes:
+		# Don't give dead heroes exp
+		if hero.hp > 0:
+			var with_bonus = exp
+
+			var motivation_level = (hero.mv / hero.max_mv)
+			var modifier 
+			
+			if motivation_level > 0.7:
+				modifier = 1.2
+			elif motivation_level > 0.4:
+				modifier = 1 
+			else:
+				modifier = 0.8
+				
+			with_bonus *= modifier
+
+			hero.exp += with_bonus
+			
+			var new_level = hero.level 
+			
+			var remaining_exp = hero.exp 
+			while remaining_exp >= LEVEL_THRESHOLDS[new_level]:
+				new_level += 1
+				remaining_exp -= LEVEL_THRESHOLDS[new_level]
+				
+			if new_level > hero.level:
+				LevelUp(hero, new_level)
+				
+func LevelUp(hero: Dictionary, new_level: int):
+	print("Levelling up ", hero.name, " to Level ", str(new_level), "! They have " + str(hero.exp) + " EXP in total.")
+	hero.level = new_level # TODO Send some kind of message
+	
+	# TODO Whatever else we do on level up, e.g. stat boosts
 
 # Check if any party member has a skill (either by string name or enum variant)
 # Any hero with 0 hp or mv is not included
 func AnyBonus(bonus: Variant) -> bool:
 	bonus = _get_bonus(bonus)
 
-	for h in Heroes:
-		if h.hp && h.mv:
-			if bonus in h.bonuses:
+	for hero in Heroes:
+		if hero.hp > 0 && hero.mv > 0:
+			if bonus in hero.bonuses:
 				return true
 
 	return false

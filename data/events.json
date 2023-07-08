@@ -9,6 +9,7 @@
 		"fail_text": "You fools! You have failed! Suffer!",
 		"fail_damage": 50,
 		"fail_demotivation": 30,
+		"exp": 60,
 		"pass_text": "Aaargh! You have foiled me!",
 	}
 }
