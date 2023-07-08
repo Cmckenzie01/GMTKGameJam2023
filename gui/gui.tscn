@@ -7,7 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://buibmlu7pmsp7" path="res://assets/gui/ManaBar.png" id="5_hxu6s"]
 [ext_resource type="PackedScene" uid="uid://gxhrf1cwptdn" path="res://rooms/roomCards/Card.tscn" id="6_gweis"]
 [ext_resource type="Script" path="res://gui/dialogue_interface.gd" id="6_mdyv5"]
-[ext_resource type="Texture2D" uid="uid://wygtwnsnhurl" path="res://assets/Cards/Skull.png" id="6_v2ju2"]
+[ext_resource type="Texture2D" uid="uid://wygtwnsnhurl" path="res://assets/cards/Skull.png" id="6_v2ju2"]
 [ext_resource type="JSON" path="res://assets/dialogues/introScene_dialogue.json" id="7_ksm37"]
 [ext_resource type="Texture2D" uid="uid://cwdckhpcsx6xj" path="res://assets/gui/BlueTileSmall.png" id="8_pymbg"]
 [ext_resource type="Texture2D" uid="uid://etarlxblvuk4" path="res://assets/gui/WhiteDownArrow.png" id="9_7uq5h"]
@@ -180,6 +180,7 @@ position = Vector2(92, 146)
 texture = ExtResource("6_v2ju2")
 
 [node name="LevelLabel" type="RichTextLabel" parent="PartyUI/VBoxContainer/Hero2"]
+layout_mode = 0
 offset_left = 136.0
 offset_top = 138.0
 offset_right = 176.0
@@ -236,6 +237,7 @@ position = Vector2(92, 146)
 texture = ExtResource("6_v2ju2")
 
 [node name="LevelLabel" type="RichTextLabel" parent="PartyUI/VBoxContainer/Hero3"]
+layout_mode = 0
 offset_left = 136.0
 offset_top = 138.0
 offset_right = 176.0
@@ -292,6 +294,7 @@ position = Vector2(92, 146)
 texture = ExtResource("6_v2ju2")
 
 [node name="LevelLabel" type="RichTextLabel" parent="PartyUI/VBoxContainer/Hero4"]
+layout_mode = 0
 offset_left = 136.0
 offset_top = 138.0
 offset_right = 176.0
@@ -327,15 +330,15 @@ position = Vector2(93.338, 603.869)
 
 [node name="Card2" parent="CardUI/TileCards" instance=ExtResource("6_gweis")]
 position = Vector2(253.144, 603.869)
-tile = "TileTwo"
+tile = "CombatTile"
 
 [node name="Card3" parent="CardUI/TileCards" instance=ExtResource("6_gweis")]
 position = Vector2(414.364, 605.283)
-tile = "TileThree"
+tile = "TrapTile"
 
 [node name="Card4" parent="CardUI/TileCards" instance=ExtResource("6_gweis")]
 position = Vector2(585.484, 605.283)
-tile = "TileTwo"
+tile = "PuzzleTile"
 
 [node name="BuffCards" type="Node" parent="CardUI"]
 

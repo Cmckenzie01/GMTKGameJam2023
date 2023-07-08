@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://bvxtwari425f0"]
 
 [ext_resource type="Script" path="res://rooms/roomTiles/Room.gd" id="1_sns5q"]
-[ext_resource type="Texture2D" uid="uid://gaa57fk3wfwr" path="res://assets/floors/Healing_room.png" id="2_w3cxd"]
+[ext_resource type="Texture2D" uid="uid://gaa57fk3wfwr" path="res://assets/floors/healing_room.png" id="2_w3cxd"]
 
 [node name="Room" type="Node2D"]
 script = ExtResource("1_sns5q")

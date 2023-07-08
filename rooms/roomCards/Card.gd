@@ -3,7 +3,7 @@ class_name Card extends Node2D
 signal play_card(effects: Array)
 signal card_left_clicked(card)
 
-@export var tile: String = "TileOne"
+@export var tile: String = "HealTile"
 @export var zoom_in_size: float = 2.0
 @export var zoom_in_time: float = 0.2
 @export var in_mouse_time: float = 0.1
@@ -41,6 +41,8 @@ func _ready() -> void:
 	card_name_node.text = card_name
 	card_text.text = description
 	card_image.texture = image
+	
+	starting_pos = global_position
 	
 	self.following_mouse = false
 	
@@ -86,25 +88,48 @@ func shrink():
 		self.z_index -= 1
 		
 		self.expanded = false 
-	
-func _input(event: InputEvent):
-	# TODO: Single Click Card, emit signal card_left_clicked(card/self) to GUI Script,
-	# which will handle the dragging the card around the screen functionality and what happens if 
-	# left clicked again (if over slot, active card, if not, return to hand)
-	
-	if event is InputEventMouseButton and self.moused_over and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		print('Single click on ' + self.card_name)
+
+func _on_card_gui_input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if !GlobalVariables.tile_selected:
+			GlobalVariables.tile_selected = self
+			follow_mouse()
+		elif GlobalVariables.tile_selected == self:
+			stop_follow_mouse()
+		elif GlobalVariables.tile_selected and GlobalVariables.tile_selected != self:
+			GlobalVariables.tile_selected.stop_follow_mouse()
+			GlobalVariables.tile_selected = self
+			follow_mouse()
+
 		
-		card_left_clicked.emit(self)
-				
-func follow_mouse(card: Card):
-	if self.name == card.name:
-		print("I am going to follow the mouse", self.name)
+func follow_mouse():
+	if self == GlobalVariables.tile_selected:
 		self.following_mouse = true
 		self.shrink()
+		$Card.mouse_filter = 2 # Ignore Mouse
+		self.z_index = 1
 		
-func stop_follow_mouse(card: Card):
-	if self.name == card.name:
-		print("I am going to stop following the mouse", self.name)
+func stop_follow_mouse():
+	if self == GlobalVariables.tile_selected:
 		self.following_mouse = false
-		# TODO Reset position
+		self.global_position = starting_pos
+		GlobalVariables.tile_selected = null
+		$Card.mouse_filter = 1 # Pass Mouse
+		self.z_index = 0
+
+
+func _on_card_mouse_entered():
+	self.expand()
+		
+	self.moused_over = true
+
+func _on_card_mouse_exited():
+	self.shrink()
+	
+	self.moused_over = false
+
+
+
+
+
+
