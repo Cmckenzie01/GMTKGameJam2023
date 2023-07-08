@@ -2,6 +2,7 @@ extends Node
 
 signal hero_died(hero_index: int)
 signal hero_resurrected(hero_index: int)
+signal hero_level_up(hero_index: int, hero_level: int)
 
 # Resistance/Vulnerability Types
 enum BonusTypes {
@@ -140,7 +141,9 @@ func MotivateParty(heal: int, bonus: Variant = null):
 			hero.mv = min(hero.mv, hero.max_mv)
 
 func GrantExp(exp: int, bonus: Variant = null):
-	for hero in Heroes:
+	for hero_index in range(len(Heroes)):
+		var hero = Heroes[hero_index]
+		
 		# Don't give dead heroes exp
 		if hero.hp > 0:
 			var with_bonus = exp
@@ -167,11 +170,13 @@ func GrantExp(exp: int, bonus: Variant = null):
 				remaining_exp -= LEVEL_THRESHOLDS[new_level]
 				
 			if new_level > hero.level:
-				LevelUp(hero, new_level)
+				LevelUp(hero, hero_index, new_level)
 				
-func LevelUp(hero: Dictionary, new_level: int):
+func LevelUp(hero: Dictionary, hero_index: int, new_level: int):
 	print("Levelling up ", hero.name, " to Level ", str(new_level), "! They have " + str(hero.exp) + " EXP in total.")
 	hero.level = new_level # TODO Send some kind of message
+	
+	hero_level_up.emit(hero_index, hero.level)
 	
 	# TODO Whatever else we do on level up, e.g. stat boosts
 
