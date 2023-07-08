@@ -69,20 +69,6 @@ ui_text_scroll_down={
 ]
 }
 
-[layer_names]
-
-2d_physics/layer_1="World"
-2d_navigation/layer_1="Open"
-2d_physics/layer_2="Player"
-2d_navigation/layer_2="Blocked"
-2d_physics/layer_3="PlayerHurtBox"
-2d_physics/layer_4="Enemy"
-2d_physics/layer_5="EnemyHurtBox"
-2d_physics/layer_6="SoftCollisions"
-2d_physics/layer_7="Interaction"
-2d_physics/layer_8="Bullets"
-2d_physics/layer_9="Auras"
-
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
