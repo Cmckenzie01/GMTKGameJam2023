@@ -1,5 +1,17 @@
 extends Control
 
+enum GameState {
+	# Build (Phase 1)
+	BUILD_PLACE,
+
+	# Play (Phase 2)
+	PLAY,
+}
+var game_state: GameState = GameState.BUILD_PLACE
+var current_room: int = -1
+var current_floor: int = 0
+var move_target: Vector2 = Vector2(0.0, 0.0)
+
 enum EventState {
 	IDLE,
 	INITIAL_TEXT,
@@ -11,20 +23,66 @@ signal event_completed
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	# Testing
-	run_event("spike_trap")
-	pass # Replace with function body.
+	_move_to_next_floor()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
 
+# Placeholders (stubs to be replaced when we figure out how the dungeon works)
+func _get_event() -> String:
+	return "spike_trap"
+func _num_rooms() -> int:
+	return 4
+func _get_room_pos(room_no: int) -> Vector2:
+	match room_no:
+		0:
+			return Vector2(103.0, 104.0)
+		1:
+			return Vector2(360.0, 104.0)
+		2:
+			return Vector2(488.0, 104.0)
+		3:
+			return Vector2(744.0, 104.0)
+		4:
+			return Vector2(872.0, 104.0)
+
+	assert(false)
+	return Vector2()
+
+# Tile movement logic
+func _move_to_next_floor():
+	current_room = 0
+	current_floor += 1
+
+	print("=== Moving To Floor " + str(current_floor) + " ===")
+
+	game_state = GameState.BUILD_PLACE
+
+	$Party.global_position = _get_room_pos(0)
+
+func _start_moving_to_next_room():
+	if current_room >= _num_rooms():
+		_move_to_next_floor()
+		return
+	current_room += 1
+
+	# TODO: This should maybe be a path of nodes, otherwise a right angle will result in diagonal movement
+	var target = _get_room_pos(current_room)
+	var tween = get_tree().create_tween()
+	tween.tween_property($Party, "global_position", target, 2.0)
+	tween.tween_callback(_finish_moving_to_next_room)
+
+func _finish_moving_to_next_room():
+	run_event(_get_event())
+
+# Event (what happens on the tile) logic
 func run_event(event_id: String):
 	assert(event_state == EventState.IDLE)
 	assert(current_event == null)
 	current_event = GlobalVariables.EventData[event_id]
-	
+
 	event_state = EventState.INITIAL_TEXT
 	_send_text(current_event["entry_text"])
 	$GoButton.visible = true
@@ -53,39 +111,42 @@ func _do_event() -> bool:
 		if Party.AnyBonus(b):
 			chance += 0.2
 			break
-	
+
 	if randf_range(0.0, 1.0) < chance:
 		# Pass
-		print("Event passed")
 		Party.MotivateParty(current_event["reward_motivation"], current_event["reward_bonuses"])
 		# TODO: Grant exp
 		return true
 	else:
 		# Fail
-		print("Event failed")
 		Party.DealPartyDamage(current_event["fail_damage"])
 		Party.DemotivateParty(current_event["fail_demotivation"])
 		return false
-	
+
 
 func _on_go_button_pressed():
-	match event_state:
-		EventState.INITIAL_TEXT:
-			var result = _do_event()
-			var text
-			if result:
-				text = current_event["pass_text"]
-			else:
-				text = current_event["fail_text"]
-			_send_text(text)
-			event_state = EventState.END_TEXT
-		
-		EventState.END_TEXT:
-			current_event = null
-			event_state = EventState.IDLE
-			event_completed.emit()
+	match game_state:
+		GameState.BUILD_PLACE:
+			game_state = GameState.PLAY
+			_start_moving_to_next_room()
+
+		GameState.PLAY:
+			match event_state:
+				EventState.INITIAL_TEXT:
+					var result = _do_event()
+					var text
+					if result:
+						text = current_event["pass_text"]
+					else:
+						text = current_event["fail_text"]
+					_send_text(text)
+					event_state = EventState.END_TEXT
+
+				EventState.END_TEXT:
+					current_event = null
+					event_state = EventState.IDLE
+					event_completed.emit()
 
 
 func _on_event_completed():
-	print("Test output of event completed!")
-	run_event("spike_trap")
+	_start_moving_to_next_room()
