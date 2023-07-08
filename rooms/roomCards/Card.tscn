@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://rooms/roomCards/Card.gd" id="1_vltva"]
 [ext_resource type="Texture2D" uid="uid://uhtkfdniys7p" path="res://assets/Cards/Card.png" id="2_tlbps"]
-[ext_resource type="FontFile" uid="uid://bfx7o8u6rt3s6" path="res://assets/Fonts/arcadeclassic/ARCADECLASSIC.TTF" id="3_yme5s"]
+[ext_resource type="FontFile" uid="uid://bfx7o8u6rt3s6" path="res://assets/fonts/arcadeclassic/ARCADECLASSIC.TTF" id="3_yme5s"]
 [ext_resource type="Texture2D" uid="uid://fbiofdctumc4" path="res://assets/Cards/pig.jpg" id="4_afnht"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5r046"]

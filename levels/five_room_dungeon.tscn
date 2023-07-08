@@ -42,7 +42,7 @@ offset_bottom = 720.0
 color = Color(0.145098, 0.0745098, 0.101961, 1)
 
 [node name="GridSystem" type="TileMap" parent="."]
-position = Vector2(-89, 74)
+position = Vector2(-89, -90)
 tile_set = SubResource("TileSet_ebch4")
 cell_quadrant_size = 128
 format = 2

@@ -17,7 +17,8 @@ const SlotClass = preload("res://levels/empty_dungeon_room.gd")
 @onready var no_of_rooms: int = 0
 @onready var no_of_rooms_occupied: int = 0
 
-@onready var test_room = preload("res://rooms/roomTiles/Room.tscn")
+@onready var default_room = preload("res://rooms/roomTiles/Room.tscn")
+@onready var card = ["Healing_room", "Trap_Room", "Weapon_Upgrade_Room"]
 
 func _ready():
 	for x in x_coord:
@@ -32,8 +33,9 @@ func _ready():
 
 func _on_empty_dungeon_room_gui_input(event: InputEvent, slot: SlotClass):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		var room = test_room.instantiate()
-		slot.occupySlot(room)
+		var room = default_room.instantiate()
+		var random_card = card.pick_random()
+		slot.occupySlot(room, random_card)
 		slot.gui_input.disconnect(_on_empty_dungeon_room_gui_input)
 		
 		#placeholder logic
