@@ -8,7 +8,7 @@ const SlotClass = 0 # preload("res://rooms/roomCards/Card.gd") # To be replaced 
 var holding_offset = Vector2(120, 120)
 var held_card = null
 
-@onready var current_dungeon = get_node('Dungeon')
+@onready var current_dungeon = get_parent().get_node("Dungeon")
 @onready var cards_container = get_node('CardUI/TileCards')
 
 @onready var hero_huds = [%Hero1, %Hero2, %Hero3, %Hero4]
@@ -45,7 +45,7 @@ func _slide_to(current: int, target: int) -> int:
 		return current + 1
 	return current
 
-func _process(delta):
+func _process(_delta):
 	# In theory this can be triggered by an event, rather than doing it every frame, but ehh
 	for i in range(0, 4):
 		var hero = Party.Heroes[i]
