@@ -30,6 +30,12 @@ var original_right_bound
 
 var following_mouse: bool
 
+var original_width
+var original_height
+
+var world_right_x = ProjectSettings.get('display/window/size/viewport_width')
+var world_bottom_y = ProjectSettings.get('display/window/size/viewport_height')
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	card_name_node.text = card_name
@@ -38,10 +44,20 @@ func _ready() -> void:
 	
 	self.following_mouse = false
 	
+	var left_x = card_frame.get_rect().position.x
+	var bottom_y = card_frame.get_rect().position.y
+	
+	var right_x = left_x + card_frame.get_rect().size.x
+	var top_y = bottom_y + card_frame.get_rect().size.y
+	
+	original_width = right_x - left_x
+	original_height = top_y - bottom_y
+	
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if self.following_mouse:
-		self.global_position = get_viewport().get_mouse_position()
+		self.global_position.x = clamp(get_viewport().get_mouse_position().x, 0 + self.original_width/2, world_right_x - self.original_width/2)
+		self.global_position.y = clamp(get_viewport().get_mouse_position().y, 0 + self.original_height/2, world_bottom_y - self.original_height/2)
 
 func _on_area_2d_mouse_entered() -> void:
 	self.expand()
