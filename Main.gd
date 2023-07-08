@@ -1,8 +1,8 @@
 extends Node2D
 
-const StartScene = preload("res://scenes/start_scene.tscn")
-const IntroScene = preload("res://scenes/intro_scene.tscn")
-const GameScene = preload("res://scenes/game_scene.tscn")
+const StartScene = preload("res://main_scenes/start_scene.tscn")
+const IntroScene = preload("res://main_scenes/intro_scene.tscn")
+const GameScene = preload("res://main_scenes/game_scene.tscn")
 
 # Floors
 const ThreeRoomDungeon = preload("res://levels/three_room_dungeon.tscn")
@@ -10,7 +10,7 @@ const ThreeRoomDungeon = preload("res://levels/three_room_dungeon.tscn")
 func _ready():
     get_node("StageManager/transitionScreen").hide()
     get_node("StageManager/loadingLabel").hide()
-    
+  
 func changeState(current_stage, next_stage):
     get_node("StageManager/transitionScreen").show()
     get_node("StageManager/loadingLabel").show()
