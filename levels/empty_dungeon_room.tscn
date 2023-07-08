@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://btdlxgj3257nd"]
+
+[ext_resource type="Script" path="res://levels/empty_dungeon_room.gd" id="1_wsw24"]
+
+[node name="emptyDungeonRoom" type="Panel"]
+self_modulate = Color(1, 1, 1, 0)
+z_index = 1
+offset_left = -64.0
+offset_top = -64.0
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_wsw24")
