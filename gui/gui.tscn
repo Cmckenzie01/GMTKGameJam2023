@@ -84,6 +84,7 @@ offset_bottom = 828.0
 scale = Vector2(0.5, 0.5)
 
 [node name="Hero1" type="Control" parent="PartyUI/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -127,6 +128,7 @@ offset_bottom = 62.6032
 text = "HERO 1: The Magificant"
 
 [node name="Hero2" type="Control" parent="PartyUI/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -170,6 +172,7 @@ offset_bottom = 62.6032
 text = "HERO 2: The Beautiful"
 
 [node name="Hero3" type="Control" parent="PartyUI/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
@@ -213,6 +216,7 @@ offset_bottom = 62.6032
 text = "HERO 3: The Mighty"
 
 [node name="Hero4" type="Control" parent="PartyUI/VBoxContainer"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
 
