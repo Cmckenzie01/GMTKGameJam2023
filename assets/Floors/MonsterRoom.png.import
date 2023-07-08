@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cxnbbq7bthlqx"
-path="res://.godot/imported/MonsterRoom.png-32b222452b15af3932a9dcf8bda5896e.ctex"
+path="res://.godot/imported/MonsterRoom.png-a26b33d9b74a774e1942edf9ae8abd74.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/floors/MonsterRoom.png"
-dest_files=["res://.godot/imported/MonsterRoom.png-32b222452b15af3932a9dcf8bda5896e.ctex"]
+source_file="res://assets/Floors/MonsterRoom.png"
+dest_files=["res://.godot/imported/MonsterRoom.png-a26b33d9b74a774e1942edf9ae8abd74.ctex"]
 
 [params]
 

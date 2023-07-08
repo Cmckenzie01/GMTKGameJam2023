@@ -15,4 +15,4 @@ grow_vertical = 2
 
 [node name="Dungeon" parent="." instance=ExtResource("2_5ilbx")]
 
-[node name="GUI" parent="." instance=ExtResource("2_fkfsi")]
+[node name="GUI" parent="." instance=ExtResource("2_6xb1b")]
