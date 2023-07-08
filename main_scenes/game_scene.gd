@@ -73,6 +73,7 @@ func _move_to_next_floor():
 	game_state = GameState.BUILD_PLACE
 
 	$Party.global_position = _get_room_pos(0)
+	$GUI.draw_hand(5)
 
 func _start_moving_to_next_room():
 	if current_room >= _num_rooms():

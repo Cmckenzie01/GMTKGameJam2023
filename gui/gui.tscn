@@ -1,13 +1,12 @@
-[gd_scene load_steps=15 format=3 uid="uid://ctmrulo45br7"]
+[gd_scene load_steps=14 format=3 uid="uid://ctmrulo45br7"]
 
 [ext_resource type="Script" path="res://gui/gui.gd" id="1_t2c0x"]
 [ext_resource type="Texture2D" uid="uid://coq86da7jap6p" path="res://assets/sprites/Placeholder.png" id="2_6vyb3"]
 [ext_resource type="Texture2D" uid="uid://c8rln7lsati0b" path="res://assets/gui/CharacterHud.png" id="3_312qr"]
 [ext_resource type="Texture2D" uid="uid://dkfd67vrewnwp" path="res://assets/gui/HealthBar.png" id="4_y0dqi"]
 [ext_resource type="Texture2D" uid="uid://buibmlu7pmsp7" path="res://assets/gui/ManaBar.png" id="5_hxu6s"]
-[ext_resource type="PackedScene" uid="uid://gxhrf1cwptdn" path="res://rooms/roomCards/Card.tscn" id="6_gweis"]
 [ext_resource type="Script" path="res://gui/dialogue_interface.gd" id="6_mdyv5"]
-[ext_resource type="Texture2D" uid="uid://wygtwnsnhurl" path="res://assets/cards/Skull.png" id="6_v2ju2"]
+[ext_resource type="Texture2D" uid="uid://wygtwnsnhurl" path="res://assets/Cards/Skull.png" id="6_v2ju2"]
 [ext_resource type="JSON" path="res://assets/dialogues/introScene_dialogue.json" id="7_ksm37"]
 [ext_resource type="Texture2D" uid="uid://cwdckhpcsx6xj" path="res://assets/gui/BlueTileSmall.png" id="8_pymbg"]
 [ext_resource type="Texture2D" uid="uid://etarlxblvuk4" path="res://assets/gui/WhiteDownArrow.png" id="9_7uq5h"]
@@ -323,24 +322,9 @@ offset_bottom = 714.0
 mouse_filter = 1
 metadata/_edit_lock_ = true
 
-[node name="TileCards" type="Node" parent="CardUI"]
-
-[node name="Card" parent="CardUI/TileCards" instance=ExtResource("6_gweis")]
-position = Vector2(93.338, 603.869)
-
-[node name="Card2" parent="CardUI/TileCards" instance=ExtResource("6_gweis")]
-position = Vector2(253.144, 603.869)
-tile = "CombatTile"
-
-[node name="Card3" parent="CardUI/TileCards" instance=ExtResource("6_gweis")]
-position = Vector2(414.364, 605.283)
-tile = "TrapTile"
-
-[node name="Card4" parent="CardUI/TileCards" instance=ExtResource("6_gweis")]
-position = Vector2(585.484, 605.283)
-tile = "PuzzleTile"
-
-[node name="BuffCards" type="Node" parent="CardUI"]
+[node name="Cards" type="Node2D" parent="CardUI"]
+unique_name_in_owner = true
+position = Vector2(51, 66)
 
 [node name="DialogueInterface" type="CanvasLayer" parent="."]
 script = ExtResource("6_mdyv5")

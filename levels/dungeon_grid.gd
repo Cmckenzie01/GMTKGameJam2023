@@ -37,13 +37,13 @@ func _ready():
 func _on_empty_dungeon_room_gui_input(event: InputEvent, slot: SlotClass):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed and GlobalVariables.tile_selected:
 		var room = default_room.instantiate()
-		var tile = GlobalVariables.tile_selected
-		var tile_name = tile.card_name
-		var tile_id = tile.name
-		slot.occupySlot(room, tile_name)
+		var tile = GlobalVariables.tile_selected.card
+		var tile_data = GlobalVariables.Cards[tile]
+		slot.occupySlot(room, tile_data["name"])
+
 		slot.gui_input.disconnect(_on_empty_dungeon_room_gui_input)
-		var path = tile_cards_path + tile_id
-		get_parent().get_node(path).queue_free()
+		GlobalVariables.tile_selected.queue_free()
+		GlobalVariables.tile_selected = null
 
 		#placeholder logic
 		no_of_rooms_occupied += 1

@@ -22,81 +22,95 @@ func read_json_file(file_path):
 	},
 }
 
-@onready var DungeonTiles: Dictionary = {
-	"TrapTile": {
+enum CardType {
+	TILE,
+	BUFF
+}
+
+const Cards: Dictionary = {
+	# Dungeon Tiles
+	"TrapRoom": {
 		"name": "trap_room",
-		"image": preload("res://assets/floors/trap_room.png"),
-		"description": "A Room with a Trap!",
-		"effects": [] # TODO: Make Effect
+		"image": preload('res://assets/floors/trap_room.png'),
+		"description": "A room with a Trap!",
+		"effects": [], # TODO: Make Effect
+		"type": CardType.TILE,
 	},
-	"CombatTile": {
+	"CombatRoom": {
 		"name": "combat_room",
-		"image": preload("res://assets/floors/combat_room.png"),
+		"image": preload('res://assets/floors/combat_room.png'),
 		"description": "A Room to relax in!",
-		"effects": [] # TODO: Make Effect
+		"effects": [], # TODO: Make Effect
+		"type": CardType.TILE,
 	},
-	"PuzzleTile": {
+	"PuzzleRoom": {
 		"name": "puzzle_room",
-		"image": preload("res://assets/floors/puzzle_room.png"),
+		"image": preload('res://assets/floors/puzzle_room.png'),
 		"description": "A Room with a Puzzle in it!",
-		"effects": [] # TODO: Make Effect
+		"effects": [], # TODO: Make Effect
+		"type": CardType.TILE,
 	},
-	"SocialTile": {
+	"SocialRoom": {
 		"name": "social_room",
-		"image": preload("res://assets/floors/combat_room.png"),
+		"image": preload('res://assets/floors/combat_room.png'),
 		"description": "A Room with a social dynamic!",
-		"effects": [] # TODO: Make Effect
+		"effects": [], # TODO: Make Effect
+		"type": CardType.TILE,
 	},
-	"EnvironmentalTile": {
+	"EnvironmentalRoom": {
 		"name": "environmental_room",
-		"image": preload("res://assets/floors/environment_room.png"),
+		"image": preload('res://assets/floors/environment_room.png'),
 		"description": "A Room with some natural wonder!",
-		"effects": [] # TODO: Make Effect
+		"effects": [], # TODO: Make Effect
+		"type": CardType.TILE,
 	},
-	"RicesTile": {
+	"RichesRoom": {
 		"name": "riches_room",
-		"image": preload("res://assets/floors/combat_room.png"),
+		"image": preload('res://assets/floors/combat_room.png'),
 		"description": "A Room with something shiny!",
-		"effects": [] # TODO: Make Effect
+		"effects": [], # TODO: Make Effect
+		"type": CardType.TILE,
 	},
-	"KnowledgeTile": {
-		"name": "Knowledge_room",
-		"image": preload("res://assets/floors/Combat_room.png"),
+	"KnowledgeRoom": {
+		"name": "knowledge_room",
+		"image": preload('res://assets/floors/combat_room.png'),
 		"description": "A Room with some history!",
-		"effects": [] # TODO: Make Effect
+		"effects": [], # TODO: Make Effect
+		"type": CardType.TILE,
 	},
-	"HonourTile": {
+	"HonourRoom": {
 		"name": "honour_room",
-		"image": preload("res://assets/floors/combat_room.png"),
+		"image": preload('res://assets/floors/combat_room.png'),
 		"description": "A Room with a much deserved Shop!",
-		"effects": [] # TODO: Make Effect
+		"effects": [], # TODO: Make Effect
+		"type": CardType.TILE,
 	},
-	"GloryTile": {
+	"GloryRoom": {
 		"name": "glory_room",
-		"image": preload("res://assets/floors/combat_room.png"),
+		"image": preload('res://assets/floors/combat_room.png'),
 		"description": "A Room with some glory!",
-		"effects": [] # TODO: Make Effect
+		"effects": [], # TODO: Make Effect
+		"type": CardType.TILE,
 	},
-	"HealTile": {
-		"name": "healing_room",
-		"image": preload("res://assets/floors/combat_room.png"),
-		"description": "A Room to take a deserved rest in!",
-		"effects": [] # TODO: Make Effect
+	"HealRoom": {
+		"name": "Healing_Room",
+		"image": preload('res://assets/floors/healing_room.png'),
+		"description": "But am I a card? Really? When you think about it?",
+		"effects": [], # TODO: Make Effect
+		"type": CardType.TILE,
 	},
 }
 
-
-@onready var BuffCards: Dictionary = {
-	"CardOne": {},
-	"CardTwo": {},
-	"CardThree": {},
-	"CardFour": {},
-	"CardFive": {},
-	"CardSix": {},
-	"CardSeven": {},
-	"CardEight": {},
-	"CardNine": {},
-	"CardTen": {},
-}
+# Cards will be added to this list, since we don't load and save, we don't need to keep a copy of
+# the original starting deck
+var Deck = [
+	"TrapRoom",
+	"TrapRoom",
+	"CombatRoom",
+	"CombatRoom",
+	"RichesRoom",
+	"GloryRoom",
+	"HealRoom",
+]
 
 @onready var tile_selected = null
