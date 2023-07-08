@@ -9,6 +9,7 @@ func read_json_file(file_path):
 
 @onready var EventData: Dictionary = read_json_file('res://data/events.json')
 
+@onready var DungeonSequence: Array = []
 
 @onready var DungeonFloors: Dictionary = {
 	"ThreeRoomFloor": {
