@@ -23,8 +23,8 @@ signal event_completed
 
 const INSULTS = [
 	"Bumbling",
-	"Idiot", 
-	"Clumsy", 
+	"Idiot",
+	"Clumsy",
 	"Buffonish",
 	"Smelly",
 	"Lazy",
@@ -43,10 +43,10 @@ func _process(_delta):
 
 func _get_event() -> String:
 	return "spike_trap" # TODO Replace when we figure out how the dungeon works
-	
+
 func _num_rooms() -> int:
 	return 4 # TODO Replace when we figure out how the dungeon works
-	
+
 func _get_room_pos(room_no: int) -> Vector2:
 	match room_no: # TODO Ideally get dynamically
 		0:
@@ -79,15 +79,15 @@ func _start_moving_to_next_room():
 		_move_to_next_floor()
 		Party.HealParty(50) # TODO Temporary for testing
 		return
-		
+
 	current_room += 1
 
 	# TODO: This should maybe be a path of nodes, otherwise a right angle will result in diagonal movement
 	var target = _get_room_pos(current_room)
 	var tween = get_tree().create_tween()
-	
+
 	tween.tween_property($Party, "global_position", target, 2.0)
-	
+
 	tween.tween_callback(_finish_moving_to_next_room)
 
 func _finish_moving_to_next_room():
@@ -106,13 +106,13 @@ func run_event(event_id: String):
 
 # Send text to the dialogue box, and play it
 func _send_text(text: String, name: String = "Placeholder", use_right_sprite: bool = true):
-	
+
 	var active_sprite
 	if use_right_sprite:
 		active_sprite = 1
 	else:
 		active_sprite = 0
-	
+
 	# Create dialogue data
 	var data = [
 		{
@@ -123,7 +123,7 @@ func _send_text(text: String, name: String = "Placeholder", use_right_sprite: bo
 			"name": name,
 		}
 	];
-	
+
 	$GUI/DialogueInterface.visible = true
 	$GUI/DialogueInterface.play_data(data)
 
@@ -146,9 +146,9 @@ func _do_event() -> bool:
 	else:
 		Party.DealPartyDamage(current_event["fail_damage"])
 		Party.DemotivateParty(current_event["fail_demotivation"]) # Extra demotivate if it's your preferred task?
-		
+
 		succeeded = false
-		
+
 	return succeeded
 
 func _on_go_button_pressed():
@@ -162,20 +162,20 @@ func _on_go_button_pressed():
 				EventState.INITIAL_TEXT:
 					var result = _do_event()
 					var text
-					
+
 					if result:
 						text = current_event["pass_text"]
 					else:
 						text = current_event["fail_text"]
-						
+
 					_send_text(text)
-					
+
 					event_state = EventState.END_TEXT
 
 				EventState.END_TEXT:
 					current_event = null
 					event_state = EventState.IDLE
 					event_completed.emit()
-				
+
 func _on_event_completed():
 	_start_moving_to_next_room()

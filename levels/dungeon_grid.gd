@@ -45,14 +45,9 @@ func _on_empty_dungeon_room_gui_input(event: InputEvent, slot: SlotClass):
 		slot.gui_input.disconnect(_on_empty_dungeon_room_gui_input)
 		var path = tile_cards_path + tile_id
 		get_parent().get_node(path).queue_free()
-		
+
 		#placeholder logic
 		no_of_rooms_occupied += 1
 		if no_of_rooms == no_of_rooms_occupied:
 			all_dungeon_slots_occupied.emit()
 			print("all rooms occupied")
-		
-			
-		
-		
-		

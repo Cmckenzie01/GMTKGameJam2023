@@ -99,22 +99,22 @@ func _get_bonus(bonus: Variant) -> BonusTypes:
 func HealParty(heal: int):
 	for i in range(len(Heroes)):
 		var hero = Heroes[i] # TODO Do we want this to work on dead heroes?
-		
+
 		var was_dead = (hero.hp == 0)
-		
+
 		hero.hp += heal
 		hero.hp = min(hero.hp, hero.max_hp)
-		
+
 		if was_dead:
 			hero_resurrected.emit(i)
 
 func DealPartyDamage(dmg: int):
 	for i in range(len(Heroes)):
 		var hero = Heroes[i]
-		
+
 		hero.hp -= dmg
 		hero.hp = max(hero.hp, 0)
-		
+
 		if hero.hp == 0:
 			hero_died.emit(i)
 
@@ -143,41 +143,41 @@ func MotivateParty(heal: int, bonus: Variant = null):
 func GrantExp(exp: int, bonus: Variant = null):
 	for hero_index in range(len(Heroes)):
 		var hero = Heroes[hero_index]
-		
+
 		# Don't give dead heroes exp
 		if hero.hp > 0:
 			var with_bonus = exp
 
 			var motivation_level = (hero.mv / hero.max_mv)
-			var modifier 
-			
+			var modifier
+
 			if motivation_level > 0.7:
 				modifier = 1.2
 			elif motivation_level > 0.4:
-				modifier = 1 
+				modifier = 1
 			else:
 				modifier = 0.8
-				
+
 			with_bonus *= modifier
 
 			hero.exp += with_bonus
-			
-			var new_level = hero.level 
-			
-			var remaining_exp = hero.exp 
+
+			var new_level = hero.level
+
+			var remaining_exp = hero.exp
 			while remaining_exp >= LEVEL_THRESHOLDS[new_level]:
 				new_level += 1
 				remaining_exp -= LEVEL_THRESHOLDS[new_level]
-				
+
 			if new_level > hero.level:
 				LevelUp(hero, hero_index, new_level)
-				
+
 func LevelUp(hero: Dictionary, hero_index: int, new_level: int):
 	print("Levelling up ", hero.name, " to Level ", str(new_level), "! They have " + str(hero.exp) + " EXP in total.")
 	hero.level = new_level # TODO Send some kind of message
-	
+
 	hero_level_up.emit(hero_index, hero.level)
-	
+
 	# TODO Whatever else we do on level up, e.g. stat boosts
 
 # Check if any party member has a skill (either by string name or enum variant)
