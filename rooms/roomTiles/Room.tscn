@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://bvxtwari425f0"]
+
+[ext_resource type="Script" path="res://rooms/roomTiles/Room.gd" id="1_sns5q"]
+[ext_resource type="Texture2D" uid="uid://p7gjh6ie4ukr" path="res://assets/tilesets/MonsterRoom.png" id="2_yb138"]
+
+[node name="Room" type="Node2D"]
+script = ExtResource("1_sns5q")
+
+[node name="Icon" type="Sprite2D" parent="."]
+texture = ExtResource("2_yb138")
+
+[node name="RoomName" type="RichTextLabel" parent="."]
+offset_left = -32.0
+offset_top = 33.0
+offset_right = 41.0
+offset_bottom = 51.0
+theme_override_colors/default_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/normal_font_size = 12

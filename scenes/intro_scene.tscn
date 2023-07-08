@@ -1,0 +1,120 @@
+[gd_scene load_steps=6 format=3 uid="uid://bfjyly4gnd54f"]
+
+[ext_resource type="Script" path="res://scenes/intro_scene.gd" id="1_2ngn6"]
+[ext_resource type="PackedScene" uid="uid://0u7op5yq0yde" path="res://gui/dialogue_interface.tscn" id="1_qiwna"]
+[ext_resource type="JSON" path="res://assets/dialogues/introScene_dialogue.json" id="2_vb6yp"]
+[ext_resource type="Texture2D" uid="uid://dq6hlkvym48ok" path="res://assets/gui/A_Accept1.png" id="4_7bs3m"]
+[ext_resource type="Texture2D" uid="uid://da0xk11hj72k6" path="res://assets/gui/A_Restart1.png" id="5_o0p5h"]
+
+[node name="IntroScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_2ngn6")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.184314, 0.184314, 0.184314, 1)
+
+[node name="Hero1" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 94.0
+offset_top = 89.0
+offset_right = 347.0
+offset_bottom = 570.0
+color = Color(0.592157, 0.403922, 0.6, 0.827451)
+
+[node name="Label" type="Label" parent="Hero1"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 20.0
+offset_right = 96.0
+offset_bottom = 46.0
+scale = Vector2(3, 3)
+text = "Hero 1"
+
+[node name="Hero2" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 358.0
+offset_top = 89.0
+offset_right = 611.0
+offset_bottom = 570.0
+color = Color(0.592157, 0.403922, 0.6, 0.827451)
+
+[node name="Label" type="Label" parent="Hero2"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 20.0
+offset_right = 96.0
+offset_bottom = 46.0
+scale = Vector2(3, 3)
+text = "Hero 2"
+
+[node name="Hero3" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 627.0
+offset_top = 90.0
+offset_right = 880.0
+offset_bottom = 571.0
+color = Color(0.592157, 0.403922, 0.6, 0.827451)
+
+[node name="Label" type="Label" parent="Hero3"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 20.0
+offset_right = 96.0
+offset_bottom = 46.0
+scale = Vector2(3, 3)
+text = "Hero 3"
+
+[node name="Hero4" type="ColorRect" parent="."]
+layout_mode = 0
+offset_left = 897.0
+offset_top = 88.0
+offset_right = 1150.0
+offset_bottom = 569.0
+color = Color(0.592157, 0.403922, 0.6, 0.827451)
+
+[node name="Label" type="Label" parent="Hero4"]
+layout_mode = 0
+offset_left = 44.0
+offset_top = 20.0
+offset_right = 96.0
+offset_bottom = 46.0
+scale = Vector2(3, 3)
+text = "Hero 4"
+
+[node name="DialogueInterface" parent="." instance=ExtResource("1_qiwna")]
+dialogue_file = ExtResource("2_vb6yp")
+
+[node name="Select" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1172.0
+offset_top = 207.0
+offset_right = 1200.0
+offset_bottom = 235.0
+scale = Vector2(3, 3)
+icon = ExtResource("4_7bs3m")
+flat = true
+
+[node name="Reroll" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1170.0
+offset_top = 346.0
+offset_right = 1198.0
+offset_bottom = 374.0
+scale = Vector2(3, 3)
+icon = ExtResource("5_o0p5h")
+flat = true
+
+[connection signal="dialog_completed" from="DialogueInterface" to="." method="_on_dialogue_interface_dialog_completed"]
+[connection signal="pressed" from="Select" to="." method="_on_select_pressed"]
+[connection signal="pressed" from="Reroll" to="." method="_on_reroll_pressed"]

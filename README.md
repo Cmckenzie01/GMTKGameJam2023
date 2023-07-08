@@ -1,4 +1,7 @@
 # GMTKGameJam2023
 Game submission for the 2023 GMTK Game Jam
 
-New Slate!
+
+Input Mappings:
+	Action - Space Bar / Left Mouse Click
+	

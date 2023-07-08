@@ -1,0 +1,10 @@
+[
+	{"active_sprite": 2, "name": "Placeholder", "text": "This is placeholder dialogue."},
+	{"active_sprite": 2, "name": "Placeholder", "text": "It serves no purpose other than providing an example of dialogue for the dialogue interface system."},
+	{"active_sprite": 2, "name": "Placeholder", "text": "If you're reading this, then hopefully the game is still in development and you recognise the purpose of this dialogue."},
+	{"active_sprite": 2, "name": "Placeholder", "text": "If you're reading this in the finished game, then.... "},
+	{"active_sprite": 2, "name": "Placeholder", "text": "You shouldn't be."},
+	{"active_sprite": 2, "name": "Placeholder", "text": "Pretend you never saw this."},
+	{"active_sprite": 2, "name": "Placeholder", "text": "There's nothing here to see. Go away."},
+	{"active_sprite": 2, "name": "Placeholder", "text": "..."}
+]
