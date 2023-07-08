@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dpo2caay8labl"]
 
-[ext_resource type="PackedScene" uid="uid://bc28pv7wmkxgr" path="res://levels/three_room_dungeon.tscn" id="1_1hjwd"]
-[ext_resource type="PackedScene" uid="uid://ctmrulo45br7" path="res://gui/gui.tscn" id="2_6xb1b"]
+[ext_resource type="PackedScene" uid="uid://bc28pv7wmkxgr" path="res://levels/three_room_dungeon.tscn" id="1_088iq"]
+[ext_resource type="PackedScene" uid="uid://ctmrulo45br7" path="res://gui/gui.tscn" id="2_fkfsi"]
 
 [node name="GameScene" type="Control"]
 layout_mode = 3
@@ -11,6 +11,6 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="ThreeRoomDungeon" parent="." instance=ExtResource("1_1hjwd")]
+[node name="Dungeon" parent="." instance=ExtResource("1_088iq")]
 
-[node name="GUI" parent="." instance=ExtResource("2_6xb1b")]
+[node name="GUI" parent="." instance=ExtResource("2_fkfsi")]
