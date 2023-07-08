@@ -10,5 +10,5 @@ func _ready() -> void:
 	self.room_name_node.text = self.room_name
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
