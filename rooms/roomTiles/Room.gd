@@ -6,5 +6,5 @@ class_name Room extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	tile_sprite.texture = load(str("res://assets/floors/", tile_name, ".png"))
+	tile_sprite.texture = GlobalVariables.Cards[tile_name].image
 

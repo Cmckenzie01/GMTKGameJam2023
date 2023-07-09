@@ -3,21 +3,18 @@ class_name Card extends Node2D
 signal play_card(effects: Array)
 signal card_left_clicked(card)
 
-@export var tile: String = "TileOne"
+@export var card: String = "HealRoom"
 @export var zoom_in_size: float = 2.0
 @export var zoom_in_time: float = 0.2
 @export var in_mouse_time: float = 0.1
-
-@onready var card_name: String = GlobalVariables.DungeonTiles[tile]["name"]
-@onready var image = GlobalVariables.DungeonTiles[tile]["image"]
-@onready var description = GlobalVariables.DungeonTiles[tile]["description"]
-@onready var effets = GlobalVariables.DungeonTiles[tile]["effects"]
 
 @onready var card_frame = $CardFrame
 @onready var card_name_node = $CardFrame/CardName
 @onready var card_image = $CardFrame/CardImage
 @onready var card_text = $CardFrame/CardText
 # TODO Add some room for flavour text?
+
+var card_name
 
 var starting_pos = Vector2()
 var current_pos = Vector2()
@@ -38,20 +35,19 @@ var world_bottom_y = ProjectSettings.get('display/window/size/viewport_height')
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	card_name_node.text = card_name
-	card_text.text = description
-	card_image.texture = image
+	starting_pos = transform.origin
 
-	self.following_mouse = false
+	make_card(card)
 
-	var left_x = card_frame.get_rect().position.x
-	var bottom_y = card_frame.get_rect().position.y
+func make_card(card_id: String):
+	card = card_id
+	var card_data = GlobalVariables.Cards[card_id]
+	assert(card)
 
-	var right_x = left_x + card_frame.get_rect().size.x
-	var top_y = bottom_y + card_frame.get_rect().size.y
-
-	original_width = right_x - left_x
-	original_height = top_y - bottom_y
+	card_name_node.text = card_data["name"]
+	card_text.text = card_data["description"]
+	card_image.texture = card_data["image"]
+	card_name = card_data["name"]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
@@ -97,14 +93,37 @@ func _input(event: InputEvent):
 
 		card_left_clicked.emit(self)
 
-func follow_mouse(card: Card):
-	if self.name == card.name:
-		print("I am going to follow the mouse", self.name)
-		self.following_mouse = true
-		self.shrink()
+func _on_card_gui_input(event):
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		if !GlobalVariables.tile_selected:
+			GlobalVariables.tile_selected = self
+			follow_mouse()
+		elif GlobalVariables.tile_selected == self:
+			stop_follow_mouse()
+		elif GlobalVariables.tile_selected and GlobalVariables.tile_selected != self:
+			GlobalVariables.tile_selected.stop_follow_mouse()
+			GlobalVariables.tile_selected = self
+			follow_mouse()
 
-func stop_follow_mouse(card: Card):
-	if self.name == card.name:
-		print("I am going to stop following the mouse", self.name)
-		self.following_mouse = false
-		# TODO Reset position
+func follow_mouse():
+	self.following_mouse = true
+	self.shrink()
+	$Card.mouse_filter = 2 # Ignore Mouse
+	self.z_index = 1
+
+func stop_follow_mouse():
+	self.following_mouse = false
+	self.transform.origin = starting_pos
+	$Card.mouse_filter = 1 # Pass Mouse
+	self.z_index = 0
+	# TODO Reset position
+
+func _on_card_mouse_entered():
+	self.expand()
+
+	self.moused_over = true
+
+func _on_card_mouse_exited():
+	self.shrink()
+
+	self.moused_over = false

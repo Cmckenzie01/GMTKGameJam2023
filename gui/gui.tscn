@@ -331,15 +331,12 @@ position = Vector2(93.338, 603.869)
 
 [node name="Card2" parent="CardUI/TileCards" instance=ExtResource("6_gweis")]
 position = Vector2(253.144, 603.869)
-tile = "TileTwo"
 
 [node name="Card3" parent="CardUI/TileCards" instance=ExtResource("6_gweis")]
 position = Vector2(414.364, 605.283)
-tile = "TileThree"
 
 [node name="Card4" parent="CardUI/TileCards" instance=ExtResource("6_gweis")]
 position = Vector2(585.484, 605.283)
-tile = "TileTwo"
 
 [node name="BuffCards" type="Node" parent="CardUI"]
 

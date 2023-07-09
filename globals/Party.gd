@@ -33,6 +33,7 @@ const HeroClasses: Dictionary = {
 		"level": 0,
 		"name": "Nite",
 		"bonuses": [BonusTypes.COMBAT, BonusTypes.SOCIAL, BonusTypes.RICHES, BonusTypes.GLORY],
+		"hud_sprite": preload("res://assets/portraits/GoldenKnightHUD.png")
 	},
 	"Thief": {
 		"hp": 75,
@@ -43,6 +44,7 @@ const HeroClasses: Dictionary = {
 		"level": 0,
 		"name": "Feif",
 		"bonuses": [BonusTypes.TRAP, BonusTypes.PUZZLE, BonusTypes.RICHES],
+		"hud_sprite": preload("res://assets/portraits/RegularTroubleMakerHUD.png")
 	},
 	"Wizard": {
 		"hp": 75,
@@ -53,6 +55,7 @@ const HeroClasses: Dictionary = {
 		"level": 0,
 		"name": "W'izar'",
 		"bonuses": [BonusTypes.TRAP, BonusTypes.PUZZLE, BonusTypes.RICHES],
+		"hud_sprite": preload("res://assets/portraits/PurpleWizardHUD.png")
 	},
 	"Bard": {
 		"hp": 100,
@@ -63,6 +66,7 @@ const HeroClasses: Dictionary = {
 		"level": 0,
 		"name": "Brad",
 		"bonuses": [BonusTypes.SOCIAL, BonusTypes.PUZZLE, BonusTypes.KNOWLEDGE, BonusTypes.HONOUR, BonusTypes.GLORY],
+		"hud_sprite": preload("res://assets/portraits/RedBeardedHUD.png")
 	}
 }
 
