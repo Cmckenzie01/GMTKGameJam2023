@@ -87,13 +87,8 @@ func draw_hand(count: int):
 		at.x += 150
 
 func draw_side_hand(count: int):
-	for c in %Cards2.get_children():
-		c.queue_free()
-
-	GlobalVariables.Deck.shuffle()
+	GlobalVariables.SideDeck.shuffle()
 	var existing_cards = %Cards2.get_child_count()
-	print(existing_cards)
-
 	var at = %Cards2.transform.origin + Vector2(800,0)
 	for i in range(existing_cards, count):
 		var card = CardScene.instantiate()
@@ -102,13 +97,23 @@ func draw_side_hand(count: int):
 		card.make_card(GlobalVariables.SideDeck[i])
 		card.process_mode = 4
 		at.x += 50
-
+	deactivate_side_hand()
+		
 func deactivate_main_hand():
 	var offset = 0
 	for card in %Cards.get_children():
 		card.process_mode = 4
 		card.transform.origin = Vector2(51 + offset, 66)
 		offset += 50
+		card.modulate = Color(1,1,1,0.6)
+		
+func deactivate_side_hand():
+	var at = %Cards2.transform.origin + Vector2(800,0)
+	for card in %Cards2.get_children():
+		card.transform.origin = at
+		card.process_mode = 4
+		at.x += 50
+		card.modulate = Color(1,1,1,0.6)
 
 func activate_side_hand():
 	var offset = 200
@@ -116,3 +121,4 @@ func activate_side_hand():
 		card.process_mode = 0
 		card.transform.origin.x -= offset
 		offset -= 50
+		card.modulate = Color(1,1,1,1)
