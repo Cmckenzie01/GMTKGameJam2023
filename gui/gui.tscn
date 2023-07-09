@@ -2,22 +2,22 @@
 
 [ext_resource type="Script" path="res://gui/gui.gd" id="1_t2c0x"]
 [ext_resource type="Script" path="res://gui/Hero1.gd" id="2_8y0aq"]
-[ext_resource type="Texture2D" uid="uid://lu5bquvrkkjb" path="res://assets/portraits/GoldenKnightHUD.png" id="2_t4b5g"]
+[ext_resource type="Texture2D" uid="uid://bc8xmkf5kj0jq" path="res://assets/portraits/GoldenKnightHUD.png" id="2_t4b5g"]
 [ext_resource type="Texture2D" uid="uid://c8rln7lsati0b" path="res://assets/gui/CharacterHud.png" id="3_312qr"]
 [ext_resource type="Texture2D" uid="uid://dkfd67vrewnwp" path="res://assets/gui/HealthBar.png" id="4_y0dqi"]
 [ext_resource type="Texture2D" uid="uid://buibmlu7pmsp7" path="res://assets/gui/ManaBar.png" id="5_hxu6s"]
 [ext_resource type="Script" path="res://gui/dialogue_interface.gd" id="6_mdyv5"]
-[ext_resource type="Texture2D" uid="uid://wygtwnsnhurl" path="res://assets/Cards/Skull.png" id="6_v2ju2"]
-[ext_resource type="Texture2D" uid="uid://d232s1hkm3b83" path="res://assets/portraits/PurpleWizardHUD.png" id="7_gfqeu"]
+[ext_resource type="Texture2D" uid="uid://wygtwnsnhurl" path="res://assets/cards/Skull.png" id="6_v2ju2"]
+[ext_resource type="Texture2D" uid="uid://bd8pp6mfvwii8" path="res://assets/portraits/PurpleWizardHUD.png" id="7_gfqeu"]
 [ext_resource type="JSON" path="res://assets/dialogues/introScene_dialogue.json" id="7_ksm37"]
-[ext_resource type="Texture2D" uid="uid://2gyw6cb48k1h" path="res://assets/portraits/RedBeardedHUD.png" id="8_0c4tx"]
+[ext_resource type="Texture2D" uid="uid://deik1hy4s2lc1" path="res://assets/portraits/RedBeardedHUD.png" id="8_0c4tx"]
 [ext_resource type="Script" path="res://gui/Hero2.gd" id="8_fmw3x"]
 [ext_resource type="Texture2D" uid="uid://cwdckhpcsx6xj" path="res://assets/gui/BlueTileSmall.png" id="8_pymbg"]
 [ext_resource type="Texture2D" uid="uid://etarlxblvuk4" path="res://assets/gui/WhiteDownArrow.png" id="9_7uq5h"]
-[ext_resource type="Texture2D" uid="uid://cyenlhd4e4p7u" path="res://assets/portraits/RegularTroubleMakerHUD.png" id="9_igixd"]
+[ext_resource type="Texture2D" uid="uid://cwmorsjdfd0ss" path="res://assets/portraits/RegularTroubleMakerHUD.png" id="9_igixd"]
 [ext_resource type="Script" path="res://gui/Hero3.gd" id="10_u5djw"]
 [ext_resource type="Script" path="res://gui/Hero4.gd" id="12_3gnog"]
-[ext_resource type="Texture2D" uid="uid://c5phx7erwpbyu" path="res://assets/sprites/VillianNo1.png" id="14_fyf1s"]
+[ext_resource type="Texture2D" uid="uid://bwfl7s6m0ako8" path="res://assets/sprites/Villain.png" id="16_3miao"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Idle"
@@ -370,13 +370,13 @@ grow_vertical = 0
 visible = false
 position = Vector2(261, -222)
 scale = Vector2(2, 2)
-texture = ExtResource("14_fyf1s")
+texture = ExtResource("16_3miao")
 
 [node name="Sprite2" type="Sprite2D" parent="DialogueInterface/Sprites"]
 z_index = 1
 texture_filter = 1
 position = Vector2(298, -110)
-texture = ExtResource("14_fyf1s")
+texture = ExtResource("16_3miao")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="DialogueInterface"]
 anchors_preset = 7
@@ -404,13 +404,13 @@ anchors_preset = -1
 anchor_left = 0.011
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 17.232
-offset_top = 40.0
-offset_right = -170.0
-offset_bottom = -13.0
+offset_left = 17.726
+offset_top = 41.0
+offset_right = -118.0
+offset_bottom = -6.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Hello world this is a long piece of dialogue to test out the limits of the dialogue system. Hopefully you're not actually typing messages this long because that seems like a lot of reading, and while I'm not judging anyone, I don't know If I want to do a lot of reading. To ease their own you know, and if that's your thing, fair enough"
+text = "Ah, back at the scrying crystal again. Now to summon my perfect dungeon into being! Got to drag my room cards into the empty dungeon slots and my minions will begin work. Can't leave any empty. Then I'll be good to go. And if those pathetic heroes are too weak, I can play with them longer by using the side cards as they're running through if I drag the card to their display bars!"
 
 [node name="Name" type="RichTextLabel" parent="DialogueInterface/NinePatchRect"]
 layout_mode = 0
@@ -418,7 +418,7 @@ offset_left = 17.0
 offset_top = 8.0
 offset_right = 562.0
 offset_bottom = 38.0
-text = "Name"
+text = "Villian"
 
 [node name="next-indicator" type="Sprite2D" parent="DialogueInterface/NinePatchRect"]
 position = Vector2(854.751, 124.551)
