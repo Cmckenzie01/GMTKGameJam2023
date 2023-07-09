@@ -85,7 +85,7 @@ size_flags_vertical = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="PartyUI/VBoxContainer/Hero1"]
 position = Vector2(119.162, 112.539)
-texture = ExtResource("2_t4b5g")
+texture = ExtResource("7_gfqeu")
 
 [node name="HUDBase" type="TextureRect" parent="PartyUI/VBoxContainer/Hero1"]
 layout_mode = 2
@@ -141,7 +141,7 @@ size_flags_vertical = 3
 [node name="Sprite2D" type="Sprite2D" parent="PartyUI/VBoxContainer/Hero2"]
 position = Vector2(117.581, 111.27)
 scale = Vector2(0.980237, 0.984131)
-texture = ExtResource("7_gfqeu")
+texture = ExtResource("9_igixd")
 
 [node name="HUDBase" type="TextureRect" parent="PartyUI/VBoxContainer/Hero2"]
 layout_mode = 2
@@ -254,7 +254,7 @@ size_flags_vertical = 3
 [node name="Sprite2D" type="Sprite2D" parent="PartyUI/VBoxContainer/Hero4"]
 position = Vector2(117.581, 110.27)
 scale = Vector2(0.980237, 0.971631)
-texture = ExtResource("9_igixd")
+texture = ExtResource("2_t4b5g")
 
 [node name="HUDBase" type="TextureRect" parent="PartyUI/VBoxContainer/Hero4"]
 layout_mode = 2

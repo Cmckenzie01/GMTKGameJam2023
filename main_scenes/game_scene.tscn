@@ -9,6 +9,21 @@
 [ext_resource type="Texture2D" uid="uid://ceti8f2021rj3" path="res://assets/sprites/PurpleWizard.png" id="7_tbx5k"]
 [ext_resource type="Texture2D" uid="uid://b4pnxenwibqt7" path="res://assets/sprites/RedBeard.png" id="8_lx08c"]
 
+[sub_resource type="Animation" id="Animation_ovnli"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Knight:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.174533]
+}
+
 [sub_resource type="Animation" id="Animation_y0gf1"]
 resource_name = "move"
 length = 0.8
@@ -26,25 +41,25 @@ tracks/0/keys = {
 "values": [0.0, 0.174533, 0.0, -0.174533, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_ovnli"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_miiv2"]
+_data = {
+"RESET": SubResource("Animation_ovnli"),
+"move": SubResource("Animation_y0gf1")
+}
+
+[sub_resource type="Animation" id="Animation_m8q12"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Knight:rotation")
+tracks/0/path = NodePath(".:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.174533]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_miiv2"]
-_data = {
-"RESET": SubResource("Animation_ovnli"),
-"move": SubResource("Animation_y0gf1")
+"values": [0.0872665]
 }
 
 [sub_resource type="Animation" id="Animation_5e8rk"]
@@ -64,25 +79,25 @@ tracks/0/keys = {
 "values": [0.0, 0.0872665, 0.0, -0.0872665, 0.0]
 }
 
-[sub_resource type="Animation" id="Animation_m8q12"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ai0qn"]
+_data = {
+"RESET": SubResource("Animation_m8q12"),
+"move": SubResource("Animation_5e8rk")
+}
+
+[sub_resource type="Animation" id="Animation_p5ibo"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:rotation")
+tracks/0/path = NodePath(".:scale")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0872665]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ai0qn"]
-_data = {
-"RESET": SubResource("Animation_m8q12"),
-"move": SubResource("Animation_5e8rk")
+"values": [Vector2(1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_n8ofi"]
@@ -102,25 +117,49 @@ tracks/0/keys = {
 "values": [Vector2(1, 1), Vector2(1.2, 1), Vector2(1, 1), Vector2(0.8, 1), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_p5ibo"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_co4f2"]
+_data = {
+"RESET": SubResource("Animation_p5ibo"),
+"move": SubResource("Animation_n8ofi")
+}
+
+[sub_resource type="Animation" id="Animation_pcrf7"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath(".:scale")
+tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(1, 1)]
+"values": [Vector2(0, -10)]
 }
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_co4f2"]
-_data = {
-"RESET": SubResource("Animation_p5ibo"),
-"move": SubResource("Animation_n8ofi")
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.174533]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_02qwi"]
@@ -163,45 +202,6 @@ tracks/2/keys = {
 "values": [Vector2(0.5, 1), Vector2(1e-05, 1), Vector2(-1, 1), Vector2(-0.5, 1), Vector2(1e-05, 1), Vector2(1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_pcrf7"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -10)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:rotation")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [-0.174533]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath(".:scale")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1e-05, 1)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_scp0o"]
 _data = {
 "RESET": SubResource("Animation_pcrf7"),
@@ -230,9 +230,10 @@ offset_left = 1160.0
 offset_top = 480.0
 offset_right = 1272.0
 offset_bottom = 704.0
-text = "GO"
+focus_mode = 0
 icon = ExtResource("4_w07wg")
-flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="Party" type="Sprite2D" parent="."]
 z_index = 10

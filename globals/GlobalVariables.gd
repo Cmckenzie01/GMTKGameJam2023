@@ -2,7 +2,6 @@ extends Node
 
 func read_json_file(file_path):
 		var file = FileAccess.open(file_path, FileAccess.READ)
-		print(file.get_as_text())
 		var json = JSON.new()
 		assert(!json.parse(file.get_as_text()))
 		return json.get_data()
