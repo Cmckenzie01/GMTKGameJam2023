@@ -48,7 +48,7 @@ func _input(event):
 			GlobalVariables.tile_selected.stop_follow_mouse()
 
 func set_hero_level(hero_index, hero_level: int):
-	hero_huds[hero_index].get_node('LevelLabel').text = str(hero_level + 1)
+	hero_huds[hero_index].get_node('LevelLabel').text = 'Lvl ' + str(hero_level + 1)
 
 func hero_died(hero_index: int):
 	var hero_hud = hero_huds[hero_index]
@@ -78,5 +78,5 @@ func draw_hand(count: int):
 		%Cards.add_child(card)
 		card.make_card(GlobalVariables.Deck[i])
 		at.x += 180
-		
-		
+
+
