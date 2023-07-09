@@ -10,10 +10,13 @@ config_version=5
 
 [application]
 
-config/name="Gmtk Game Jam 2023"
+config/name="Hero Cultivation Simulator: Dark Lord Edition"
+config/description="Don't you hate being talked down to over evil-cabal brunch because you haven't earned an impressive nemesis? Well now is your chance to do something about it! Arrange your dungeon to train your group of delvers into legends! But you'll still have to make sure they make it to the end."
 run/main_scene="res://main_scenes/Main.tscn"
 config/features=PackedStringArray("4.1", "Forward Plus")
-config/icon="res://icon.svg"
+boot_splash/image="res://assets/logo/trial-by-wire.png"
+boot_splash/fullsize=false
+config/icon="res://assets/Cards/Skull.png"
 
 [autoload]
 
