@@ -36,6 +36,20 @@ var world_bottom_y = ProjectSettings.get('display/window/size/viewport_height')
 var life_heart = preload('res://assets/life_heart.png')
 var motivation_heart = preload('res://assets/mv_heart.png')
 
+const ICONS = {
+	"TRAP": preload('res://assets/trap_icon.png'),
+	"COMBAT": preload('res://assets/combat_icon.png'),
+	"PUZZLE": preload('res://assets/puzzle_icon.png'),
+	"SOCIAL": preload('res://assets/social_icon.png'),
+	#"ENVIRONMENTAL": preload('res://assets/environmental_icon.png'),
+
+	"RICHES": preload('res://assets/riches_icon.png'),
+	"KNOWLEDGE": preload('res://assets/knowledge_icon.png'),
+	"HONOUR": preload('res://assets/honour_icon.png'),
+	"GLORY": preload('res://assets/glory_icon.png'),
+	#"HEAL": preload('res://assets/heal_icon.png')
+}
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.following_mouse = false
@@ -69,17 +83,31 @@ func make_card(card_id: String):
 		var card_event = GlobalVariables.EventData[card_id]
 
 		if len(card_event.bonuses):
-			var card_bonuses_text = 'Types: ' + str(card_event.bonuses.map(pascal))
+			card_text.add_text('Types: ')
 
-			card_text.text += card_bonuses_text + '\n'
+			if true:
+				for bonus in card_event.bonuses:
+					if bonus in ICONS:
+						card_text.add_image(ICONS[bonus])
+			else:
+				card_text.add_text(str(card_event.bonuses.map(pascal)))
+
+			card_text.add_text('\n')
 
 		if len(card_event.reward_bonuses):
-			var card_reward_bonuses_text = 'Reward: ' + str(card_event.reward_bonuses.map(pascal))
+			card_text.add_text('Reward: ')
 
-			card_text.text += card_reward_bonuses_text
+			if true:
+				for bonus in card_event.reward_bonuses:
+					if bonus in ICONS:
+						card_text.add_image(ICONS[bonus])
+			else:
+				var card_reward_bonuses_text = 'Reward: ' + str(card_event.reward_bonuses.map(pascal))
+
+				card_text.text += card_reward_bonuses_text
 
 			if "HEAL" in card_event.reward_bonuses:
-				card_text.text += ', +' + str(GlobalVariables.heal_amount) # TODO Is a hack, but we have no time
+				card_text.add_text(', +' + str(GlobalVariables.heal_amount)) # TODO Is a hack, but we have no time
 				card_text.add_image(life_heart)
 
 			if card_event.reward_motivation > 0:
