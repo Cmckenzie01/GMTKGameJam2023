@@ -98,7 +98,7 @@ func draw_side_hand(count: int):
 		card.process_mode = 4
 		at.x += 50
 	deactivate_side_hand()
-		
+
 func deactivate_main_hand():
 	var offset = 0
 	for card in %Cards.get_children():
@@ -106,7 +106,7 @@ func deactivate_main_hand():
 		card.transform.origin = Vector2(51 + offset, 66)
 		offset += 50
 		card.modulate = Color(1,1,1,0.6)
-		
+
 func deactivate_side_hand():
 	var at = %Cards2.transform.origin + Vector2(800,0)
 	for card in %Cards2.get_children():

@@ -137,8 +137,12 @@ func run_event(event_id: String):
 	current_event['event_type'] = event_id
 
 	event_state = EventState.INITIAL_TEXT
+
 	_send_text(current_event["entry_text"])
 	$GUI/GoButton.visible = true
+
+func update_text_title(text: String):
+	return text.replace('{title}', GlobalVariables.dark_lord_title)
 
 # Send text to the dialogue box, and play it
 func _send_text(text: String, text_name: String = "MinionNo1", use_right_sprite: bool = false):
