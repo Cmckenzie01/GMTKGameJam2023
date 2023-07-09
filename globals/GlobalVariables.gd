@@ -44,7 +44,7 @@ const Cards: Dictionary = {
 	},
 	"SocialRoom": {
 		"name": "SocialRoom",
-		"image": preload('res://assets/floors/combat_room.png'),
+		"image": preload('res://assets/floors/social_encounter.png'),
 		"description": "A Room with a social dynamic!",
 		"effects": [], # TODO: Make Effect
 		"type": CardType.TILE,
