@@ -1,5 +1,5 @@
 {
-	"trap_room": {
+	"TrapRoom": {
 		"entry_text": "The delvers have reached the poisoned pit trap! I saw the Bard puke their guts, sir",
 		"base_chance": 0.6,
 		"bonuses": ["TRAP"],
@@ -12,7 +12,7 @@
 		"exp": 60,
 		"pass_text": "The delvers have summoned a magical bridge across! They... are unharmed, sir",
 	},
-	"combat_room": {
+	"CombatRoom": {
 		"entry_text": "The delvers have reached the worlf pens! The Thief shivered, sir",
 		"base_chance": 0.6,
 		"bonuses": ["TRAP"],
@@ -25,7 +25,7 @@
 		"exp": 60,
 		"pass_text": "The delvers have dressed as brears and scared the wolves away! They... are unharmed, sir",
 	},
-	"puzzle_room": {
+	"PuzzleRoom": {
 		"entry_text": "The delvers have reached the clockwork crane! The Knight is fuming, sir",
 		"base_chance": 0.6,
 		"bonuses": ["TRAP"],
@@ -38,7 +38,7 @@
 		"exp": 60,
 		"pass_text": "The delvers have connected the crane to its lost ancestors! They've been... listed safely out of the roon, sir",
 	},
-	"social_room": {
+	"SocialRoom": {
 		"entry_text": "The delvers have reached the spirit coven's chambers! The Wizard was held back, sir",
 		"base_chance": 0.6,
 		"bonuses": ["TRAP"],
@@ -51,7 +51,7 @@
 		"exp": 60,
 		"pass_text": "The delvers have negotiated a truce between the witches due to their shared hatred of laundry! Their backs have been... patted, sir",
 	},
-	"environmental_room": {
+	"EnvironmentalRoom": {
 		"entry_text": "The delvers have reached the rush blood gorge! The Wizard recoiled from the smell, sir",
 		"base_chance": 0.6,
 		"bonuses": ["TRAP"],
@@ -64,7 +64,7 @@
 		"exp": 60,
 		"pass_text": "The delvers have found our bathing nook and bounced over on a wave of lather! They... are squeaky clean, sir",
 	},
-	"rices_room": {
+	"RichesRoom": {
 		"entry_text": "The delvers have reached the hoard of the boar lord! The Knight burst into a lecture, sir",
 		"base_chance": 0.6,
 		"bonuses": ["TRAP"],
@@ -77,7 +77,7 @@
 		"exp": 60,
 		"pass_text": "The delvers have realised the boar lord's truffles are a priceless hair growth potion ingredient! They... have gained renewed bounce and body to their curls, sir",
 	},
-	"knowledge_room": {
+	"KnowledgeRoom": {
 		"entry_text": "The delvers have reached the lint scroll vortex! The Bard was hit with a fit of sneezes, sir",
 		"base_chance": 0.6,
 		"bonuses": ["TRAP"],
@@ -90,7 +90,7 @@
 		"exp": 60,
 		"pass_text": "The delvers have learned the language of infinite pockets by eating a mushroom they found! They... are vibing, sir",
 	},
-	"honour_room": {
+	"HonourRoom": {
 		"entry_text": "The delvers have reached the beetle mill! They tore up their map in apparent frustration, sir",
 		"base_chance": 0.6,
 		"bonuses": ["TRAP"],
@@ -103,7 +103,7 @@
 		"exp": 60,
 		"pass_text": "The delvers have obtained beetle bread! They have gained the proprotional strength of an insect from eating beetle bread! They... are stuffed, sir",
 	},
-	"glory_room": {
+	"GloryRoom": {
 		"entry_text": "The delvers have reached the nest of the ink crows! The Rogue stayed down and heavily critiqued their party-mates",
 		"base_chance": 0.6,
 		"bonuses": ["TRAP"],
@@ -116,7 +116,7 @@
 		"exp": 60,
 		"pass_text": "The delvers have entranced the crows with a rainbow scattering lends and rescued the emo kids of Proxim village! They... are considered muses, sir",
 	},
-	"healing_room": {
+	"HealRoom": {
 		"entry_text": "The delvers have reached the immortal meadow! They visibly frolic, sir",
 		"base_chance": 0.6,
 		"bonuses": ["TRAP"],
