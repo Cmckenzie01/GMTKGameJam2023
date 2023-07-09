@@ -12,6 +12,8 @@ var current_room: int = -1
 var current_floor: int = 0
 var move_target: Vector2 = Vector2(0.0, 0.0)
 
+@onready var current_dungeon = $Dungeon
+
 enum EventState {
 	IDLE,
 	INITIAL_TEXT,
@@ -33,16 +35,24 @@ const INSULTS = [
 	"Vain"
 ]
 
+var playable = false # Stop them getting to Phase 2 before building the dungeon
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	self.current_dungeon.all_dungeon_slots_occupied.connect(all_dungeon_slots_occupied)
+
 	_move_to_next_floor()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
 
+func all_dungeon_slots_occupied():
+	self.playable = true
+
 func _get_event() -> String:
-	return "spike_trap" # TODO Replace when we figure out how the dungeon works
+	var room = current_dungeon.get_node('RoomContainer').get_child(self.current_room-1).get_child(0)
+	return room.tile_name
 
 func _num_rooms() -> int:
 	return 4 # TODO Replace when we figure out how the dungeon works
@@ -77,7 +87,6 @@ func _move_to_next_floor():
 func _start_moving_to_next_room():
 	if current_room >= _num_rooms():
 		_move_to_next_floor()
-		Party.HealParty(50) # TODO Temporary for testing
 		return
 
 	current_room += 1
@@ -97,6 +106,7 @@ func _finish_moving_to_next_room():
 func run_event(event_id: String):
 	assert(event_state == EventState.IDLE)
 	assert(current_event == null)
+	print(event_id)
 	current_event = GlobalVariables.EventData[event_id]
 	current_event['event_type'] = event_id
 
@@ -105,7 +115,7 @@ func run_event(event_id: String):
 	$GoButton.visible = true
 
 # Send text to the dialogue box, and play it
-func _send_text(text: String, name: String = "Placeholder", use_right_sprite: bool = true):
+func _send_text(text: String, text_name: String = "Placeholder", use_right_sprite: bool = true):
 
 	var active_sprite
 	if use_right_sprite:
@@ -120,7 +130,7 @@ func _send_text(text: String, name: String = "Placeholder", use_right_sprite: bo
 			"active_sprite": active_sprite,
 			# Note: This is displayed as the name, and is also the name of the
 			# png to use.
-			"name": name,
+			"name": text_name,
 		}
 	];
 
@@ -138,10 +148,9 @@ func _do_event() -> bool:
 			break
 
 	var succeeded
-	if false: # randf_range(0.0, 1.0) < chance:
+	if randf_range(0.0, 1.0) < chance:
 		Party.MotivateParty(current_event["reward_motivation"], current_event["reward_bonuses"])
 		Party.GrantExp(current_event["exp"], current_event["reward_bonuses"])
-		# TODO: Grant exp
 		succeeded = true
 	else:
 		Party.DealPartyDamage(current_event["fail_damage"])
@@ -154,8 +163,9 @@ func _do_event() -> bool:
 func _on_go_button_pressed():
 	match game_state:
 		GameState.BUILD_PLACE:
-			game_state = GameState.PLAY
-			_start_moving_to_next_room()
+			if self.playable:
+				game_state = GameState.PLAY
+				_start_moving_to_next_room()
 
 		GameState.PLAY:
 			match event_state:

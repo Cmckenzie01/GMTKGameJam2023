@@ -119,6 +119,7 @@ offset_bottom = 62.6032
 text = "HERO 1: The Magificant"
 
 [node name="SkullIcon" type="Sprite2D" parent="PartyUI/VBoxContainer/Hero1"]
+visible = false
 position = Vector2(92, 146)
 texture = ExtResource("6_v2ju2")
 
@@ -180,6 +181,7 @@ position = Vector2(92, 146)
 texture = ExtResource("6_v2ju2")
 
 [node name="LevelLabel" type="RichTextLabel" parent="PartyUI/VBoxContainer/Hero2"]
+layout_mode = 0
 offset_left = 136.0
 offset_top = 138.0
 offset_right = 176.0
@@ -236,6 +238,7 @@ position = Vector2(92, 146)
 texture = ExtResource("6_v2ju2")
 
 [node name="LevelLabel" type="RichTextLabel" parent="PartyUI/VBoxContainer/Hero3"]
+layout_mode = 0
 offset_left = 136.0
 offset_top = 138.0
 offset_right = 176.0
@@ -292,6 +295,7 @@ position = Vector2(92, 146)
 texture = ExtResource("6_v2ju2")
 
 [node name="LevelLabel" type="RichTextLabel" parent="PartyUI/VBoxContainer/Hero4"]
+layout_mode = 0
 offset_left = 136.0
 offset_top = 138.0
 offset_right = 176.0

@@ -18,7 +18,7 @@ func read_json_file(file_path):
 
 @onready var DungeonTiles: Dictionary = {
 	"TileOne": {
-		"name": "Trap_Room",
+		"name": "spike_trap",
 		"image": preload('res://assets/Cards/pig.jpg'),
 		"description": "I'm a card! Look at me! Card card card!",
 		"effects": [] # TODO: Make Effect

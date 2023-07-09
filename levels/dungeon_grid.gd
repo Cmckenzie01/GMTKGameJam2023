@@ -21,8 +21,7 @@ const SlotClass = preload("res://levels/empty_dungeon_room.gd")
 @onready var no_of_rooms_occupied: int = 0
 
 @onready var default_room = preload("res://rooms/roomTiles/Room.tscn")
-@onready var card = ["Healing_room", "Trap_Room", "Weapon_Upgrade_Room"]
-
+@onready var card = ["Healing_room", "spike_trap", "Weapon_Upgrade_Room"]
 
 func _ready():
 	for x in x_coord:
@@ -51,3 +50,8 @@ func _on_empty_dungeon_room_gui_input(event: InputEvent, slot: SlotClass):
 		if no_of_rooms == no_of_rooms_occupied:
 			all_dungeon_slots_occupied.emit()
 			print("all rooms occupied")
+
+
+
+
+

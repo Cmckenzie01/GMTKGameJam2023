@@ -22,7 +22,7 @@ signal card_left_clicked(card)
 var starting_pos = Vector2()
 var current_pos = Vector2()
 
-var expanded = false 
+var expanded = false
 var moused_over = false
 
 var original_left_bound
@@ -41,18 +41,18 @@ func _ready() -> void:
 	card_name_node.text = card_name
 	card_text.text = description
 	card_image.texture = image
-	
+
 	self.following_mouse = false
-	
+
 	var left_x = card_frame.get_rect().position.x
 	var bottom_y = card_frame.get_rect().position.y
-	
+
 	var right_x = left_x + card_frame.get_rect().size.x
 	var top_y = bottom_y + card_frame.get_rect().size.y
-	
+
 	original_width = right_x - left_x
 	original_height = top_y - bottom_y
-	
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:
 	if self.following_mouse:
@@ -61,48 +61,48 @@ func _process(_delta: float) -> void:
 
 func _on_area_2d_mouse_entered() -> void:
 	self.expand()
-		
+
 	self.moused_over = true
-	
+
 func _on_area_2d_mouse_exited() -> void:
 	self.shrink()
-	
+
 	self.moused_over = false
-	
+
 func expand(): # TODO If expanded and hover over another card in those bounds, stays expanded. Fix via signals?
 	if not self.expanded and not self.following_mouse:
-		var original_position = self.global_position 
+		var original_position = self.global_position
 		self.transform = self.transform.scaled(Vector2(2, 2))
 		self.global_position = original_position
 		self.z_index += 1
-		
-		self.expanded = true 
-	
+
+		self.expanded = true
+
 func shrink():
 	if self.expanded:
-		var original_position = self.global_position 
+		var original_position = self.global_position
 		self.transform = self.transform.scaled(Vector2(0.5, 0.5))
 		self.global_position = original_position
 		self.z_index -= 1
-		
-		self.expanded = false 
-	
+
+		self.expanded = false
+
 func _input(event: InputEvent):
 	# TODO: Single Click Card, emit signal card_left_clicked(card/self) to GUI Script,
-	# which will handle the dragging the card around the screen functionality and what happens if 
+	# which will handle the dragging the card around the screen functionality and what happens if
 	# left clicked again (if over slot, active card, if not, return to hand)
-	
+
 	if event is InputEventMouseButton and self.moused_over and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 		print('Single click on ' + self.card_name)
-		
+
 		card_left_clicked.emit(self)
-				
+
 func follow_mouse(card: Card):
 	if self.name == card.name:
 		print("I am going to follow the mouse", self.name)
 		self.following_mouse = true
 		self.shrink()
-		
+
 func stop_follow_mouse(card: Card):
 	if self.name == card.name:
 		print("I am going to stop following the mouse", self.name)
