@@ -17,7 +17,7 @@ func _on_dialogue_interface_dialog_completed():
 	$Hero2/LineEdit2.focus_mode = 2
 	$Hero3/LineEdit3.focus_mode = 2
 	$Hero4/LineEdit4.focus_mode = 2
-	#$Select.disabled = false
+	$Select.disabled = false
 	
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:

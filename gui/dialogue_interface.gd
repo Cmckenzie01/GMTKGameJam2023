@@ -20,7 +20,7 @@ func _ready():
 	pass
 
 func _process(_delta):
-	$"NinePatchRect/next-indicator".visible = dialog_finished
+	pass
 
 func play():
 	var data = dialogue_file.get_data()

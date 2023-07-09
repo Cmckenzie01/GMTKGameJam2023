@@ -495,7 +495,7 @@ offset_left = 266.969
 offset_top = 108.7
 offset_right = 394.969
 offset_bottom = 134.7
-text = "Combat, Honour"
+text = "Combat, Glory"
 
 [node name="Dislikes" type="Label" parent="Hero4"]
 self_modulate = Color(0.258824, 0.0745098, 0, 1)
@@ -513,7 +513,7 @@ offset_left = 252.807
 offset_top = 163.795
 offset_right = 395.807
 offset_bottom = 189.795
-text = "Puzzle, Knowledge"
+text = "Puzzle, Treasure"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Hero4"]
 self_modulate = Color(0.258824, 0.0745098, 0, 1)
@@ -575,7 +575,7 @@ offset_left = 274.0
 offset_top = 106.0
 offset_right = 387.0
 offset_bottom = 132.0
-text = "Social, Glory"
+text = "Social, Travel"
 
 [node name="Dislikes" type="Label" parent="Hero3"]
 self_modulate = Color(0.258824, 0.0745098, 0, 1)
@@ -593,7 +593,7 @@ offset_left = 273.524
 offset_top = 159.754
 offset_right = 392.524
 offset_bottom = 185.754
-text = "Combat, Puzzle"
+text = "Traps, Books"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Hero3"]
 self_modulate = Color(0.258824, 0.0745098, 0, 1)
@@ -669,11 +669,11 @@ text = "Dislikes: "
 [node name="Dislikes2" type="Label" parent="Hero1"]
 self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
-offset_left = 282.0
+offset_left = 275.0
 offset_top = 160.0
-offset_right = 400.0
+offset_right = 393.0
 offset_bottom = 186.0
-text = "Glory, Combat"
+text = "Nature, People"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Hero1"]
 self_modulate = Color(0.258824, 0.0745098, 0, 1)
@@ -747,11 +747,11 @@ text = "Dislikes: "
 [node name="Dislikes2" type="Label" parent="Hero2"]
 self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
-offset_left = 282.0
-offset_top = 160.0
-offset_right = 400.0
-offset_bottom = 186.0
-text = "Puzzle, Social"
+offset_left = 278.0
+offset_top = 162.0
+offset_right = 417.0
+offset_bottom = 188.0
+text = "Glory, Combat"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Hero2"]
 self_modulate = Color(0.258824, 0.0745098, 0, 1)
@@ -844,6 +844,7 @@ offset_top = 11.0
 offset_right = 1215.0
 offset_bottom = 39.0
 scale = Vector2(3, 3)
+disabled = true
 icon = ExtResource("4_dbbpt")
 flat = true
 
@@ -868,6 +869,7 @@ libraries = {
 
 [node name="Cover" type="ColorRect" parent="CanvasLayer"]
 visible = false
+modulate = Color(1, 1, 1, 0)
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
