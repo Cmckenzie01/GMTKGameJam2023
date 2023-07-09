@@ -10,8 +10,6 @@ func read_json_file(file_path):
 
 @onready var DungeonSequence: Array = []
 
-@onready var DungeonFloors: Array = [preload("res://levels/three_room_dungeon.tscn")]#[preload("res://levels/three_room_dungeon.tscn"), preload("res://levels/four_room_dungeon.tscn"), preload("res://levels/five_room_dungeon.tscn")]
-
 @export var dark_lord_title = 'Your Malevolence'
 
 enum CardType {
@@ -96,21 +94,21 @@ const Cards: Dictionary = {
 		"image": preload('res://assets/Health Potion.png'),
 		"description": "An IV drip of blood!",
 		"effects": [], # TODO: Make Effect
-		"type": CardType.TILE,
+		"type": CardType.BUFF,
 	},
 	"MotivationPotion": {
 		"name": "MotivationPotion",
 		"image": preload('res://assets/Motivation Potion.png'),
 		"description": "Delicious coffee!",
 		"effects": [], # TODO: Make Effect
-		"type": CardType.TILE,
+		"type": CardType.BUFF,
 	},
 	"ExpBoost": {
 		"name": "ExpBoost",
 		"image": preload('res://assets/Exp_Boost.png'),
 		"description": "Drink the wisdom of the ages!",
 		"effects": [], # TODO: Make Effect
-		"type": CardType.TILE,
+		"type": CardType.BUFF,
 	}
 }
 
@@ -131,6 +129,21 @@ var Deck = [
 ]
 
 var SideDeck = [
+	"HealPotion",
+	"MotivationPotion",
+	"ExpBoost",
+]
+
+var RewardPool = [
+	"TrapRoom",
+	"CombatRoom",
+	"PuzzleRoom",
+	"SocialRoom",
+	"EnvironmentalRoom",
+	"RichesRoom",
+	"KnowledgeRoom",
+	"HonourRoom",
+	"GloryRoom",
 	"HealPotion",
 	"MotivationPotion",
 	"ExpBoost",
