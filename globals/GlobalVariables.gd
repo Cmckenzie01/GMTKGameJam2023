@@ -103,5 +103,11 @@ var Deck = [
 	"HealRoom",
 ]
 
+var SideDeck = [
+	"TrapRoom",
+	"TrapRoom",
+	"CombatRoom",
+]
+
 @onready var tile_selected = null
 @onready var dungon_built: bool = false
