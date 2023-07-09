@@ -19,6 +19,7 @@ func _ready():
 	Party.hero_died.connect(hero_died)
 	Party.hero_resurrected.connect(hero_resurrected)
 	Party.hero_level_up.connect(set_hero_level)
+	Party.lose_game.connect(lose_game)
 
 # Note: This will play at different frame rates depending on the user. Probably fine for a jam game
 func _slide_to(current: int, target: int) -> int:
@@ -61,6 +62,11 @@ func hero_resurrected(hero_index: int):
 
 	hero_hud.get_node('SkullIcon').visible = false
 	hero_hud.get_node('Sprite2D').modulate.a = 1.0 # Make them opaque
+
+func lose_game():
+	print("The game is lost!")
+	# TODO Dialogue
+	# TODO Scene change
 
 func left_click_empty_slot(room: Room):#: SlotClass):
 	room.set_card(GlobalVariables.tile_selected)
