@@ -346,6 +346,10 @@ tile = "PuzzleTile"
 position = Vector2(737, 591)
 tile = "PuzzleTile"
 
+[node name="Card6" parent="CardUI/TileCards" instance=ExtResource("6_gweis")]
+position = Vector2(773, 527)
+tile = "PuzzleTile"
+
 [node name="BuffCards" type="Node" parent="CardUI"]
 
 [node name="Card6" parent="CardUI/BuffCards" instance=ExtResource("6_gweis")]

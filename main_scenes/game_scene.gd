@@ -34,10 +34,19 @@ const INSULTS = [
 ]
 
 var no_of_rooms: int = 4
+var no_of_floors: int = 10
+var current_dungeon
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Dungeon.queue_free()
+	generate_new_dungeon()
 	_move_to_next_floor()
+
+func generate_new_dungeon():
+	var new_dungeon = GlobalVariables.DungeonFloors.pick_random().instantiate()
+	add_child(new_dungeon)
+	current_dungeon = new_dungeon
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -49,7 +58,7 @@ func _get_event() -> String:
 	return "healing_room"
 	
 func _num_rooms() -> int:
-	return no_of_rooms
+	return no_of_rooms + 1
 
 func _get_room_pos(room_no: int) -> Vector2:
 	match room_no: # TODO Ideally get dynamically
@@ -63,6 +72,8 @@ func _get_room_pos(room_no: int) -> Vector2:
 			return Vector2(744.0, 88.0)
 		4:
 			return Vector2(872.0, 88.0)
+		5: 
+			return Vector2(872.0, 88.0)
 
 	assert(false, "Room index " + str(room_no) + " not >= 0 and <= 4")
 	return Vector2()
@@ -71,6 +82,10 @@ func _get_room_pos(room_no: int) -> Vector2:
 func _move_to_next_floor():
 	current_room = 0
 	current_floor += 1
+	
+	current_dungeon.queue_free()
+	GlobalVariables.dungon_built = false
+	generate_new_dungeon()
 
 	print("=== Moving To Floor " + str(current_floor) + " ===")
 
@@ -79,12 +94,14 @@ func _move_to_next_floor():
 	$Party.global_position = _get_room_pos(0)
 
 func _start_moving_to_next_room():
-	if current_room >= _num_rooms():
+	current_room += 1
+	print("Current Rooms: ", current_room)
+	print("Number of Rooms: ", _num_rooms())
+	if current_room > _num_rooms():
 		_move_to_next_floor()
 		Party.HealParty(50) # TODO Temporary for testing
 		return
 
-	current_room += 1
 
 	# TODO: This should maybe be a path of nodes, otherwise a right angle will result in diagonal movement
 	var target = _get_room_pos(current_room)
@@ -113,7 +130,7 @@ func run_event(event_id: String):
 
 	event_state = EventState.INITIAL_TEXT
 	_send_text(current_event["entry_text"])
-	$GoButton.visible = true
+	$GUI/GoButton.visible = true
 
 # Send text to the dialogue box, and play it
 func _send_text(text: String, name: String = "MinionNo1", use_right_sprite: bool = false):
@@ -163,10 +180,10 @@ func _do_event() -> bool:
 	return succeeded
 
 func _on_go_button_pressed():
-	if GlobalVariables.DungeonSequence:
+	if GlobalVariables.dungon_built:
 		match game_state:
 			GameState.BUILD_PLACE:
-				no_of_rooms = GlobalVariables.DungeonSequence.size() + 2
+				no_of_rooms = GlobalVariables.DungeonSequence.size() 
 				#GlobalVariables.DungeonSequence.push_front("start_room") # Option of adding a start room scene (would need adjustments to trigger straight away)
 				GlobalVariables.DungeonSequence.push_back("end_room")
 				game_state = GameState.PLAY
@@ -193,4 +210,5 @@ func _on_go_button_pressed():
 						event_completed.emit()
 
 func _on_event_completed():
+	print("event completed")
 	_start_moving_to_next_room()

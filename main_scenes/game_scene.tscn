@@ -218,13 +218,13 @@ grow_vertical = 2
 script = ExtResource("1_v6a74")
 
 [node name="Dungeon" parent="." instance=ExtResource("1_qwsle")]
+z_index = -1
 position = Vector2(-2, -11)
 metadata/_edit_lock_ = true
 
 [node name="GUI" parent="." instance=ExtResource("2_6xb1b")]
 
-[node name="GoButton" type="Button" parent="."]
-layout_mode = 1
+[node name="GoButton" type="Button" parent="GUI"]
 anchors_preset = -1
 offset_left = 1160.0
 offset_top = 480.0
@@ -281,4 +281,4 @@ libraries = {
 }
 
 [connection signal="event_completed" from="." to="." method="_on_event_completed"]
-[connection signal="pressed" from="GoButton" to="." method="_on_go_button_pressed"]
+[connection signal="pressed" from="GUI/GoButton" to="." method="_on_go_button_pressed"]

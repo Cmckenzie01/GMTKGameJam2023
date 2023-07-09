@@ -10,17 +10,7 @@ func read_json_file(file_path):
 
 @onready var DungeonSequence: Array = []
 
-@onready var DungeonFloors: Dictionary = {
-	"ThreeRoomFloor": {
-		"scene": preload("res://levels/three_room_dungeon.tscn")
-	},
-	"FourRoomFloor": {
-		"scene": preload("res://levels/four_room_dungeon.tscn")
-	},
-	"FiveRoomFloor": {
-		"scene": preload("res://levels/five_room_dungeon.tscn")
-	},
-}
+@onready var DungeonFloors: Array = [preload("res://levels/three_room_dungeon.tscn")]#[preload("res://levels/three_room_dungeon.tscn"), preload("res://levels/four_room_dungeon.tscn"), preload("res://levels/five_room_dungeon.tscn")]
 
 @onready var DungeonTiles: Dictionary = {
 	"TrapTile": {
@@ -100,3 +90,4 @@ func read_json_file(file_path):
 }
 
 @onready var tile_selected = null
+@onready var dungon_built: bool = false
