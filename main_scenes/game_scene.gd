@@ -70,6 +70,24 @@ func _get_event() -> String:
 func _num_rooms() -> int:
 	return no_of_rooms + 1
 
+func _dist_next(room_no: int) -> int:
+	match room_no: # TODO Ideally get dynamically
+		0:
+			return 2
+		1:
+			return 1
+		2:
+			return 2
+		3:
+			return 1
+		4:
+			return 1
+		5:
+			return 1
+
+	assert(false, "Room index " + str(room_no) + " not >= 0 and <= 4")
+	return 0
+
 func _get_room_pos(room_no: int) -> Vector2:
 	match room_no: # TODO Ideally get dynamically
 		0:
@@ -127,7 +145,7 @@ func _start_moving_to_next_room():
 	$Party/Thief/ThiefPlayer.play("move")
 	$Party/Wizard/WizardPlayer.play("move")
 	$Party/Bard/BardPlayer.play("move")
-	tween.tween_property($Party, "global_position", target, 2.0)
+	tween.tween_property($Party, "global_position", target, 1.5 * _dist_next(current_room - 1))
 
 	tween.tween_callback(_finish_moving_to_next_room)
 
