@@ -55,6 +55,7 @@ func generate_new_dungeon():
 	var new_dungeon = DungeonFloors.pick_random().instantiate()
 	add_child(new_dungeon)
 	current_dungeon = new_dungeon
+	current_dungeon.all_dungeon_slots_occupied.connect(_on_dungeon_all_dungeon_slots_occupied)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
@@ -136,6 +137,7 @@ func _finish_moving_to_next_room():
 	$Party/Wizard/WizardPlayer.stop()
 	$Party/Bard/BardPlayer.stop()
 	run_event(_get_event())
+	%GoButton.visible = true
 
 # Event (what happens on the tile) logic
 func run_event(event_id: String):
@@ -206,39 +208,29 @@ func _do_event() -> bool:
 	return succeeded
 
 func _on_go_button_pressed():
-	if GlobalVariables.dungon_built:
-		match game_state:
-			GameState.BUILD_PLACE:
-				no_of_rooms = GlobalVariables.DungeonSequence.size()
-				#GlobalVariables.DungeonSequence.push_front("start_room") # Option of adding a start room scene (would need adjustments to trigger straight away)
-				GlobalVariables.DungeonSequence.push_back("end_room")
-				$GUI.deactivate_main_hand()
-				$GUI.activate_side_hand()
-				game_state = GameState.PLAY
-				_start_moving_to_next_room()
+	assert(game_state == GameState.PLAY)
 
-			GameState.PLAY:
-				match event_state:
-					EventState.INITIAL_TEXT:
-						var result = _do_event()
-						var text
+	match event_state:
+		EventState.INITIAL_TEXT:
+			var result = _do_event()
+			var text
 
-						if result:
-							text = current_event["pass_text"]
-						else:
-							text = current_event["fail_text"]
+			if result:
+				text = current_event["pass_text"]
+			else:
+				text = current_event["fail_text"]
 
-						_send_text(text)
+			_send_text(text)
 
-						event_state = EventState.END_TEXT
+			event_state = EventState.END_TEXT
 
-					EventState.END_TEXT:
-						current_event = null
-						event_state = EventState.IDLE
-						event_completed.emit()
+		EventState.END_TEXT:
+			current_event = null
+			event_state = EventState.IDLE
+			event_completed.emit()
 
 func _on_event_completed():
-	print("event completed")
+	%GoButton.visible = false
 	_start_moving_to_next_room()
 
 
@@ -250,3 +242,13 @@ func _on_gui_reward_selected(card):
 		GlobalVariables.CardType.TILE:
 			GlobalVariables.Deck.append(card)
 	_move_to_next_floor()
+
+
+func _on_dungeon_all_dungeon_slots_occupied():
+	no_of_rooms = GlobalVariables.DungeonSequence.size()
+	#GlobalVariables.DungeonSequence.push_front("start_room") # Option of adding a start room scene (would need adjustments to trigger straight away)
+	GlobalVariables.DungeonSequence.push_back("end_room")
+	$GUI.deactivate_main_hand()
+	$GUI.activate_side_hand()
+	game_state = GameState.PLAY
+	_start_moving_to_next_room()
