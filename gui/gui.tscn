@@ -120,10 +120,11 @@ texture_progress = ExtResource("5_hxu6s")
 
 [node name="Label" type="Label" parent="PartyUI/VBoxContainer/Hero1"]
 layout_mode = 2
-offset_left = 194.658
-offset_top = 36.6032
-offset_right = 644.658
-offset_bottom = 62.6032
+offset_left = 186.0
+offset_top = 16.0
+offset_right = 636.0
+offset_bottom = 61.0
+theme_override_font_sizes/font_size = 30
 text = "HERO 1: The Magificant"
 
 [node name="SkullIcon" type="Sprite2D" parent="PartyUI/VBoxContainer/Hero1"]
@@ -178,10 +179,11 @@ texture_progress = ExtResource("5_hxu6s")
 
 [node name="Label" type="Label" parent="PartyUI/VBoxContainer/Hero2"]
 layout_mode = 2
-offset_left = 194.658
-offset_top = 36.6032
-offset_right = 644.658
-offset_bottom = 62.6032
+offset_left = 186.0
+offset_top = 20.0
+offset_right = 636.0
+offset_bottom = 65.0
+theme_override_font_sizes/font_size = 30
 text = "HERO 2: The Beautiful"
 
 [node name="SkullIcon" type="Sprite2D" parent="PartyUI/VBoxContainer/Hero2"]
@@ -236,10 +238,11 @@ texture_progress = ExtResource("5_hxu6s")
 
 [node name="Label" type="Label" parent="PartyUI/VBoxContainer/Hero3"]
 layout_mode = 2
-offset_left = 194.658
-offset_top = 36.6032
-offset_right = 644.658
-offset_bottom = 62.6032
+offset_left = 186.0
+offset_top = 24.0
+offset_right = 636.0
+offset_bottom = 69.0
+theme_override_font_sizes/font_size = 30
 text = "HERO 3: The Mighty"
 
 [node name="SkullIcon" type="Sprite2D" parent="PartyUI/VBoxContainer/Hero3"]
@@ -295,10 +298,11 @@ texture_progress = ExtResource("5_hxu6s")
 
 [node name="Label" type="Label" parent="PartyUI/VBoxContainer/Hero4"]
 layout_mode = 2
-offset_left = 194.658
-offset_top = 36.6032
-offset_right = 644.658
-offset_bottom = 62.6032
+offset_left = 186.0
+offset_top = 12.0
+offset_right = 636.0
+offset_bottom = 57.0
+theme_override_font_sizes/font_size = 30
 text = "HERO 1: The Wise"
 
 [node name="SkullIcon" type="Sprite2D" parent="PartyUI/VBoxContainer/Hero4"]
