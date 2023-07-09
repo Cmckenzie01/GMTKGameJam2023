@@ -29,7 +29,7 @@ const Cards: Dictionary = {
 	"CombatRoom": {
 		"name": "CombatRoom",
 		"image": preload('res://assets/floors/combat_room.png'),
-		"description": "A Room to relax in!",
+		"description": "A Room to die in!",
 		"effects": [], # TODO: Make Effect
 		"type": CardType.TILE,
 	},
@@ -85,7 +85,7 @@ const Cards: Dictionary = {
 	"HealRoom": {
 		"name": "HealRoom",
 		"image": preload('res://assets/floors/healing_room.png'),
-		"description": "But am I a card? Really? When you think about it?",
+		"description": "A Room to relax in!",
 		"effects": [], # TODO: Make Effect
 		"type": CardType.TILE,
 	},

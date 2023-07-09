@@ -54,8 +54,6 @@ func make_card(card_id: String):
 	card = card_id
 	var card_data = GlobalVariables.Cards[card_id]
 	assert(card)
-	
-	
 
 	card_name_node.text = card_data["name"]
 	card_text.text = card_data["description"]

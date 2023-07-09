@@ -18,7 +18,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1085, 119), Vector2(1085, 114.719)]
+"values": [Vector2(863.842, 124.436), Vector2(865.133, 114.719)]
 }
 
 [sub_resource type="Animation" id="Animation_jrxsv"]
@@ -94,7 +94,7 @@ offset_right = -38.0
 offset_bottom = -13.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Hello world this is a long piece of dialogue to test out the limits of the dialogue system. Hopefully you're not actually typing messages this long because that seems like a lot of reading, and while I'm not judging anyone, I don't know If I want to do a lot of reading. To ease their own you know, and if that's your thing, fair enough, but mate, can we get to the game already? This is sooo much reading, please no more than this, "
+text = "Hello world this is a long piece of dialogue to test out the limits of the dialogue system. Hopefully you're not actually typing messages this long because that seems like a lot of reading, and while I'm not judging anyone, I don't know If I want to do a lot of reading. To ease their own you know, and if that's your thing, fair enough, but mate, can we get to the game already? This is sooo much reading, please no more than this, I beg of you, if you really need to say this much, at least break it into multiple pieces. I mean look how much puncu... oh looks like that's the limit."
 
 [node name="Name" type="RichTextLabel" parent="NinePatchRect"]
 layout_mode = 0

@@ -144,13 +144,13 @@ func MotivateParty(heal: int, bonus: Variant = null):
 			hero.mv += with_bonus
 			hero.mv = min(hero.mv, hero.max_mv)
 
-func GrantExp(exp: int, bonus: Variant = null):
+func GrantExp(exp_value: int, bonus: Variant = null):
 	for hero_index in range(len(Heroes)):
 		var hero = Heroes[hero_index]
 
 		# Don't give dead heroes exp
 		if hero.hp > 0:
-			var with_bonus = exp
+			var with_bonus = exp_value
 
 			var motivation_level = (hero.mv / hero.max_mv)
 			var modifier
