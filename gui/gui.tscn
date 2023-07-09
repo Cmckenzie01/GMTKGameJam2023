@@ -325,6 +325,10 @@ metadata/_edit_lock_ = true
 unique_name_in_owner = true
 position = Vector2(51, 66)
 
+[node name="Cards2" type="Node2D" parent="CardUI"]
+unique_name_in_owner = true
+position = Vector2(51, 66)
+
 [node name="DialogueInterface" type="CanvasLayer" parent="."]
 script = ExtResource("6_mdyv5")
 dialogue_file = ExtResource("7_ksm37")

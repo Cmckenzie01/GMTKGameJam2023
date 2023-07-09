@@ -96,6 +96,7 @@ func _move_to_next_floor():
 
 	$Party.global_position = _get_room_pos(0)
 	$GUI.draw_hand(5)
+	$GUI.draw_side_hand(3)
 
 func _start_moving_to_next_room():
 	current_room += 1
@@ -188,6 +189,8 @@ func _on_go_button_pressed():
 				no_of_rooms = GlobalVariables.DungeonSequence.size()
 				#GlobalVariables.DungeonSequence.push_front("start_room") # Option of adding a start room scene (would need adjustments to trigger straight away)
 				GlobalVariables.DungeonSequence.push_back("end_room")
+				$GUI.deactivate_main_hand()
+				$GUI.activate_side_hand()
 				game_state = GameState.PLAY
 				_start_moving_to_next_room()
 
