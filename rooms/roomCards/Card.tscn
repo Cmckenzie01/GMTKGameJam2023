@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://gxhrf1cwptdn"]
+[gd_scene load_steps=4 format=3 uid="uid://gxhrf1cwptdn"]
 
 [ext_resource type="Script" path="res://rooms/roomCards/Card.gd" id="1_vltva"]
 [ext_resource type="Texture2D" uid="uid://uhtkfdniys7p" path="res://assets/Cards/Card.png" id="2_bh3id"]
-[ext_resource type="FontFile" uid="uid://bfx7o8u6rt3s6" path="res://assets/Fonts/arcadeclassic/ARCADECLASSIC.TTF" id="3_yme5s"]
 [ext_resource type="Texture2D" uid="uid://bv0egxnftxr8c" path="res://assets/floors/combat_room.png" id="4_0x3m7"]
 
 [node name="Card" type="Node2D"]
@@ -19,8 +18,7 @@ offset_top = -96.0
 offset_right = 64.0
 offset_bottom = -74.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("3_yme5s")
-theme_override_font_sizes/font_size = 16
+theme_override_font_sizes/font_size = 14
 text = "Hello There"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -36,12 +34,11 @@ texture = ExtResource("4_0x3m7")
 texture_filter = 1
 offset_left = -56.0
 offset_top = 8.0
-offset_right = 64.0
-offset_bottom = 96.0
+offset_right = 59.0
+offset_bottom = 93.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_yme5s")
-theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/normal_font_size = 10
 
 [node name="Card" type="Panel" parent="."]
 self_modulate = Color(1, 1, 1, 0)

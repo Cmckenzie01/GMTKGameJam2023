@@ -3,7 +3,7 @@ class_name Card extends Node2D
 signal play_card(effects: Array)
 signal card_left_clicked(card)
 
-@export var card: String = "HealRoom"
+@export var card: String = "Heal Room"
 @export var zoom_in_size: float = 2.0
 @export var zoom_in_time: float = 0.2
 @export var in_mouse_time: float = 0.1
@@ -61,47 +61,58 @@ func make_card(card_id: String):
 	var card_data = GlobalVariables.Cards[card_id]
 	assert(card)
 
-	var card_event = GlobalVariables.EventData[card_id]
-
 	var card_description = card_data["description"]
 
 	card_text.text = card_description + '\n'
 
-	if len(card_event.bonuses):
-		var card_bonuses_text = 'Types: ' + str(card_event.bonuses.map(pascal))
+	if card_id in GlobalVariables.EventData:
+		var card_event = GlobalVariables.EventData[card_id]
 
-		card_text.text += card_bonuses_text + '\n'
+		if len(card_event.bonuses):
+			var card_bonuses_text = 'Types: ' + str(card_event.bonuses.map(pascal))
 
-	if len(card_event.reward_bonuses):
-		var card_reward_bonuses_text = 'Pass: ' + str(card_event.reward_bonuses.map(pascal))
+			card_text.text += card_bonuses_text + '\n'
 
-		card_text.text += card_reward_bonuses_text
+		if len(card_event.reward_bonuses):
+			var card_reward_bonuses_text = 'Reward: ' + str(card_event.reward_bonuses.map(pascal))
 
-		if "HEAL" in card_event.reward_bonuses:
-			card_text.text += '| +' + str(GlobalVariables.heal_amount) # TODO Is a hack, but we have no time
-			card_text.add_image(life_heart)
+			card_text.text += card_reward_bonuses_text
 
-		if card_event.reward_motivation > 0:
-			card_text.add_text('| +' + str(card_event.reward_motivation))
-			card_text.add_image(motivation_heart)
+			if "HEAL" in card_event.reward_bonuses:
+				card_text.text += ', +' + str(GlobalVariables.heal_amount) # TODO Is a hack, but we have no time
+				card_text.add_image(life_heart)
 
-		if card_event.exp > 0:
-			card_text.add_text('| +' + str(card_event.exp) + ' EXP')  # add_text rather than += to avoid clearing the stack and recognstructing which kills the image added previously
+			if card_event.reward_motivation > 0:
+				card_text.add_text(', +' + str(card_event.reward_motivation))
+				card_text.add_image(motivation_heart)
 
-		card_text.add_text('\n')
+			if card_event.exp > 0:
+				card_text.add_text(', +' + str(card_event.exp) + ' EXP')  # add_text rather than += to avoid clearing the stack and recognstructing which kills the image added previously
 
-	if card_event.base_chance < 1:
-		var card_failure_text = 'Fail: '
+			card_text.add_text('\n')
 
-		card_text.add_text(card_failure_text)
+		if card_event.base_chance < 1:
+			var card_failure_text = 'Fail: '
 
-		if card_event.fail_damage > 0:
-			card_text.add_text('-' + str(card_event.fail_damage))
-			card_text.add_image(life_heart)
+			card_text.add_text(card_failure_text)
 
-		if card_event.fail_demotivation > 0:
-			card_text.add_text('| -' + str(card_event.fail_demotivation))
-			card_text.add_image(motivation_heart)
+			if card_event.fail_damage > 0:
+				card_text.add_text('-' + str(card_event.fail_damage))
+				card_text.add_image(life_heart)
+
+			if card_event.fail_demotivation > 0:
+				card_text.add_text(', -' + str(card_event.fail_demotivation))
+				card_text.add_image(motivation_heart)
+	else: # Is a buff card
+		match card_id:
+			"Heal Potion":
+				card_text.add_text("Heals the hero by " + str(GlobalVariables.heal_potion_amount))
+				card_text.add_image(life_heart)
+			"Motivation Potion":
+				card_text.add_text("Motivates the hero by " + str(GlobalVariables.mv_potion_amount))
+				card_text.add_image(motivation_heart)
+			"Exp Boost":
+				card_text.add_text("Gives the hero " + str(GlobalVariables.exp_potion_amount) + " EXP")
 
 	card_name_node.text = card_data["name"]
 
