@@ -34,6 +34,7 @@ sources/2 = SubResource("TileSetAtlasSource_vyk8s")
 sources/3 = SubResource("TileSetAtlasSource_kc4da")
 
 [node name="Dungeon" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_v3u5v")
 
 [node name="Background" type="ColorRect" parent="."]
