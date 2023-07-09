@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://levels/dungeon_grid.gd" id="1_eo4vr"]
 [ext_resource type="Texture2D" uid="uid://bd3p0qbip8dxu" path="res://assets/tilesets/PracticeRoom.png" id="1_xya1g"]
 [ext_resource type="Texture2D" uid="uid://drjvya25sht2h" path="res://assets/tilesets/PracticeCorridor.png" id="2_3w63h"]
-[ext_resource type="Texture2D" uid="uid://odg2tt1yxi6q" path="res://assets/floors/start_room.png" id="4_36t4e"]
-[ext_resource type="Texture2D" uid="uid://dynao1dgo3xkr" path="res://assets/floors/end_room.png" id="5_88h8b"]
+[ext_resource type="Texture2D" uid="uid://wjwi5u1dvd4f" path="res://assets/tilesets/StartRoom.png" id="4_36t4e"]
+[ext_resource type="Texture2D" uid="uid://h6a6s1q5gmqk" path="res://assets/tilesets/EndRoom.png" id="5_88h8b"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q5l2s"]
 texture = ExtResource("1_xya1g")
@@ -50,3 +50,4 @@ layer_0/name = "Rooms"
 layer_0/tile_data = PackedInt32Array(65538, 1, 0, 65537, 2, 0, 65539, 0, 0, 65540, 0, 0, 65541, 1, 0, 65542, 0, 0, 65543, 3, 0)
 
 [node name="RoomContainer" type="Node2D" parent="."]
+texture_filter = 1

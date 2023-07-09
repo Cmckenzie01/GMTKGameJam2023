@@ -88,7 +88,7 @@ func _move_to_next_floor():
 	current_floor += 1
 
 	if current_floor > self.no_of_floors:
-		win_game.emit()
+		Party.game_won = true
 
 	current_dungeon.queue_free()
 	GlobalVariables.dungon_built = false

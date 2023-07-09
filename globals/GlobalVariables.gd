@@ -60,14 +60,14 @@ const Cards: Dictionary = {
 	},
 	"RichesRoom": {
 		"name": "RichesRoom",
-		"image": preload('res://assets/Floors/Treasure_Room.png'),
+		"image": preload('res://assets/floors/Treasure_Room.png'),
 		"description": "A Room with something shiny!",
 		"effects": [], # TODO: Make Effect
 		"type": CardType.TILE,
 	},
 	"KnowledgeRoom": {
 		"name": "KnowledgeRoom",
-		"image": preload('res://assets/Floors/Knowledge_Room.png'),
+		"image": preload('res://assets/floors/Knowledge_Room.png'),
 		"description": "A Room with some history!",
 		"effects": [], # TODO: Make Effect
 		"type": CardType.TILE,
@@ -93,7 +93,32 @@ const Cards: Dictionary = {
 		"effects": [], # TODO: Make Effect
 		"type": CardType.TILE,
 	},
+	"HealPotion": {
+		"name": "HealPotion",
+		"image": preload('res://assets/floors/trap_room.png'),
+		"description": "A room with a Trap!",
+		"effects": [], # TODO: Make Effect
+		"type": CardType.TILE,
+	},
+	"MotivationPotion": {
+		"name": "MotivationPotion",
+		"image": preload('res://assets/floors/combat_room.png'),
+		"description": "A Room to die in!",
+		"effects": [], # TODO: Make Effect
+		"type": CardType.TILE,
+	},
+	"ExpBoost": {
+		"name": "ExpBoost",
+		"image": preload('res://assets/floors/puzzle_room.png'),
+		"description": "A Room with a Puzzle in it!",
+		"effects": [], # TODO: Make Effect
+		"type": CardType.TILE,
+	}
 }
+
+var HardCodedDungeonCardsBecauseTimeRestraints: Array = ["TrapRoom", "CombatRoom", "PuzzleRoom", "SocialRoom", "EnvironmentalRoom", "RichesRoom", "KnowledgeRoom", "HonourRoom", "GloryRoom", "HealRoom"]
+var HardCodedBuffCardsBecauseTimeRestraints: Array = ["HealPotion", "MotivationPotion", "ExpBoost"]
+
 
 # Cards will be added to this list, since we don't load and save, we don't need to keep a copy of
 # the original starting deck
@@ -108,10 +133,20 @@ var Deck = [
 ]
 
 var SideDeck = [
-	"TrapRoom",
-	"TrapRoom",
-	"CombatRoom",
+	"HealPotion",
+	"MotivationPotion",
+	"ExpBoost",
 ]
 
 @onready var tile_selected = null
 @onready var dungon_built: bool = false
+
+
+func buffs(effect, hero):
+	match effect:
+		"HealPotion":
+			Party.Heroes[hero].hp += 10 #arbitrary number
+		"MotivationPotion":
+			Party.Heroes[hero].mv += 10 #arbitrary number
+		"ExpBoost":
+			Party.Heroes[hero].exp += 50 #arbitrary number

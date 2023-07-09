@@ -10,6 +10,8 @@ const ThreeRoomDungeon = preload("res://levels/three_room_dungeon.tscn")
 func _ready():
 	get_node("StageManager/transitionScreen").hide()
 	get_node("StageManager/loadingLabel").hide()
+	Party.lose_game.connect(you_lose)
+	Party.win_game.connect(you_win)
 
 func changeState(current_stage, next_stage):
 	#get_node("StageManager/transitionScreen").show()
@@ -25,3 +27,23 @@ func changeState(current_stage, next_stage):
 	await get_node("StageManager/transitionAnimation").animation_finished
 	#get_node("StageManager/transitionScreen").hide()
 	#get_node("StageManager/loadingLabel").hide()
+
+
+func you_lose():
+	get_tree().paused = true
+	$Win_Lose/You_Lose.visible = true
+	$Win_Lose/You_Lose/AnimationPlayer.play("FadeIn")
+	
+func you_win():
+	get_tree().paused = true
+	$Win_Lose/You_Win.visible = true
+	$Win_Lose/You_Win/AnimationPlayer.play("FadeIn")
+
+func _on_retry_button_pressed():
+	get_tree().reload_current_scene()
+	get_tree().paused = false
+
+func _on_play_again_button_pressed():
+	get_tree().reload_current_scene()
+	get_tree().paused = false
+	

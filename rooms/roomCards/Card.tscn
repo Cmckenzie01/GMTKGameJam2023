@@ -2,47 +2,59 @@
 
 [ext_resource type="Script" path="res://rooms/roomCards/Card.gd" id="1_vltva"]
 [ext_resource type="Texture2D" uid="uid://uhtkfdniys7p" path="res://assets/Cards/Card.png" id="2_bh3id"]
-[ext_resource type="FontFile" uid="uid://bfx7o8u6rt3s6" path="res://assets/Fonts/arcadeclassic/ARCADECLASSIC.TTF" id="3_yme5s"]
-[ext_resource type="Texture2D" uid="uid://bv0egxnftxr8c" path="res://assets/floors/combat_room.png" id="4_0x3m7"]
+[ext_resource type="FontFile" uid="uid://bfx7o8u6rt3s6" path="res://assets/fonts/arcadeclassic/ARCADECLASSIC.TTF" id="3_yme5s"]
+[ext_resource type="Texture2D" uid="uid://dfmru8qeinq5n" path="res://assets/floors/combat_room.png" id="4_0x3m7"]
 
 [node name="Card" type="Node2D"]
+texture_filter = 1
 script = ExtResource("1_vltva")
 
 [node name="CardFrame" type="Sprite2D" parent="."]
 texture = ExtResource("2_bh3id")
 
-[node name="CardName" type="RichTextLabel" parent="CardFrame"]
-offset_left = -58.0
-offset_top = -97.0
-offset_right = 61.0
-offset_bottom = -76.0
-mouse_filter = 2
-theme_override_colors/default_color = Color(0, 0, 0, 1)
-theme_override_fonts/normal_font = ExtResource("3_yme5s")
-theme_override_font_sizes/normal_font_size = 14
+[node name="CardName" type="Label" parent="CardFrame"]
+texture_filter = 1
+offset_left = -64.0
+offset_top = -96.0
+offset_right = 64.0
+offset_bottom = -74.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_yme5s")
+theme_override_font_sizes/font_size = 16
+text = "Hello There"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
 
 [node name="CardImage" type="Sprite2D" parent="CardFrame"]
-position = Vector2(0.499988, -36.5)
-scale = Vector2(0.960938, 0.570313)
+texture_filter = 1
+position = Vector2(0, -40)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("4_0x3m7")
 
 [node name="CardText" type="RichTextLabel" parent="CardFrame"]
-offset_left = -59.0
-offset_top = 7.0
-offset_right = 59.0
-offset_bottom = 91.0
+texture_filter = 1
+offset_left = -56.0
+offset_top = 8.0
+offset_right = 64.0
+offset_bottom = 96.0
 mouse_filter = 2
 theme_override_colors/default_color = Color(0, 0, 0, 1)
 theme_override_fonts/normal_font = ExtResource("3_yme5s")
-theme_override_font_sizes/normal_font_size = 12
+theme_override_font_sizes/normal_font_size = 16
+text = "I'm   a   test card description! 
+
+Look   at  how wordy  I  am!"
 
 [node name="Card" type="Panel" parent="."]
 self_modulate = Color(1, 1, 1, 0)
+texture_filter = 1
 offset_left = -72.0
 offset_top = -106.0
 offset_right = 72.0
-offset_bottom = 106.0
+offset_bottom = 104.0
 mouse_filter = 1
+metadata/_edit_lock_ = true
 
 [connection signal="gui_input" from="Card" to="." method="_on_card_gui_input"]
 [connection signal="mouse_entered" from="Card" to="." method="_on_card_mouse_entered"]
