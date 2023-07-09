@@ -4,10 +4,10 @@
 [ext_resource type="Script" path="res://main_scenes/game_scene.gd" id="1_v6a74"]
 [ext_resource type="PackedScene" uid="uid://ctmrulo45br7" path="res://gui/gui.tscn" id="2_6xb1b"]
 [ext_resource type="Texture2D" uid="uid://dq6hlkvym48ok" path="res://assets/gui/A_Accept1.png" id="4_w07wg"]
-[ext_resource type="Texture2D" uid="uid://n4aqun0ed4ls" path="res://assets/sprites/GoldenKnight.png" id="5_3gu54"]
-[ext_resource type="Texture2D" uid="uid://k7lio8ir7ij2" path="res://assets/sprites/RegularTroubleMaker.png" id="6_73bkc"]
-[ext_resource type="Texture2D" uid="uid://c43sca2cj47yq" path="res://assets/sprites/PurpleWizard.png" id="7_tbx5k"]
-[ext_resource type="Texture2D" uid="uid://dwtj5bt1pwici" path="res://assets/sprites/RedBeard.png" id="8_lx08c"]
+[ext_resource type="Texture2D" uid="uid://nnsvq8iluajj" path="res://assets/sprites/GoldenKnight.png" id="5_3gu54"]
+[ext_resource type="Texture2D" uid="uid://43v54nnuud57" path="res://assets/sprites/RegularTroubleMaker.png" id="6_73bkc"]
+[ext_resource type="Texture2D" uid="uid://ceti8f2021rj3" path="res://assets/sprites/PurpleWizard.png" id="7_tbx5k"]
+[ext_resource type="Texture2D" uid="uid://b4pnxenwibqt7" path="res://assets/sprites/RedBeard.png" id="8_lx08c"]
 
 [sub_resource type="Animation" id="Animation_ovnli"]
 length = 0.001
