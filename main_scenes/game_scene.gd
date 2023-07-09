@@ -174,7 +174,7 @@ func update_text_title(text: String):
 	return text.replace('{title}', GlobalVariables.dark_lord_title)
 
 # Send text to the dialogue box, and play it
-func _send_text(text: String, text_name: String = "MinionNo1", use_right_sprite: bool = false):
+func _send_text(text: String, text_name: String = "Minion", use_right_sprite: bool = false):
 
 	text = update_text_title(text)
 

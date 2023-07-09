@@ -16,8 +16,8 @@
 [ext_resource type="Script" path="res://gui/dialogue_interface.gd" id="8_1imfk"]
 [ext_resource type="Texture2D" uid="uid://sr5b5wq1jxnb" path="res://assets/gui/scroll_green.png" id="9_qf4n0"]
 [ext_resource type="Texture2D" uid="uid://cwdckhpcsx6xj" path="res://assets/gui/BlueTileSmall.png" id="10_8bt2j"]
-[ext_resource type="Texture2D" uid="uid://bwfl7s6m0ako8" path="res://assets/sprites/VillianNo1.png" id="10_hjudb"]
 [ext_resource type="Texture2D" uid="uid://etarlxblvuk4" path="res://assets/gui/WhiteDownArrow.png" id="11_owei1"]
+[ext_resource type="Texture2D" uid="uid://bwfl7s6m0ako8" path="res://assets/sprites/Villain.png" id="13_yy78a"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Idle"
@@ -779,12 +779,12 @@ grow_vertical = 0
 [node name="Sprite1" type="Sprite2D" parent="DialogueInterface/Sprites"]
 position = Vector2(-421, -220)
 scale = Vector2(2, 2)
-texture = ExtResource("10_hjudb")
+texture = ExtResource("13_yy78a")
 
 [node name="Sprite2" type="Sprite2D" parent="DialogueInterface/Sprites"]
 position = Vector2(441, -232)
 scale = Vector2(2, 2)
-texture = ExtResource("10_hjudb")
+texture = ExtResource("13_yy78a")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="DialogueInterface"]
 anchors_preset = 7
@@ -887,7 +887,7 @@ texture = ExtResource("2_n0thd")
 [node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Cover/Sprite2D"]
 position = Vector2(94.5, 68.5)
 scale = Vector2(0.75, 0.75)
-texture = ExtResource("10_hjudb")
+texture = ExtResource("13_yy78a")
 
 [node name="Label" type="Label" parent="CanvasLayer/Cover/Sprite2D"]
 self_modulate = Color(0.258824, 0.0745098, 0, 1)
@@ -901,6 +901,7 @@ text = "The Villian"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Cover/Sprite2D"]
 self_modulate = Color(0.258824, 0.0745098, 0, 1)
+layout_mode = 0
 offset_left = 68.0
 offset_top = 120.0
 offset_right = 319.0
