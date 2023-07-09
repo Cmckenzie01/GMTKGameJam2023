@@ -1,7 +1,8 @@
-[gd_scene load_steps=18 format=3 uid="uid://ctmrulo45br7"]
+[gd_scene load_steps=22 format=3 uid="uid://ctmrulo45br7"]
 
 [ext_resource type="Script" path="res://gui/gui.gd" id="1_t2c0x"]
-[ext_resource type="Texture2D" uid="uid://lu5bquvrkkjb" path="res://assets/portraits/GoldenKnightHUD.png" id="2_t4b5g"]
+[ext_resource type="Script" path="res://gui/Hero1.gd" id="2_8y0aq"]
+[ext_resource type="Texture2D" uid="uid://bc8xmkf5kj0jq" path="res://assets/portraits/GoldenKnightHUD.png" id="2_t4b5g"]
 [ext_resource type="Texture2D" uid="uid://c8rln7lsati0b" path="res://assets/gui/CharacterHud.png" id="3_312qr"]
 [ext_resource type="Texture2D" uid="uid://dkfd67vrewnwp" path="res://assets/gui/HealthBar.png" id="4_y0dqi"]
 [ext_resource type="Texture2D" uid="uid://buibmlu7pmsp7" path="res://assets/gui/ManaBar.png" id="5_hxu6s"]
@@ -9,11 +10,14 @@
 [ext_resource type="Texture2D" uid="uid://wygtwnsnhurl" path="res://assets/Cards/Skull.png" id="6_v2ju2"]
 [ext_resource type="Texture2D" uid="uid://d232s1hkm3b83" path="res://assets/portraits/PurpleWizardHUD.png" id="7_gfqeu"]
 [ext_resource type="JSON" path="res://assets/dialogues/introScene_dialogue.json" id="7_ksm37"]
-[ext_resource type="Texture2D" uid="uid://2gyw6cb48k1h" path="res://assets/portraits/RedBeardedHUD.png" id="8_0c4tx"]
+[ext_resource type="Texture2D" uid="uid://deik1hy4s2lc1" path="res://assets/portraits/RedBeardedHUD.png" id="8_0c4tx"]
+[ext_resource type="Script" path="res://gui/Hero2.gd" id="8_fmw3x"]
 [ext_resource type="Texture2D" uid="uid://cwdckhpcsx6xj" path="res://assets/gui/BlueTileSmall.png" id="8_pymbg"]
 [ext_resource type="Texture2D" uid="uid://etarlxblvuk4" path="res://assets/gui/WhiteDownArrow.png" id="9_7uq5h"]
-[ext_resource type="Texture2D" uid="uid://cyenlhd4e4p7u" path="res://assets/portraits/RegularTroubleMakerHUD.png" id="9_igixd"]
-[ext_resource type="Texture2D" uid="uid://c5phx7erwpbyu" path="res://assets/sprites/VillianNo1.png" id="14_fyf1s"]
+[ext_resource type="Texture2D" uid="uid://cwmorsjdfd0ss" path="res://assets/portraits/RegularTroubleMakerHUD.png" id="9_igixd"]
+[ext_resource type="Script" path="res://gui/Hero3.gd" id="10_u5djw"]
+[ext_resource type="Script" path="res://gui/Hero4.gd" id="12_3gnog"]
+[ext_resource type="Texture2D" uid="uid://bwfl7s6m0ako8" path="res://assets/sprites/VillianNo1.png" id="14_fyf1s"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Idle"
@@ -81,6 +85,7 @@ scale = Vector2(0.5, 0.5)
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("2_8y0aq")
 
 [node name="Sprite2D" type="Sprite2D" parent="PartyUI/VBoxContainer/Hero1"]
 texture_filter = 1
@@ -137,6 +142,7 @@ theme_override_font_sizes/normal_font_size = 24
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("8_fmw3x")
 
 [node name="Sprite2D" type="Sprite2D" parent="PartyUI/VBoxContainer/Hero2"]
 texture_filter = 1
@@ -195,6 +201,7 @@ theme_override_font_sizes/normal_font_size = 24
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("10_u5djw")
 
 [node name="Sprite2D" type="Sprite2D" parent="PartyUI/VBoxContainer/Hero3"]
 texture_filter = 1
@@ -252,6 +259,7 @@ theme_override_font_sizes/normal_font_size = 24
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("12_3gnog")
 
 [node name="Sprite2D" type="Sprite2D" parent="PartyUI/VBoxContainer/Hero4"]
 texture_filter = 1
@@ -417,3 +425,8 @@ autoplay = "Idle"
 libraries = {
 "": SubResource("AnimationLibrary_ap82s")
 }
+
+[connection signal="gui_input" from="PartyUI/VBoxContainer/Hero1" to="PartyUI/VBoxContainer/Hero1" method="_on_gui_input"]
+[connection signal="gui_input" from="PartyUI/VBoxContainer/Hero2" to="PartyUI/VBoxContainer/Hero2" method="_on_gui_input"]
+[connection signal="gui_input" from="PartyUI/VBoxContainer/Hero3" to="PartyUI/VBoxContainer/Hero3" method="_on_gui_input"]
+[connection signal="gui_input" from="PartyUI/VBoxContainer/Hero4" to="PartyUI/VBoxContainer/Hero4" method="_on_gui_input"]
