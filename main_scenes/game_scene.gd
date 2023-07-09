@@ -33,32 +33,47 @@ const INSULTS = [
 	"Vain"
 ]
 
+var no_of_rooms: int = 4
+var no_of_floors: int = 10
+var current_dungeon
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$Dungeon.queue_free()
+	generate_new_dungeon()
 	_move_to_next_floor()
+
+func generate_new_dungeon():
+	var new_dungeon = GlobalVariables.DungeonFloors.pick_random().instantiate()
+	add_child(new_dungeon)
+	current_dungeon = new_dungeon
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
 
 func _get_event() -> String:
-	return "spike_trap" # TODO Replace when we figure out how the dungeon works
-
+	if GlobalVariables.DungeonSequence.size():
+		return GlobalVariables.DungeonSequence.pop_front()
+	return "healing_room"
+	
 func _num_rooms() -> int:
-	return 4 # TODO Replace when we figure out how the dungeon works
+	return no_of_rooms + 1
 
 func _get_room_pos(room_no: int) -> Vector2:
 	match room_no: # TODO Ideally get dynamically
 		0:
-			return Vector2(103.0, 104.0)
+			return Vector2(103.0, 88.0)
 		1:
-			return Vector2(360.0, 104.0)
+			return Vector2(360.0, 88.0)
 		2:
-			return Vector2(488.0, 104.0)
+			return Vector2(488.0, 88.0)
 		3:
-			return Vector2(744.0, 104.0)
+			return Vector2(744.0, 88.0)
 		4:
-			return Vector2(872.0, 104.0)
+			return Vector2(872.0, 88.0)
+		5: 
+			return Vector2(872.0, 88.0)
 
 	assert(false, "Room index " + str(room_no) + " not >= 0 and <= 4")
 	return Vector2()
@@ -67,6 +82,10 @@ func _get_room_pos(room_no: int) -> Vector2:
 func _move_to_next_floor():
 	current_room = 0
 	current_floor += 1
+	
+	current_dungeon.queue_free()
+	GlobalVariables.dungon_built = false
+	generate_new_dungeon()
 
 	print("=== Moving To Floor " + str(current_floor) + " ===")
 
@@ -76,22 +95,31 @@ func _move_to_next_floor():
 	$GUI.draw_hand(5)
 
 func _start_moving_to_next_room():
-	if current_room >= _num_rooms():
+	current_room += 1
+	print("Current Rooms: ", current_room)
+	print("Number of Rooms: ", _num_rooms())
+	if current_room > _num_rooms():
 		_move_to_next_floor()
 		Party.HealParty(50) # TODO Temporary for testing
 		return
 
-	current_room += 1
 
 	# TODO: This should maybe be a path of nodes, otherwise a right angle will result in diagonal movement
 	var target = _get_room_pos(current_room)
 	var tween = get_tree().create_tween()
-
+	$Party/Knight/KnightPlayer.play("move")
+	$Party/Thief/ThiefPlayer.play("move")
+	$Party/Wizard/WizardPlayer.play("move")
+	$Party/Bard/BardPlayer.play("move")
 	tween.tween_property($Party, "global_position", target, 2.0)
 
 	tween.tween_callback(_finish_moving_to_next_room)
 
 func _finish_moving_to_next_room():
+	$Party/Knight/KnightPlayer.stop()
+	$Party/Thief/ThiefPlayer.stop()
+	$Party/Wizard/WizardPlayer.stop()
+	$Party/Bard/BardPlayer.stop()
 	run_event(_get_event())
 
 # Event (what happens on the tile) logic
@@ -103,10 +131,10 @@ func run_event(event_id: String):
 
 	event_state = EventState.INITIAL_TEXT
 	_send_text(current_event["entry_text"])
-	$GoButton.visible = true
+	$GUI/GoButton.visible = true
 
 # Send text to the dialogue box, and play it
-func _send_text(text: String, name: String = "Placeholder", use_right_sprite: bool = true):
+func _send_text(text: String, name: String = "MinionNo1", use_right_sprite: bool = false):
 
 	var active_sprite
 	if use_right_sprite:
@@ -153,30 +181,35 @@ func _do_event() -> bool:
 	return succeeded
 
 func _on_go_button_pressed():
-	match game_state:
-		GameState.BUILD_PLACE:
-			game_state = GameState.PLAY
-			_start_moving_to_next_room()
+	if GlobalVariables.dungon_built:
+		match game_state:
+			GameState.BUILD_PLACE:
+				no_of_rooms = GlobalVariables.DungeonSequence.size() 
+				#GlobalVariables.DungeonSequence.push_front("start_room") # Option of adding a start room scene (would need adjustments to trigger straight away)
+				GlobalVariables.DungeonSequence.push_back("end_room")
+				game_state = GameState.PLAY
+				_start_moving_to_next_room()
 
-		GameState.PLAY:
-			match event_state:
-				EventState.INITIAL_TEXT:
-					var result = _do_event()
-					var text
+			GameState.PLAY:
+				match event_state:
+					EventState.INITIAL_TEXT:
+						var result = _do_event()
+						var text
 
-					if result:
-						text = current_event["pass_text"]
-					else:
-						text = current_event["fail_text"]
+						if result:
+							text = current_event["pass_text"]
+						else:
+							text = current_event["fail_text"]
 
-					_send_text(text)
+						_send_text(text)
 
-					event_state = EventState.END_TEXT
+						event_state = EventState.END_TEXT
 
-				EventState.END_TEXT:
-					current_event = null
-					event_state = EventState.IDLE
-					event_completed.emit()
+					EventState.END_TEXT:
+						current_event = null
+						event_state = EventState.IDLE
+						event_completed.emit()
 
 func _on_event_completed():
+	print("event completed")
 	_start_moving_to_next_room()

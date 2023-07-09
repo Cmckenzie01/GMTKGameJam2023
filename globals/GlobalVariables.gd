@@ -2,25 +2,15 @@ extends Node
 
 func read_json_file(file_path):
 		var file = FileAccess.open(file_path, FileAccess.READ)
-		print(file.get_as_text())
 		var json = JSON.new()
 		assert(!json.parse(file.get_as_text()))
 		return json.get_data()
 
 @onready var EventData: Dictionary = read_json_file('res://data/events.json')
 
+@onready var DungeonSequence: Array = []
 
-@onready var DungeonFloors: Dictionary = {
-	"ThreeRoomFloor": {
-		"scene": preload("res://levels/three_room_dungeon.tscn")
-	},
-	"FourRoomFloor": {
-		"scene": preload("res://levels/four_room_dungeon.tscn")
-	},
-	"FiveRoomFloor": {
-		"scene": preload("res://levels/five_room_dungeon.tscn")
-	},
-}
+@onready var DungeonFloors: Array = [preload("res://levels/three_room_dungeon.tscn")]#[preload("res://levels/three_room_dungeon.tscn"), preload("res://levels/four_room_dungeon.tscn"), preload("res://levels/five_room_dungeon.tscn")]
 
 enum CardType {
 	TILE,
@@ -114,3 +104,4 @@ var Deck = [
 ]
 
 @onready var tile_selected = null
+@onready var dungon_built: bool = false
