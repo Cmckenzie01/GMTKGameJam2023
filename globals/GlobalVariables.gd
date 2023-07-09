@@ -12,7 +12,9 @@ func read_json_file(file_path):
 
 @onready var DungeonFloors: Array = [preload("res://levels/three_room_dungeon.tscn")]#[preload("res://levels/three_room_dungeon.tscn"), preload("res://levels/four_room_dungeon.tscn"), preload("res://levels/five_room_dungeon.tscn")]
 
-@export var dark_lord_title = 'Your Shadowy Majesty'
+@export var dark_lord_title = 'Your Malevolence'
+
+@export var heal_amount = 50
 
 enum CardType {
 	TILE,

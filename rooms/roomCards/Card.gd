@@ -33,6 +33,9 @@ var original_height
 var world_right_x = ProjectSettings.get('display/window/size/viewport_width')
 var world_bottom_y = ProjectSettings.get('display/window/size/viewport_height')
 
+var life_heart = preload('res://assets/life_heart.png')
+var motivation_heart = preload('res://assets/mv_heart.png')
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	self.following_mouse = false
@@ -50,13 +53,58 @@ func _ready() -> void:
 
 	make_card(card)
 
+func pascal(s: String):
+	return s.to_pascal_case()
+
 func make_card(card_id: String):
 	card = card_id
 	var card_data = GlobalVariables.Cards[card_id]
 	assert(card)
 
+	var card_event = GlobalVariables.EventData[card_id]
+
+	var card_description = card_data["description"]
+
+	card_text.text = card_description + '\n'
+
+	if len(card_event.bonuses):
+		var card_bonuses_text = 'Types: ' + str(card_event.bonuses.map(pascal))
+
+		card_text.text += card_bonuses_text + '\n'
+
+	if len(card_event.reward_bonuses):
+		var card_reward_bonuses_text = 'Pass: ' + str(card_event.reward_bonuses.map(pascal))
+
+		card_text.text += card_reward_bonuses_text
+
+		if "HEAL" in card_event.reward_bonuses:
+			card_text.text += '| +' + str(GlobalVariables.heal_amount) # TODO Is a hack, but we have no time
+			card_text.add_image(life_heart)
+
+		if card_event.reward_motivation > 0:
+			card_text.add_text('| +' + str(card_event.reward_motivation))
+			card_text.add_image(motivation_heart)
+
+		if card_event.exp > 0:
+			card_text.add_text('| +' + str(card_event.exp) + ' EXP')  # add_text rather than += to avoid clearing the stack and recognstructing which kills the image added previously
+
+		card_text.add_text('\n')
+
+	if card_event.base_chance < 1:
+		var card_failure_text = 'Fail: '
+
+		card_text.add_text(card_failure_text)
+
+		if card_event.fail_damage > 0:
+			card_text.add_text('-' + str(card_event.fail_damage))
+			card_text.add_image(life_heart)
+
+		if card_event.fail_demotivation > 0:
+			card_text.add_text('| -' + str(card_event.fail_demotivation))
+			card_text.add_image(motivation_heart)
+
 	card_name_node.text = card_data["name"]
-	card_text.text = card_data["description"]
+
 	card_image.texture = card_data["image"]
 	card_name = card_data["name"]
 
