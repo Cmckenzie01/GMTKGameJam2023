@@ -1,16 +1,20 @@
-[gd_scene load_steps=25 format=3 uid="uid://bfjyly4gnd54f"]
+[gd_scene load_steps=29 format=3 uid="uid://bfjyly4gnd54f"]
 
 [ext_resource type="Script" path="res://main_scenes/intro_scene.gd" id="1_pi0pd"]
+[ext_resource type="Texture2D" uid="uid://j0ye8avwn5eq" path="res://assets/gui/scroll_gold.png" id="2_llxbn"]
 [ext_resource type="Texture2D" uid="uid://o7gf0te6u550" path="res://assets/gui/scroll.png" id="2_n0thd"]
 [ext_resource type="Texture2D" uid="uid://bfmgjowpr0sci" path="res://assets/portraits/PurpleWizardPortrait.png" id="3_eh37g"]
 [ext_resource type="JSON" path="res://assets/dialogues/introScene_dialogue.json" id="3_kjrvd"]
 [ext_resource type="Texture2D" uid="uid://dq6hlkvym48ok" path="res://assets/gui/A_Accept1.png" id="4_dbbpt"]
 [ext_resource type="Script" path="res://main_scenes/LineEdit.gd" id="4_q32e3"]
 [ext_resource type="Texture2D" uid="uid://516tlnuymcd6" path="res://assets/portraits/RegularTroubleMakerPortrait.png" id="5_l57dy"]
+[ext_resource type="Texture2D" uid="uid://bow3ud002n1g2" path="res://assets/gui/scroll_orange.png" id="5_nvwx3"]
 [ext_resource type="Texture2D" uid="uid://da0xk11hj72k6" path="res://assets/gui/A_Restart1.png" id="5_xg0cr"]
 [ext_resource type="Texture2D" uid="uid://clv8sbheo8n0i" path="res://assets/portraits/RedBeardPortrait.png" id="6_6afls"]
 [ext_resource type="Texture2D" uid="uid://crx5keqvt2cs6" path="res://assets/portraits/GoldenKnightPortrait.png" id="7_2oq41"]
+[ext_resource type="Texture2D" uid="uid://b8lvjousqwmlq" path="res://assets/gui/scroll_purple.png" id="7_uuu7w"]
 [ext_resource type="Script" path="res://gui/dialogue_interface.gd" id="8_1imfk"]
+[ext_resource type="Texture2D" uid="uid://sr5b5wq1jxnb" path="res://assets/gui/scroll_green.png" id="9_qf4n0"]
 [ext_resource type="Texture2D" uid="uid://cwdckhpcsx6xj" path="res://assets/gui/BlueTileSmall.png" id="10_8bt2j"]
 [ext_resource type="Texture2D" uid="uid://bwfl7s6m0ako8" path="res://assets/sprites/VillianNo1.png" id="10_hjudb"]
 [ext_resource type="Texture2D" uid="uid://etarlxblvuk4" path="res://assets/gui/WhiteDownArrow.png" id="11_owei1"]
@@ -53,6 +57,145 @@ _data = {
 "RESET": SubResource("Animation_jrxsv")
 }
 
+[sub_resource type="Animation" id="Animation_gjg70"]
+resource_name = "ExitAnimation"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CanvasLayer/Cover:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CanvasLayer/Cover/Sprite2D:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(1.5, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_iry2m"]
+resource_name = "FinalAnimation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hero4:size")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(511.999, 511.999)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hero4:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(483, -21), Vector2(-64, 25), Vector2(-67, 97)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hero3:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(395, 83), Vector2(819, 36), Vector2(816, 108)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hero3:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.187951, 0.0]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hero1:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(434, 40), Vector2(233, 77), Vector2(230, 149)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Hero1:rotation")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-0.00880417, 0.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Hero2:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.5, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(431, 39), Vector2(525, 69), Vector2(522, 141)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Hero2:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 0.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Hero4:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0.5),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
 [sub_resource type="Animation" id="Animation_suych"]
 resource_name = "FirstHero"
 tracks/0/type = "value"
@@ -90,6 +233,70 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [-0.428309, 0.344567]
+}
+
+[sub_resource type="Animation" id="Animation_pwk8g"]
+resource_name = "FourthHero"
+length = 2.2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hero2:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hero2:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(512, 512)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hero2:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.7, 1, 1.3, 1.6, 1.7, 1.8, 2, 2.1),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(759, -518), Vector2(770, -365), Vector2(772, -226), Vector2(779, 6), Vector2(777, -224), Vector2(772, -359), Vector2(772, -359), Vector2(777, -298), Vector2(793, -369), Vector2(736, 27), Vector2(431, 39)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hero2:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 1.5, 1.6, 2, 2.1, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.45098, 0.647059, 0.298039, 1), Color(0.45098, 0.647059, 0.298039, 1), Color(0.45098, 0.647059, 0.298039, 1), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("DialogueInterface/Sprites/Sprite2:self_modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(1.5, 1.6, 2, 2.1, 2.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(0.45098, 0.647059, 0.298039, 1), Color(0.45098, 0.647059, 0.298039, 1), Color(0.45098, 0.647059, 0.298039, 1), Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="Animation" id="Animation_yo5bq"]
@@ -207,209 +414,6 @@ tracks/5/keys = {
 "values": [Color(0.45098, 0.647059, 0.298039, 1), Color(1, 1, 1, 1)]
 }
 
-[sub_resource type="Animation" id="Animation_pwk8g"]
-resource_name = "FourthHero"
-length = 2.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Hero2:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Hero2:size")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(512, 512)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Hero2:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.7, 1, 1.3, 1.6, 1.7, 1.8, 2, 2.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(759, -518), Vector2(770, -365), Vector2(772, -226), Vector2(779, 6), Vector2(777, -224), Vector2(772, -359), Vector2(772, -359), Vector2(777, -298), Vector2(793, -369), Vector2(736, 27), Vector2(431, 39)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Hero2:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.5, 1.6, 2, 2.1, 2.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.45098, 0.647059, 0.298039, 1), Color(0.45098, 0.647059, 0.298039, 1), Color(0.45098, 0.647059, 0.298039, 1), Color(1, 1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("DialogueInterface/Sprites/Sprite2:self_modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(1.5, 1.6, 2, 2.1, 2.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.45098, 0.647059, 0.298039, 1), Color(0.45098, 0.647059, 0.298039, 1), Color(0.45098, 0.647059, 0.298039, 1), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_iry2m"]
-resource_name = "FinalAnimation"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Hero4:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(511.999, 511.999)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Hero4:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(483, -21), Vector2(-64, 25), Vector2(-67, 97)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Hero3:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(395, 83), Vector2(819, 36), Vector2(816, 108)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Hero3:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.187951, 0.0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Hero1:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(434, 40), Vector2(233, 77), Vector2(230, 149)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Hero1:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.00880417, 0.0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Hero2:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(431, 39), Vector2(525, 69), Vector2(522, 141)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Hero2:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Hero4:rotation")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_gjg70"]
-resource_name = "ExitAnimation"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Cover:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Cover/Sprite2D:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1.5, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ydx16"]
 _data = {
 "ExitAnimation": SubResource("Animation_gjg70"),
@@ -448,7 +452,7 @@ offset_top = 451.0
 offset_right = -98.0005
 offset_bottom = 962.999
 rotation = -0.428309
-texture = ExtResource("2_n0thd")
+texture = ExtResource("2_llxbn")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hero4"]
 position = Vector2(189.882, 130.667)
@@ -527,7 +531,7 @@ offset_top = 230.0
 offset_right = 2034.0
 offset_bottom = 741.996
 rotation = 0.497971
-texture = ExtResource("2_n0thd")
+texture = ExtResource("5_nvwx3")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hero3"]
 position = Vector2(185.696, 130.104)
@@ -605,7 +609,7 @@ offset_left = -569.0
 offset_top = -334.0
 offset_right = -57.0015
 offset_bottom = 178.001
-texture = ExtResource("2_n0thd")
+texture = ExtResource("7_uuu7w")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hero1"]
 texture_filter = 1
@@ -684,7 +688,7 @@ offset_left = 759.0
 offset_top = -518.0
 offset_right = 1271.0
 offset_bottom = -6.0
-texture = ExtResource("2_n0thd")
+texture = ExtResource("9_qf4n0")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hero2"]
 position = Vector2(182, 120)
@@ -837,7 +841,6 @@ offset_top = 11.0
 offset_right = 1215.0
 offset_bottom = 39.0
 scale = Vector2(3, 3)
-disabled = true
 icon = ExtResource("4_dbbpt")
 flat = true
 
@@ -893,9 +896,13 @@ offset_bottom = 125.0
 scale = Vector2(0.75, 0.75)
 text = "The Villian"
 
+[connection signal="text_changed" from="Hero4/LineEdit4" to="." method="_on_line_edit_4_text_changed"]
 [connection signal="text_submitted" from="Hero4/LineEdit4" to="." method="_on_line_edit_4_text_submitted"]
+[connection signal="text_changed" from="Hero3/LineEdit3" to="." method="_on_line_edit_3_text_changed"]
 [connection signal="text_submitted" from="Hero3/LineEdit3" to="." method="_on_line_edit_3_text_submitted"]
+[connection signal="text_changed" from="Hero1/LineEdit1" to="." method="_on_line_edit_1_text_changed"]
 [connection signal="text_submitted" from="Hero1/LineEdit1" to="." method="_on_line_edit_1_text_submitted"]
+[connection signal="text_changed" from="Hero2/LineEdit2" to="." method="_on_line_edit_2_text_changed"]
 [connection signal="text_submitted" from="Hero2/LineEdit2" to="." method="_on_line_edit_2_text_submitted"]
 [connection signal="dialog_completed" from="DialogueInterface" to="." method="_on_dialogue_interface_dialog_completed"]
 [connection signal="pressed" from="Select" to="." method="_on_select_pressed"]

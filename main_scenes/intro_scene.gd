@@ -17,7 +17,7 @@ func _on_dialogue_interface_dialog_completed():
 	$Hero2/LineEdit2.focus_mode = 2
 	$Hero3/LineEdit3.focus_mode = 2
 	$Hero4/LineEdit4.focus_mode = 2
-	$Select.disabled = false
+	#$Select.disabled = false
 	
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -106,6 +106,32 @@ func _on_line_edit_4_text_submitted(new_text):
 	if len(new_text) > 0:
 		print("set character name to...") # TODO: Connect to Hero Name in backend
 		Party.Heroes[3].name = new_text
+
+
+
+func _on_line_edit_4_text_changed(new_text):
+	if len(new_text) > 0:
+		print("set character name to...") # TODO: Connect to Hero Name in backend
+		Party.Heroes[3].name = new_text
 		$Hero4/LineEdit4.clear()
 		$Hero4/Name.text = "Name: " + new_text
 		$Hero4/LineEdit4.visible = false
+
+
+func _on_line_edit_3_text_changed(new_text):
+	if len(new_text) > 0:
+		print("set character name to...") # TODO: Connect to Hero Name in backend
+		Party.Heroes[2].name = new_text
+
+
+
+func _on_line_edit_1_text_changed(new_text):
+	if len(new_text) > 0:
+		print(Party.Heroes)
+		Party.Heroes[0].name = new_text
+
+
+func _on_line_edit_2_text_changed(new_text):
+	if len(new_text) > 0:
+		print("set character name to...") # TODO: Connect to Hero Name in backend
+		Party.Heroes[1].name = new_text
