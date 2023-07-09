@@ -22,6 +22,7 @@ enum EventState {
 var event_state: EventState = EventState.IDLE
 var current_event = null
 signal event_completed
+signal win_game
 
 const INSULTS = [
 	"Bumbling",
@@ -85,6 +86,9 @@ func _get_room_pos(room_no: int) -> Vector2:
 func _move_to_next_floor():
 	current_room = 0
 	current_floor += 1
+
+	if current_floor > self.no_of_floors:
+		win_game.emit()
 
 	current_dungeon.queue_free()
 	GlobalVariables.dungon_built = false
