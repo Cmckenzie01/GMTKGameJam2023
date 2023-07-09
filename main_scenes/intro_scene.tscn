@@ -485,16 +485,17 @@ offset_left = 265.0
 offset_top = 90.0
 offset_right = 360.0
 offset_bottom = 116.0
-text = "Likes: Books"
+text = "Likes:
+"
 
 [node name="Likes2" type="Label" parent="Hero4"]
 self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
-offset_left = 274.0
-offset_top = 106.0
-offset_right = 387.0
-offset_bottom = 132.0
-text = "Books, Puzzles"
+offset_left = 266.969
+offset_top = 108.7
+offset_right = 394.969
+offset_bottom = 134.7
+text = "Combat, Honour"
 
 [node name="Dislikes" type="Label" parent="Hero4"]
 self_modulate = Color(0.258824, 0.0745098, 0, 1)
@@ -508,11 +509,11 @@ text = "Dislikes: "
 [node name="Dislikes2" type="Label" parent="Hero4"]
 self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
-offset_left = 282.0
-offset_top = 160.0
-offset_right = 400.0
-offset_bottom = 186.0
-text = "Glory, Combat"
+offset_left = 252.807
+offset_top = 163.795
+offset_right = 395.807
+offset_bottom = 189.795
+text = "Puzzle, Knowledge"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Hero4"]
 self_modulate = Color(0.258824, 0.0745098, 0, 1)
@@ -521,7 +522,7 @@ offset_left = 154.0
 offset_top = 257.0
 offset_right = 383.0
 offset_bottom = 410.0
-text = "Wizard. The name strikes terror into the hearts of Goblins everywhere! Apparently likes dusy old books, the weirdo!"
+text = "Knight. Big shiny person. I wonder if their armour is made of gold? I wonder if I can take it when they fall..."
 
 [node name="Hero3" type="TextureRect" parent="."]
 process_mode = 4
@@ -564,7 +565,8 @@ offset_left = 265.0
 offset_top = 90.0
 offset_right = 360.0
 offset_bottom = 116.0
-text = "Likes: Books"
+text = "Likes:
+"
 
 [node name="Likes2" type="Label" parent="Hero3"]
 self_modulate = Color(0.258824, 0.0745098, 0, 1)
@@ -573,7 +575,7 @@ offset_left = 274.0
 offset_top = 106.0
 offset_right = 387.0
 offset_bottom = 132.0
-text = "Books, Puzzles"
+text = "Social, Glory"
 
 [node name="Dislikes" type="Label" parent="Hero3"]
 self_modulate = Color(0.258824, 0.0745098, 0, 1)
@@ -587,11 +589,11 @@ text = "Dislikes: "
 [node name="Dislikes2" type="Label" parent="Hero3"]
 self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
-offset_left = 282.0
-offset_top = 160.0
-offset_right = 400.0
-offset_bottom = 186.0
-text = "Glory, Combat"
+offset_left = 273.524
+offset_top = 159.754
+offset_right = 392.524
+offset_bottom = 185.754
+text = "Combat, Puzzle"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Hero3"]
 self_modulate = Color(0.258824, 0.0745098, 0, 1)
@@ -600,7 +602,7 @@ offset_left = 154.0
 offset_top = 257.0
 offset_right = 383.0
 offset_bottom = 410.0
-text = "Wizard. The name strikes terror into the hearts of Goblins everywhere! Apparently likes dusy old books, the weirdo!"
+text = "Bard. Plays lots of beautiful music. I hope this one survives. "
 
 [node name="Hero1" type="TextureRect" parent="."]
 process_mode = 4
@@ -643,7 +645,8 @@ offset_left = 265.0
 offset_top = 90.0
 offset_right = 360.0
 offset_bottom = 116.0
-text = "Likes: Books"
+text = "Likes:
+"
 
 [node name="Likes2" type="Label" parent="Hero1"]
 self_modulate = Color(0.258824, 0.0745098, 0, 1)
@@ -679,7 +682,7 @@ offset_left = 154.0
 offset_top = 257.0
 offset_right = 383.0
 offset_bottom = 410.0
-text = "Wizard. The name strikes terror into the hearts of Goblins everywhere! Apparently likes dusy old books, the weirdo!"
+text = "Wizard. An adventurer capable of harnassing vast magical energy through use of arcane knowledge! Is a big nerd!"
 
 [node name="Hero2" type="TextureRect" parent="."]
 process_mode = 4
@@ -721,7 +724,7 @@ offset_left = 265.0
 offset_top = 90.0
 offset_right = 360.0
 offset_bottom = 116.0
-text = "Likes: Books"
+text = "Likes:"
 
 [node name="Likes2" type="Label" parent="Hero2"]
 self_modulate = Color(0.258824, 0.0745098, 0, 1)
@@ -730,7 +733,7 @@ offset_left = 274.0
 offset_top = 106.0
 offset_right = 387.0
 offset_bottom = 132.0
-text = "Books, Puzzles"
+text = "Riches, Traps	"
 
 [node name="Dislikes" type="Label" parent="Hero2"]
 self_modulate = Color(0.258824, 0.0745098, 0, 1)
@@ -748,7 +751,7 @@ offset_left = 282.0
 offset_top = 160.0
 offset_right = 400.0
 offset_bottom = 186.0
-text = "Glory, Combat"
+text = "Puzzle, Social"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Hero2"]
 self_modulate = Color(0.258824, 0.0745098, 0, 1)
@@ -757,7 +760,7 @@ offset_left = 154.0
 offset_top = 257.0
 offset_right = 383.0
 offset_bottom = 410.0
-text = "Wizard. The name strikes terror into the hearts of Goblins everywhere! Apparently likes dusy old books, the weirdo!"
+text = "Thief. ..."
 
 [node name="DialogueInterface" type="CanvasLayer" parent="."]
 script = ExtResource("8_1imfk")
@@ -864,6 +867,7 @@ libraries = {
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Cover" type="ColorRect" parent="CanvasLayer"]
+visible = false
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -872,7 +876,6 @@ grow_vertical = 2
 color = Color(0.211765, 0.211765, 0.211765, 1)
 
 [node name="Sprite2D" type="TextureRect" parent="CanvasLayer/Cover"]
-modulate = Color(1, 1, 1, 0)
 layout_mode = 0
 offset_left = 404.0
 offset_top = 94.0
@@ -895,6 +898,70 @@ offset_right = 146.0
 offset_bottom = 125.0
 scale = Vector2(0.75, 0.75)
 text = "The Villian"
+
+[node name="RichTextLabel" type="RichTextLabel" parent="CanvasLayer/Cover/Sprite2D"]
+self_modulate = Color(0.258824, 0.0745098, 0, 1)
+offset_left = 68.0
+offset_top = 120.0
+offset_right = 319.0
+offset_bottom = 321.0
+scale = Vector2(0.5, 0.5)
+text = "Quest: capture this magnificent and feared dark soul. 
+
+Reward: your wish granted by an enigmatic benefactor (definitely not the legendary villain themself)
+"
+
+[node name="NinePatchRect" type="NinePatchRect" parent="CanvasLayer/Cover"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -565.0
+offset_top = -184.0
+offset_right = 548.0
+offset_bottom = -36.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("10_8bt2j")
+region_rect = Rect2(0.15456, -0.222021, 31.3322, 32.2274)
+patch_margin_left = 8
+patch_margin_top = 9
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="Message" type="RichTextLabel" parent="CanvasLayer/Cover/NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.011
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 16.757
+offset_top = 40.0
+offset_right = -38.0
+offset_bottom = -13.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Will my search for a nemesis finally be over? Show me your worth, delvers. Mwahahahah"
+
+[node name="Name" type="RichTextLabel" parent="CanvasLayer/Cover/NinePatchRect"]
+layout_mode = 0
+offset_left = 17.0
+offset_top = 8.0
+offset_right = 562.0
+offset_bottom = 38.0
+text = "Villian"
+
+[node name="next-indicator" type="Sprite2D" parent="CanvasLayer/Cover/NinePatchRect"]
+position = Vector2(854.751, 124.551)
+texture = ExtResource("11_owei1")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="CanvasLayer/Cover/NinePatchRect/next-indicator"]
+autoplay = "Idle"
+libraries = {
+"": SubResource("AnimationLibrary_ap82s")
+}
 
 [connection signal="text_changed" from="Hero4/LineEdit4" to="." method="_on_line_edit_4_text_changed"]
 [connection signal="text_submitted" from="Hero4/LineEdit4" to="." method="_on_line_edit_4_text_submitted"]
