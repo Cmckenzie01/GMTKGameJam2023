@@ -30,7 +30,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(863.842, 124.436), Vector2(865.133, 114.719)]
+"values": [Vector2(774, 122), Vector2(774, 110)]
 }
 
 [sub_resource type="Animation" id="Animation_jrxsv"]
