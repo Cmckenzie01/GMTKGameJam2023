@@ -3,7 +3,10 @@ extends Node
 signal hero_died(hero_index: int)
 signal hero_resurrected(hero_index: int)
 signal hero_level_up(hero_index: int, hero_level: int)
-signal lose_game()
+signal lose_game
+signal win_game
+
+@onready var game_won: set = set_won
 
 # Resistance/Vulnerability Types
 enum BonusTypes {
@@ -90,6 +93,9 @@ const LEVEL_THRESHOLDS = [ # TODO Add more levels
 # bonuses
 var Heroes = null
 
+func _onready():
+	game_won = false
+
 func MakeParty(classes: Array):
 	Heroes = []
 
@@ -128,10 +134,14 @@ func DealPartyDamage(dmg: int):
 
 		if hero.hp == 0 and previous_hero_hp > 0:
 			hero_died.emit(i)
+		
+		if hero.hp <= 0:
 			num_dead += 1
-
+		
 	if num_dead == len(Heroes):
 		lose_game.emit()
+		
+			
 
 func check_lose_con():
 	var num_dead = 0
@@ -218,3 +228,9 @@ func AnyBonus(bonus: Variant) -> bool:
 				return true
 
 	return false
+	
+func set_won(new_state) -> void:
+	game_won = new_state
+	if game_won == true:
+		win_game.emit()
+		
