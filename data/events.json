@@ -129,7 +129,7 @@
 		"exp": 0,
 		"pass_text": "The delvers have sang with the forget-me-nots and now know the true meaning of life! They... have inspired apostles, {title}",
 	},
-	"StartRoom": {
+	"start_room": {
 		"entry_text": "The delvers have reached a new level, {title}",
 		"base_chance": 2.0,
 		"bonuses": [],
@@ -142,7 +142,7 @@
 		"exp": 0,
 		"pass_text": "They succeded as finding their way through a one way staircase, {title}",
 	},
-	"EndRoom": {
+	"end_room": {
 		"entry_text": "The delvers have reached the end of the level, {title}",
 		"base_chance": 2.0,
 		"bonuses": [],
