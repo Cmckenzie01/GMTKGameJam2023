@@ -163,33 +163,34 @@ func _do_event() -> bool:
 	return succeeded
 
 func _on_go_button_pressed():
-	match game_state:
-		GameState.BUILD_PLACE:
-			no_of_rooms = GlobalVariables.DungeonSequence.size() + 2
-			#GlobalVariables.DungeonSequence.push_front("start_room") # Option of adding a start room scene (would need adjustments to trigger straight away)
-			GlobalVariables.DungeonSequence.push_back("end_room")
-			game_state = GameState.PLAY
-			_start_moving_to_next_room()
+	if GlobalVariables.DungeonSequence:
+		match game_state:
+			GameState.BUILD_PLACE:
+				no_of_rooms = GlobalVariables.DungeonSequence.size() + 2
+				#GlobalVariables.DungeonSequence.push_front("start_room") # Option of adding a start room scene (would need adjustments to trigger straight away)
+				GlobalVariables.DungeonSequence.push_back("end_room")
+				game_state = GameState.PLAY
+				_start_moving_to_next_room()
 
-		GameState.PLAY:
-			match event_state:
-				EventState.INITIAL_TEXT:
-					var result = _do_event()
-					var text
+			GameState.PLAY:
+				match event_state:
+					EventState.INITIAL_TEXT:
+						var result = _do_event()
+						var text
 
-					if result:
-						text = current_event["pass_text"]
-					else:
-						text = current_event["fail_text"]
+						if result:
+							text = current_event["pass_text"]
+						else:
+							text = current_event["fail_text"]
 
-					_send_text(text)
+						_send_text(text)
 
-					event_state = EventState.END_TEXT
+						event_state = EventState.END_TEXT
 
-				EventState.END_TEXT:
-					current_event = null
-					event_state = EventState.IDLE
-					event_completed.emit()
+					EventState.END_TEXT:
+						current_event = null
+						event_state = EventState.IDLE
+						event_completed.emit()
 
 func _on_event_completed():
 	_start_moving_to_next_room()
