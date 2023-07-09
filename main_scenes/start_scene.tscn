@@ -34,14 +34,15 @@ scale = Vector2(0.25, 0.25)
 texture = ExtResource("2_hg055")
 
 [node name="Title" type="MarginContainer" parent="CanvasLayer"]
-offset_left = 280.0
-offset_top = 71.0
-offset_right = 1019.0
-offset_bottom = 244.0
+offset_left = 240.0
+offset_top = 72.0
+offset_right = 1083.0
+offset_bottom = 254.0
 
 [node name="Label" type="Label" parent="CanvasLayer/Title"]
 layout_mode = 2
-text = "Jaffa's Game :3"
+text = "Hero Cultivation Simulator: 
+Dark Lord Edition"
 label_settings = SubResource("LabelSettings_u6byt")
 horizontal_alignment = 1
 vertical_alignment = 1
