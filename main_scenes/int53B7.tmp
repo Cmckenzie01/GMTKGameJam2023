@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://bfjyly4gnd54f"]
+[gd_scene load_steps=23 format=3 uid="uid://bfjyly4gnd54f"]
 
 [ext_resource type="Script" path="res://main_scenes/intro_scene.gd" id="1_pi0pd"]
 [ext_resource type="Texture2D" uid="uid://o7gf0te6u550" path="res://assets/gui/scroll.png" id="2_n0thd"]
@@ -92,6 +92,105 @@ tracks/2/keys = {
 "values": [-0.428309, 0.344567]
 }
 
+[sub_resource type="Animation" id="Animation_nsppp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Hero4:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Hero4:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-610, 451)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Hero4:rotation")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.428309]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Hero3:rotation")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.497971]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("Hero3:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(884, -84.0001)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("Hero1:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-327, -165)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Hero1:rotation")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.208177]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Hero1:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+
 [sub_resource type="Animation" id="Animation_yo5bq"]
 resource_name = "SecondHero"
 tracks/0/type = "value"
@@ -182,240 +281,11 @@ tracks/3/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.45098, 0.647059, 0.298039, 1), Color(1, 1, 1, 1)]
 }
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("DialogueInterface/Sprites/Sprite2:modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(1),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("DialogueInterface/Sprites/Sprite2:self_modulate")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(1.4, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(0.45098, 0.647059, 0.298039, 1), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_pwk8g"]
-resource_name = "FourthHero"
-length = 2.2
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Hero2:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Hero2:size")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(512, 512)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Hero2:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.4, 0.7, 1, 1.3, 1.6, 1.7, 1.8, 2, 2.1),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Vector2(759, -518), Vector2(770, -365), Vector2(772, -226), Vector2(779, 6), Vector2(777, -224), Vector2(772, -359), Vector2(772, -359), Vector2(777, -298), Vector2(793, -369), Vector2(736, 27), Vector2(431, 39)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Hero2:modulate")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 1.5, 1.6, 2, 2.1, 2.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(0.45098, 0.647059, 0.298039, 1), Color(0.45098, 0.647059, 0.298039, 1), Color(0.45098, 0.647059, 0.298039, 1), Color(1, 1, 1, 1)]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("DialogueInterface/Sprites/Sprite2:self_modulate")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(1.5, 1.6, 2, 2.1, 2.2),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(0.45098, 0.647059, 0.298039, 1), Color(0.45098, 0.647059, 0.298039, 1), Color(0.45098, 0.647059, 0.298039, 1), Color(1, 1, 1, 1)]
-}
-
-[sub_resource type="Animation" id="Animation_iry2m"]
-resource_name = "FinalAnimation"
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Hero4:size")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(511.999, 511.999)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Hero4:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(483, -21), Vector2(-64, 25), Vector2(-67, 97)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Hero3:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(395, 83), Vector2(819, 36), Vector2(816, 108)]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Hero3:rotation")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.187951, 0.0]
-}
-tracks/4/type = "value"
-tracks/4/imported = false
-tracks/4/enabled = true
-tracks/4/path = NodePath("Hero1:position")
-tracks/4/interp = 1
-tracks/4/loop_wrap = true
-tracks/4/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(434, 40), Vector2(233, 77), Vector2(230, 149)]
-}
-tracks/5/type = "value"
-tracks/5/imported = false
-tracks/5/enabled = true
-tracks/5/path = NodePath("Hero1:rotation")
-tracks/5/interp = 1
-tracks/5/loop_wrap = true
-tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [-0.00880417, 0.0]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Hero2:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
-"times": PackedFloat32Array(0, 0.5, 1),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Vector2(431, 39), Vector2(525, 69), Vector2(522, 141)]
-}
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Hero2:rotation")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [0.0, 0.0]
-}
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Hero4:rotation")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-
-[sub_resource type="Animation" id="Animation_gjg70"]
-resource_name = "ExitAnimation"
-length = 2.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("CanvasLayer/Cover:modulate")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.5, 1.5),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 1)]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("CanvasLayer/Cover/Sprite2D:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(1.5, 2),
-"transitions": PackedFloat32Array(1, 1),
-"update": 0,
-"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ydx16"]
 _data = {
-"ExitAnimation": SubResource("Animation_gjg70"),
-"FinalAnimation": SubResource("Animation_iry2m"),
 "FirstHero": SubResource("Animation_suych"),
-"FourthHero": SubResource("Animation_pwk8g"),
+"RESET": SubResource("Animation_nsppp"),
 "SecondHero": SubResource("Animation_yo5bq"),
 "ThirdHero": SubResource("Animation_37ypr")
 }
@@ -451,12 +321,11 @@ rotation = -0.428309
 texture = ExtResource("2_n0thd")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hero4"]
-position = Vector2(189.882, 130.667)
-scale = Vector2(1.5, 1.5)
+position = Vector2(176, 114)
+scale = Vector2(2, 2)
 texture = ExtResource("7_2oq41")
 
 [node name="Name" type="Label" parent="Hero4"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 163.0
 offset_top = 204.0
@@ -470,12 +339,10 @@ offset_left = 217.0
 offset_top = 202.0
 offset_right = 390.0
 offset_bottom = 233.0
-focus_mode = 0
-placeholder_text = "Nite"
+placeholder_text = "Hero4"
 script = ExtResource("4_q32e3")
 
 [node name="Likes" type="Label" parent="Hero4"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 265.0
 offset_top = 90.0
@@ -484,7 +351,6 @@ offset_bottom = 116.0
 text = "Likes: Books"
 
 [node name="Likes2" type="Label" parent="Hero4"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 274.0
 offset_top = 106.0
@@ -493,7 +359,6 @@ offset_bottom = 132.0
 text = "Books, Puzzles"
 
 [node name="Dislikes" type="Label" parent="Hero4"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 270.0
 offset_top = 144.0
@@ -502,7 +367,6 @@ offset_bottom = 170.0
 text = "Dislikes: "
 
 [node name="Dislikes2" type="Label" parent="Hero4"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 282.0
 offset_top = 160.0
@@ -511,7 +375,6 @@ offset_bottom = 186.0
 text = "Glory, Combat"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Hero4"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 154.0
 offset_top = 257.0
@@ -522,20 +385,19 @@ text = "Wizard. The name strikes terror into the hearts of Goblins everywhere! A
 [node name="Hero3" type="TextureRect" parent="."]
 process_mode = 4
 layout_mode = 0
-offset_left = 1522.0
-offset_top = 230.0
-offset_right = 2034.0
-offset_bottom = 741.996
+offset_left = 884.0
+offset_top = -84.0001
+offset_right = 1396.0
+offset_bottom = 428.0
 rotation = 0.497971
 texture = ExtResource("2_n0thd")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hero3"]
-position = Vector2(185.696, 130.104)
-scale = Vector2(1.5, 1.5)
+position = Vector2(183, 104)
+scale = Vector2(2, 2)
 texture = ExtResource("6_6afls")
 
 [node name="Name" type="Label" parent="Hero3"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 163.0
 offset_top = 204.0
@@ -549,12 +411,10 @@ offset_left = 217.0
 offset_top = 202.0
 offset_right = 390.0
 offset_bottom = 233.0
-focus_mode = 0
-placeholder_text = "Brad"
+placeholder_text = "Hero3"
 script = ExtResource("4_q32e3")
 
 [node name="Likes" type="Label" parent="Hero3"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 265.0
 offset_top = 90.0
@@ -563,7 +423,6 @@ offset_bottom = 116.0
 text = "Likes: Books"
 
 [node name="Likes2" type="Label" parent="Hero3"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 274.0
 offset_top = 106.0
@@ -572,7 +431,6 @@ offset_bottom = 132.0
 text = "Books, Puzzles"
 
 [node name="Dislikes" type="Label" parent="Hero3"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 270.0
 offset_top = 144.0
@@ -581,7 +439,6 @@ offset_bottom = 170.0
 text = "Dislikes: "
 
 [node name="Dislikes2" type="Label" parent="Hero3"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 282.0
 offset_top = 160.0
@@ -590,7 +447,6 @@ offset_bottom = 186.0
 text = "Glory, Combat"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Hero3"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 154.0
 offset_top = 257.0
@@ -601,20 +457,20 @@ text = "Wizard. The name strikes terror into the hearts of Goblins everywhere! A
 [node name="Hero1" type="TextureRect" parent="."]
 process_mode = 4
 layout_mode = 0
-offset_left = -569.0
-offset_top = -334.0
-offset_right = -57.0015
-offset_bottom = 178.001
+offset_left = -327.0
+offset_top = -165.0
+offset_right = 184.999
+offset_bottom = 347.001
+rotation = -0.208177
 texture = ExtResource("2_n0thd")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hero1"]
 texture_filter = 1
-position = Vector2(180, 127)
-scale = Vector2(1.5, 1.5)
+position = Vector2(178, 106)
+scale = Vector2(2, 2)
 texture = ExtResource("3_eh37g")
 
 [node name="Name" type="Label" parent="Hero1"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 163.0
 offset_top = 204.0
@@ -628,12 +484,10 @@ offset_left = 217.0
 offset_top = 202.0
 offset_right = 390.0
 offset_bottom = 233.0
-focus_mode = 0
-placeholder_text = "W'izar'"
+placeholder_text = "Hero1"
 script = ExtResource("4_q32e3")
 
 [node name="Likes" type="Label" parent="Hero1"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 265.0
 offset_top = 90.0
@@ -642,7 +496,6 @@ offset_bottom = 116.0
 text = "Likes: Books"
 
 [node name="Likes2" type="Label" parent="Hero1"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 274.0
 offset_top = 106.0
@@ -651,7 +504,6 @@ offset_bottom = 132.0
 text = "Books, Puzzles"
 
 [node name="Dislikes" type="Label" parent="Hero1"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 270.0
 offset_top = 144.0
@@ -660,7 +512,6 @@ offset_bottom = 170.0
 text = "Dislikes: "
 
 [node name="Dislikes2" type="Label" parent="Hero1"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 282.0
 offset_top = 160.0
@@ -669,7 +520,6 @@ offset_bottom = 186.0
 text = "Glory, Combat"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Hero1"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 154.0
 offset_top = 257.0
@@ -679,20 +529,20 @@ text = "Wizard. The name strikes terror into the hearts of Goblins everywhere! A
 
 [node name="Hero2" type="TextureRect" parent="."]
 process_mode = 4
+visible = false
 layout_mode = 0
-offset_left = 759.0
-offset_top = -518.0
-offset_right = 1271.0
-offset_bottom = -6.0
+offset_left = 235.0
+offset_top = 6.0
+offset_right = 747.0
+offset_bottom = 518.0
 texture = ExtResource("2_n0thd")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hero2"]
-position = Vector2(182, 120)
-scale = Vector2(1.5, 1.5)
+position = Vector2(173, 106)
+scale = Vector2(2, 2)
 texture = ExtResource("5_l57dy")
 
 [node name="Name" type="Label" parent="Hero2"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 163.0
 offset_top = 204.0
@@ -706,12 +556,10 @@ offset_left = 217.0
 offset_top = 202.0
 offset_right = 390.0
 offset_bottom = 233.0
-focus_mode = 0
-placeholder_text = "Feif"
+placeholder_text = "Hero2"
 script = ExtResource("4_q32e3")
 
 [node name="Likes" type="Label" parent="Hero2"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 265.0
 offset_top = 90.0
@@ -720,7 +568,6 @@ offset_bottom = 116.0
 text = "Likes: Books"
 
 [node name="Likes2" type="Label" parent="Hero2"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 274.0
 offset_top = 106.0
@@ -729,7 +576,6 @@ offset_bottom = 132.0
 text = "Books, Puzzles"
 
 [node name="Dislikes" type="Label" parent="Hero2"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 270.0
 offset_top = 144.0
@@ -738,7 +584,6 @@ offset_bottom = 170.0
 text = "Dislikes: "
 
 [node name="Dislikes2" type="Label" parent="Hero2"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 282.0
 offset_top = 160.0
@@ -747,7 +592,6 @@ offset_bottom = 186.0
 text = "Glory, Combat"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Hero2"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
 layout_mode = 0
 offset_left = 154.0
 offset_top = 257.0
@@ -832,24 +676,21 @@ libraries = {
 
 [node name="Select" type="Button" parent="."]
 layout_mode = 0
-offset_left = 1187.0
-offset_top = 11.0
-offset_right = 1215.0
-offset_bottom = 39.0
+offset_left = 1172.0
+offset_top = 207.0
+offset_right = 1200.0
+offset_bottom = 235.0
 scale = Vector2(3, 3)
-disabled = true
 icon = ExtResource("4_dbbpt")
 flat = true
 
 [node name="Reroll" type="Button" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 1170.0
 offset_top = 346.0
 offset_right = 1198.0
 offset_bottom = 374.0
 scale = Vector2(3, 3)
-disabled = true
 icon = ExtResource("5_xg0cr")
 flat = true
 
@@ -857,41 +698,6 @@ flat = true
 libraries = {
 "": SubResource("AnimationLibrary_ydx16")
 }
-
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Cover" type="ColorRect" parent="CanvasLayer"]
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.211765, 0.211765, 0.211765, 1)
-
-[node name="Sprite2D" type="TextureRect" parent="CanvasLayer/Cover"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 0
-offset_left = 404.0
-offset_top = 94.0
-offset_right = 660.0
-offset_bottom = 350.0
-scale = Vector2(2, 2)
-texture = ExtResource("2_n0thd")
-
-[node name="Sprite2D" type="Sprite2D" parent="CanvasLayer/Cover/Sprite2D"]
-position = Vector2(94.5, 68.5)
-scale = Vector2(0.75, 0.75)
-texture = ExtResource("10_hjudb")
-
-[node name="Label" type="Label" parent="CanvasLayer/Cover/Sprite2D"]
-self_modulate = Color(0.258824, 0.0745098, 0, 1)
-layout_mode = 0
-offset_left = 66.0
-offset_top = 99.0
-offset_right = 146.0
-offset_bottom = 125.0
-scale = Vector2(0.75, 0.75)
-text = "The Villian"
 
 [connection signal="text_submitted" from="Hero4/LineEdit4" to="." method="_on_line_edit_4_text_submitted"]
 [connection signal="text_submitted" from="Hero3/LineEdit3" to="." method="_on_line_edit_3_text_submitted"]
