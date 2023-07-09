@@ -58,14 +58,14 @@ const Cards: Dictionary = {
 	},
 	"RichesRoom": {
 		"name": "RichesRoom",
-		"image": preload('res://assets/floors/combat_room.png'),
+		"image": preload('res://assets/Floors/Treasure_Room.png'),
 		"description": "A Room with something shiny!",
 		"effects": [], # TODO: Make Effect
 		"type": CardType.TILE,
 	},
 	"KnowledgeRoom": {
 		"name": "KnowledgeRoom",
-		"image": preload('res://assets/floors/combat_room.png'),
+		"image": preload('res://assets/Floors/Knowledge_Room.png'),
 		"description": "A Room with some history!",
 		"effects": [], # TODO: Make Effect
 		"type": CardType.TILE,
