@@ -71,11 +71,14 @@ const HeroClasses: Dictionary = {
 	}
 }
 
+
 const LEVEL_THRESHOLDS = [ # TODO Add more levels
-	100,
-	200,
-	400,
-	800
+	150,
+	300,
+	600,
+	1200,
+	2400,
+	4800
 ]
 
 # Fields of hero:

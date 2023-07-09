@@ -126,7 +126,7 @@
 		"fail_text": "The delvers have fallen victim to the meadow's magical perfume! They struggle to tell dream from reality, {title}",
 		"fail_damage": 50,
 		"fail_demotivation": 30,
-		"exp": 60,
+		"exp": 0,
 		"pass_text": "The delvers have sang with the forget-me-nots and now know the true meaning of life! They... have inspired apostles, {title}",
 	},
 	"start_room": {
@@ -139,7 +139,7 @@
 		"fail_text": "There wasn't even a challenge here, I'm not sure how they failed, {title}",
 		"fail_damage": 50,
 		"fail_demotivation": 30,
-		"exp": 60,
+		"exp": 0,
 		"pass_text": "They succeded as finding their way through a one way staircase, {title}",
 	},
 	"end_room": {
@@ -152,7 +152,7 @@
 		"fail_text": "They're in pretty bad shape, {title}",
 		"fail_damage": 50,
 		"fail_demotivation": 30,
-		"exp": 60,
+		"exp": 0,
 		"pass_text": "Let's throw a boss at them, {title}",
 	}
 }
