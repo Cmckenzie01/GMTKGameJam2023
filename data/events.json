@@ -153,6 +153,6 @@
 		"fail_damage": 50,
 		"fail_demotivation": 30,
 		"exp": 0,
-		"pass_text": "Let's throw a boss at them, {title}",
+		"pass_text": "I've grabbed some rewards for them, {title}! Select a single card from below, fools!",
 	}
 }

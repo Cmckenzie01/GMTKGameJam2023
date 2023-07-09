@@ -134,14 +134,14 @@ func DealPartyDamage(dmg: int):
 
 		if hero.hp == 0 and previous_hero_hp > 0:
 			hero_died.emit(i)
-		
+
 		if hero.hp <= 0:
 			num_dead += 1
-		
+
 	if num_dead == len(Heroes):
 		lose_game.emit()
-		
-			
+
+
 
 func check_lose_con():
 	var num_dead = 0
@@ -228,9 +228,9 @@ func AnyBonus(bonus: Variant) -> bool:
 				return true
 
 	return false
-	
+
 func set_won(new_state) -> void:
 	game_won = new_state
 	if game_won == true:
 		win_game.emit()
-		
+
