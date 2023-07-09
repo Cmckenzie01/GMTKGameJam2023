@@ -147,6 +147,8 @@ func update_text_title(text: String):
 # Send text to the dialogue box, and play it
 func _send_text(text: String, text_name: String = "MinionNo1", use_right_sprite: bool = false):
 
+	text = update_text_title(text)
+
 	var active_sprite
 	if use_right_sprite:
 		active_sprite = 1

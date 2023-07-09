@@ -33,7 +33,7 @@ func you_lose():
 	get_tree().paused = true
 	$Win_Lose/You_Lose.visible = true
 	$Win_Lose/You_Lose/AnimationPlayer.play("FadeIn")
-	
+
 func you_win():
 	get_tree().paused = true
 	$Win_Lose/You_Win.visible = true
@@ -46,4 +46,4 @@ func _on_retry_button_pressed():
 func _on_play_again_button_pressed():
 	get_tree().reload_current_scene()
 	get_tree().paused = false
-	
+
