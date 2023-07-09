@@ -20,70 +20,70 @@ enum CardType {
 const Cards: Dictionary = {
 	# Dungeon Tiles
 	"TrapRoom": {
-		"name": "trap_room",
+		"name": "TrapRoom",
 		"image": preload('res://assets/floors/trap_room.png'),
 		"description": "A room with a Trap!",
 		"effects": [], # TODO: Make Effect
 		"type": CardType.TILE,
 	},
 	"CombatRoom": {
-		"name": "combat_room",
+		"name": "CombatRoom",
 		"image": preload('res://assets/floors/combat_room.png'),
 		"description": "A Room to relax in!",
 		"effects": [], # TODO: Make Effect
 		"type": CardType.TILE,
 	},
 	"PuzzleRoom": {
-		"name": "puzzle_room",
+		"name": "PuzzleRoom",
 		"image": preload('res://assets/floors/puzzle_room.png'),
 		"description": "A Room with a Puzzle in it!",
 		"effects": [], # TODO: Make Effect
 		"type": CardType.TILE,
 	},
 	"SocialRoom": {
-		"name": "social_room",
+		"name": "SocialRoom",
 		"image": preload('res://assets/floors/combat_room.png'),
 		"description": "A Room with a social dynamic!",
 		"effects": [], # TODO: Make Effect
 		"type": CardType.TILE,
 	},
 	"EnvironmentalRoom": {
-		"name": "environmental_room",
+		"name": "EnvironmentalRoom",
 		"image": preload('res://assets/floors/environment_room.png'),
 		"description": "A Room with some natural wonder!",
 		"effects": [], # TODO: Make Effect
 		"type": CardType.TILE,
 	},
 	"RichesRoom": {
-		"name": "riches_room",
+		"name": "RichesRoom",
 		"image": preload('res://assets/floors/combat_room.png'),
 		"description": "A Room with something shiny!",
 		"effects": [], # TODO: Make Effect
 		"type": CardType.TILE,
 	},
 	"KnowledgeRoom": {
-		"name": "knowledge_room",
+		"name": "KnowledgeRoom",
 		"image": preload('res://assets/floors/combat_room.png'),
 		"description": "A Room with some history!",
 		"effects": [], # TODO: Make Effect
 		"type": CardType.TILE,
 	},
 	"HonourRoom": {
-		"name": "honour_room",
+		"name": "HonourRoom",
 		"image": preload('res://assets/floors/combat_room.png'),
 		"description": "A Room with a much deserved Shop!",
 		"effects": [], # TODO: Make Effect
 		"type": CardType.TILE,
 	},
 	"GloryRoom": {
-		"name": "glory_room",
+		"name": "GloryRoom",
 		"image": preload('res://assets/floors/combat_room.png'),
 		"description": "A Room with some glory!",
 		"effects": [], # TODO: Make Effect
 		"type": CardType.TILE,
 	},
 	"HealRoom": {
-		"name": "Healing_Room",
+		"name": "HealRoom",
 		"image": preload('res://assets/floors/healing_room.png'),
 		"description": "But am I a card? Really? When you think about it?",
 		"effects": [], # TODO: Make Effect

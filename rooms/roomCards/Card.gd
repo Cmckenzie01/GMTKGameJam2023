@@ -14,6 +14,8 @@ signal card_left_clicked(card)
 @onready var card_text = $CardFrame/CardText
 # TODO Add some room for flavour text?
 
+var card_name
+
 var starting_pos = Vector2()
 var current_pos = Vector2()
 
@@ -52,10 +54,13 @@ func make_card(card_id: String):
 	card = card_id
 	var card_data = GlobalVariables.Cards[card_id]
 	assert(card)
+	
+	
 
 	card_name_node.text = card_data["name"]
 	card_text.text = card_data["description"]
 	card_image.texture = card_data["image"]
+	card_name = card_data["name"]
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

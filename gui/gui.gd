@@ -78,3 +78,5 @@ func draw_hand(count: int):
 		%Cards.add_child(card)
 		card.make_card(GlobalVariables.Deck[i])
 		at.x += 180
+		
+		
