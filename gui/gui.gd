@@ -22,6 +22,15 @@ func _ready():
 	Party.hero_level_up.connect(set_hero_level)
 	Party.lose_game.connect(lose_game)
 
+	for i in range(len(Party.Heroes)):
+		var hero = Party.Heroes[i]
+		var hud = hero_huds[i]
+		hud.get_node("Label").text = hero.name
+		hud.get_node("HealthBar").max_value = hero.max_hp
+		hud.get_node("HealthBar").value = hero.hp
+		hud.get_node("MotivationBar").max_value = hero.max_mv
+		hud.get_node("MotivationBar").value = hero.mv
+
 # Note: This will play at different frame rates depending on the user. Probably fine for a jam game
 func _slide_to(current: int, target: int) -> int:
 	if current > target:
