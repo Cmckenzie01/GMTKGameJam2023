@@ -226,6 +226,8 @@ metadata/_edit_lock_ = true
 [node name="GUI" parent="." instance=ExtResource("2_6xb1b")]
 
 [node name="GoButton" type="Button" parent="GUI"]
+unique_name_in_owner = true
+visible = false
 texture_filter = 1
 offset_left = 1160.0
 offset_top = 480.0

@@ -53,3 +53,4 @@ func _on_empty_dungeon_room_gui_input(event: InputEvent, slot: SlotClass):
 		if no_of_rooms == no_of_rooms_occupied:
 			GlobalVariables.DungeonSequence = room_sequence
 			GlobalVariables.dungon_built = true
+			all_dungeon_slots_occupied.emit()
