@@ -93,22 +93,22 @@ const Cards: Dictionary = {
 	},
 	"HealPotion": {
 		"name": "HealPotion",
-		"image": preload('res://assets/floors/trap_room.png'),
-		"description": "A room with a Trap!",
+		"image": preload('res://assets/Health Potion.png'),
+		"description": "An IV drip of blood!",
 		"effects": [], # TODO: Make Effect
 		"type": CardType.TILE,
 	},
 	"MotivationPotion": {
 		"name": "MotivationPotion",
-		"image": preload('res://assets/floors/combat_room.png'),
-		"description": "A Room to die in!",
+		"image": preload('res://assets/Motivation Potion.png'),
+		"description": "Delicious coffee!",
 		"effects": [], # TODO: Make Effect
 		"type": CardType.TILE,
 	},
 	"ExpBoost": {
 		"name": "ExpBoost",
-		"image": preload('res://assets/floors/puzzle_room.png'),
-		"description": "A Room with a Puzzle in it!",
+		"image": preload('res://assets/Exp_Boost.png'),
+		"description": "Drink the wisdom of the ages!",
 		"effects": [], # TODO: Make Effect
 		"type": CardType.TILE,
 	}
@@ -139,12 +139,17 @@ var SideDeck = [
 @onready var tile_selected = null
 @onready var dungon_built: bool = false
 
+var heal_amount = 40
+
+var health_potion_amount = heal_amount
+var motivation_potion_amount = 50
+var exp_potion_amount = 60
 
 func buffs(effect, hero):
 	match effect:
 		"HealPotion":
-			Party.Heroes[hero].hp += 10 #arbitrary number
+			Party.Heroes[hero].hp += health_potion_amount #arbitrary number
 		"MotivationPotion":
-			Party.Heroes[hero].mv += 10 #arbitrary number
+			Party.Heroes[hero].mv += motivation_potion_amount #arbitrary number
 		"ExpBoost":
-			Party.Heroes[hero].exp += 50 #arbitrary number
+			Party.Heroes[hero].exp += exp_potion_amount #arbitrary number

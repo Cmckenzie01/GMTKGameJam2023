@@ -105,13 +105,13 @@ func make_card(card_id: String):
 				card_text.add_image(motivation_heart)
 	else: # Is a buff card
 		match card_id:
-			"Heal Potion":
-				card_text.add_text("Heals the hero by " + str(GlobalVariables.heal_potion_amount))
+			"HealPotion":
+				card_text.add_text("Heals the hero by " + str(GlobalVariables.health_potion_amount))
 				card_text.add_image(life_heart)
-			"Motivation Potion":
-				card_text.add_text("Motivates the hero by " + str(GlobalVariables.mv_potion_amount))
+			"MotivationPotion":
+				card_text.add_text("Motivates the hero by " + str(GlobalVariables.motivation_potion_amount))
 				card_text.add_image(motivation_heart)
-			"Exp Boost":
+			"ExpBoost":
 				card_text.add_text("Gives the hero " + str(GlobalVariables.exp_potion_amount) + " EXP")
 
 	card_name_node.text = card_data["name"]
