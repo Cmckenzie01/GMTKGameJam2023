@@ -35,6 +35,17 @@ var world_bottom_y = ProjectSettings.get('display/window/size/viewport_height')
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	self.following_mouse = false
+
+	var left_x = card_frame.get_rect().position.x
+	var bottom_y = card_frame.get_rect().position.y
+
+	var right_x = left_x + card_frame.get_rect().size.x
+	var top_y = bottom_y + card_frame.get_rect().size.y
+
+	original_width = right_x - left_x
+	original_height = top_y - bottom_y
+
 	starting_pos = transform.origin
 
 	make_card(card)
@@ -82,16 +93,6 @@ func shrink():
 		self.z_index -= 1
 
 		self.expanded = false
-
-func _input(event: InputEvent):
-	# TODO: Single Click Card, emit signal card_left_clicked(card/self) to GUI Script,
-	# which will handle the dragging the card around the screen functionality and what happens if
-	# left clicked again (if over slot, active card, if not, return to hand)
-
-	if event is InputEventMouseButton and self.moused_over and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
-		print('Single click on ' + self.card_name)
-
-		card_left_clicked.emit(self)
 
 func _on_card_gui_input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:

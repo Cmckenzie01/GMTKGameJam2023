@@ -1,10 +1,212 @@
-[gd_scene load_steps=6 format=3 uid="uid://dpo2caay8labl"]
+[gd_scene load_steps=21 format=3 uid="uid://dpo2caay8labl"]
 
 [ext_resource type="PackedScene" uid="uid://bc28pv7wmkxgr" path="res://levels/three_room_dungeon.tscn" id="1_qwsle"]
 [ext_resource type="Script" path="res://main_scenes/game_scene.gd" id="1_v6a74"]
 [ext_resource type="PackedScene" uid="uid://ctmrulo45br7" path="res://gui/gui.tscn" id="2_6xb1b"]
 [ext_resource type="Texture2D" uid="uid://dq6hlkvym48ok" path="res://assets/gui/A_Accept1.png" id="4_w07wg"]
-[ext_resource type="Texture2D" uid="uid://bax0omkn0j1hy" path="res://assets/pig.jpg" id="5_q6toa"]
+[ext_resource type="Texture2D" uid="uid://nnsvq8iluajj" path="res://assets/sprites/GoldenKnight.png" id="5_3gu54"]
+[ext_resource type="Texture2D" uid="uid://43v54nnuud57" path="res://assets/sprites/RegularTroubleMaker.png" id="6_73bkc"]
+[ext_resource type="Texture2D" uid="uid://ceti8f2021rj3" path="res://assets/sprites/PurpleWizard.png" id="7_tbx5k"]
+[ext_resource type="Texture2D" uid="uid://b4pnxenwibqt7" path="res://assets/sprites/RedBeard.png" id="8_lx08c"]
+
+[sub_resource type="Animation" id="Animation_ovnli"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Knight:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.174533]
+}
+
+[sub_resource type="Animation" id="Animation_y0gf1"]
+resource_name = "move"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Knight:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.174533, 0.0, -0.174533, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_miiv2"]
+_data = {
+"RESET": SubResource("Animation_ovnli"),
+"move": SubResource("Animation_y0gf1")
+}
+
+[sub_resource type="Animation" id="Animation_m8q12"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0872665]
+}
+
+[sub_resource type="Animation" id="Animation_5e8rk"]
+resource_name = "move"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, 0.0872665, 0.0, -0.0872665, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ai0qn"]
+_data = {
+"RESET": SubResource("Animation_m8q12"),
+"move": SubResource("Animation_5e8rk")
+}
+
+[sub_resource type="Animation" id="Animation_p5ibo"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_n8ofi"]
+resource_name = "move"
+length = 0.8
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 0.6, 0.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 1), Vector2(1.2, 1), Vector2(1, 1), Vector2(0.8, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_co4f2"]
+_data = {
+"RESET": SubResource("Animation_p5ibo"),
+"move": SubResource("Animation_n8ofi")
+}
+
+[sub_resource type="Animation" id="Animation_pcrf7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -10)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-0.174533]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1e-05, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_02qwi"]
+resource_name = "move"
+length = 1.8
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -10), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4, 1.2, 1.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.174533, 0.0, -0.174533, 0.0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.6, 0.8, 1, 1.4, 1.6, 1.8),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0.5, 1), Vector2(1e-05, 1), Vector2(-1, 1), Vector2(-0.5, 1), Vector2(1e-05, 1), Vector2(1, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_scp0o"]
+_data = {
+"RESET": SubResource("Animation_pcrf7"),
+"move": SubResource("Animation_02qwi")
+}
 
 [node name="GameScene" type="Control"]
 layout_mode = 3
@@ -16,28 +218,67 @@ grow_vertical = 2
 script = ExtResource("1_v6a74")
 
 [node name="Dungeon" parent="." instance=ExtResource("1_qwsle")]
+z_index = -1
 position = Vector2(-2, -11)
-tile_cards_path = "GUI/CardUI/TileCards/"
 metadata/_edit_lock_ = true
 
 [node name="GUI" parent="." instance=ExtResource("2_6xb1b")]
 
-[node name="GoButton" type="Button" parent="."]
-layout_mode = 1
+[node name="GoButton" type="Button" parent="GUI"]
 anchors_preset = -1
 offset_left = 1160.0
 offset_top = 480.0
 offset_right = 1272.0
 offset_bottom = 704.0
-text = "GO"
+focus_mode = 0
 icon = ExtResource("4_w07wg")
-flat = true
+icon_alignment = 1
+expand_icon = true
 
 [node name="Party" type="Sprite2D" parent="."]
-z_index = 2
-position = Vector2(0, -64)
-scale = Vector2(0.0277778, 0.0277777)
-texture = ExtResource("5_q6toa")
+z_index = 10
+position = Vector2(151, 88)
+
+[node name="Knight" type="Sprite2D" parent="Party"]
+position = Vector2(16, 0)
+rotation = 0.174533
+texture = ExtResource("5_3gu54")
+
+[node name="KnightPlayer" type="AnimationPlayer" parent="Party/Knight"]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_miiv2")
+}
+
+[node name="Thief" type="Sprite2D" parent="Party"]
+position = Vector2(-14, -3)
+rotation = 0.0872665
+texture = ExtResource("6_73bkc")
+
+[node name="ThiefPlayer" type="AnimationPlayer" parent="Party/Thief"]
+libraries = {
+"": SubResource("AnimationLibrary_ai0qn")
+}
+
+[node name="Wizard" type="Sprite2D" parent="Party"]
+position = Vector2(-17, 5)
+texture = ExtResource("7_tbx5k")
+
+[node name="WizardPlayer" type="AnimationPlayer" parent="Party/Wizard"]
+libraries = {
+"": SubResource("AnimationLibrary_co4f2")
+}
+
+[node name="Bard" type="Sprite2D" parent="Party"]
+position = Vector2(0, -10)
+rotation = -0.174533
+scale = Vector2(1e-05, 1)
+texture = ExtResource("8_lx08c")
+
+[node name="BardPlayer" type="AnimationPlayer" parent="Party/Bard"]
+libraries = {
+"": SubResource("AnimationLibrary_scp0o")
+}
 
 [connection signal="event_completed" from="." to="." method="_on_event_completed"]
-[connection signal="pressed" from="GoButton" to="." method="_on_go_button_pressed"]
+[connection signal="pressed" from="GUI/GoButton" to="." method="_on_go_button_pressed"]
