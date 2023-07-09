@@ -1,9 +1,9 @@
 [gd_scene load_steps=5 format=3 uid="uid://gxhrf1cwptdn"]
 
 [ext_resource type="Script" path="res://rooms/roomCards/Card.gd" id="1_vltva"]
-[ext_resource type="Texture2D" uid="uid://uhtkfdniys7p" path="res://assets/cards/Card.png" id="2_bh3id"]
+[ext_resource type="Texture2D" uid="uid://uhtkfdniys7p" path="res://assets/Cards/Card.png" id="2_bh3id"]
 [ext_resource type="FontFile" uid="uid://bfx7o8u6rt3s6" path="res://assets/fonts/arcadeclassic/ARCADECLASSIC.TTF" id="3_yme5s"]
-[ext_resource type="Texture2D" uid="uid://csek5mrxx4hvv" path="res://assets/floors/combat_room.png" id="4_0x3m7"]
+[ext_resource type="Texture2D" uid="uid://dfmru8qeinq5n" path="res://assets/floors/combat_room.png" id="4_0x3m7"]
 
 [node name="Card" type="Node2D"]
 script = ExtResource("1_vltva")

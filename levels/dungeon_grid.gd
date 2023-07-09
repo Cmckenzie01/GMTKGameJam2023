@@ -49,8 +49,8 @@ func _on_empty_dungeon_room_gui_input(event: InputEvent, slot: SlotClass):
 		slot.occupySlot(room, tile_name)
 		room_sequence[slot.slot_index] = tile_name
 		slot.gui_input.disconnect(_on_empty_dungeon_room_gui_input)
-		var path = tile_cards_path + tile_id
-		get_parent().get_node(path).queue_free()
+		GlobalVariables.tile_selected.queue_free()
+		GlobalVariables.tile_selected = null
 
 		#placeholder logic
 		no_of_rooms_occupied += 1

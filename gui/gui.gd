@@ -8,8 +8,10 @@ signal tile_selected(held_card: Card)
 var holding_offset = Vector2(120, 120)
 var held_card = null
 
+const CardScene = preload("res://rooms/roomCards/Card.tscn")
+
 @onready var current_dungeon = get_parent().get_node("Dungeon")
-@onready var cards_container = get_node('CardUI/TileCards')
+@onready var cards_container = get_node('CardUI/Cards')
 
 @onready var hero_huds = [%Hero1, %Hero2, %Hero3, %Hero4]
 
@@ -39,7 +41,7 @@ func _process(_delta):
 		hud.get_node("MotivationBar").max_value = hero.max_mv
 		hud.get_node("MotivationBar").value = _slide_to(hud.get_node("MotivationBar").value, hero.mv)
 		set_hero_level(i, hero.level)
-		
+
 func _input(event):
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_RIGHT and event.pressed:
 		if GlobalVariables.tile_selected:
@@ -63,3 +65,16 @@ func hero_resurrected(hero_index: int):
 func left_click_empty_slot(room: Room):#: SlotClass):
 	room.set_card(GlobalVariables.tile_selected)
 
+func draw_hand(count: int):
+	for c in %Cards.get_children():
+		c.queue_free()
+
+	GlobalVariables.Deck.shuffle()
+
+	var at = %Cards.transform.origin
+	for i in range(0, count):
+		var card = CardScene.instantiate()
+		card.transform.origin = at
+		%Cards.add_child(card)
+		card.make_card(GlobalVariables.Deck[i])
+		at.x += 180
