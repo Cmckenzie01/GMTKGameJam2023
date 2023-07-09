@@ -122,3 +122,5 @@ func activate_side_hand():
 		card.transform.origin.x -= offset
 		offset -= 50
 		card.modulate = Color(1,1,1,1)
+
+
