@@ -3,7 +3,7 @@ class_name Card extends Node2D
 signal play_card(effects: Array)
 signal card_left_clicked(card)
 
-@export var card: String = "Heal Room"
+@export var card: String = "HealRoom"
 @export var zoom_in_size: float = 2.0
 @export var zoom_in_time: float = 0.2
 @export var in_mouse_time: float = 0.1
