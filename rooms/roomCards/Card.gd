@@ -164,6 +164,7 @@ func _on_card_gui_input(event):
 			GlobalVariables.tile_selected.stop_follow_mouse()
 			GlobalVariables.tile_selected = self
 			follow_mouse()
+		card_left_clicked.emit(self)
 
 func follow_mouse():
 	self.following_mouse = true

@@ -4,6 +4,7 @@ signal follow_mouse(card: Card)
 signal stop_follow_mouse(card: Card)
 
 signal tile_selected(held_card: Card)
+signal reward_selected(card: String)
 
 var holding_offset = Vector2(120, 120)
 var held_card = null
@@ -72,9 +73,6 @@ func left_click_empty_slot(room: Room):#: SlotClass):
 	room.set_card(GlobalVariables.tile_selected)
 
 func draw_hand(count: int):
-	for c in %Cards.get_children():
-		c.queue_free()
-
 	GlobalVariables.Deck.shuffle()
 
 	var at = %Cards.transform.origin
@@ -99,6 +97,30 @@ func draw_side_hand(count: int):
 		at.x += 50
 	deactivate_side_hand()
 
+func draw_rewards(count: int):
+	# Empty both hands
+	for c in %Cards.get_children():
+		c.queue_free()
+	for c in %Cards2.get_children():
+		c.queue_free()
+
+	GlobalVariables.RewardPool.shuffle()
+
+	var at = %Cards.transform.origin
+	for i in range(0, count):
+		var card = CardScene.instantiate()
+		card.transform.origin = at
+		%Cards.add_child(card)
+		card.make_card(GlobalVariables.RewardPool[i])
+		card.card_left_clicked.connect(_reward_picked)
+		at.x += 200
+
+func _reward_picked(body: Node2D):
+	assert(body is Card)
+	for c in %Cards.get_children():
+		c.queue_free()
+	reward_selected.emit(body.card)
+
 func deactivate_main_hand():
 	var offset = 0
 	for card in %Cards.get_children():
@@ -122,5 +144,3 @@ func activate_side_hand():
 		card.transform.origin.x -= offset
 		offset -= 50
 		card.modulate = Color(1,1,1,1)
-
-

@@ -6,6 +6,9 @@ enum GameState {
 
 	# Play (Phase 2)
 	PLAY,
+
+	# Reward Selection
+	SELECT_REWARD,
 }
 var game_state: GameState = GameState.BUILD_PLACE
 var current_room: int = -1
@@ -46,8 +49,10 @@ func _ready():
 
 	_move_to_next_floor()
 
+@onready var DungeonFloors: Array = [preload("res://levels/three_room_dungeon.tscn")]#[preload("res://levels/three_room_dungeon.tscn"), preload("res://levels/four_room_dungeon.tscn"), preload("res://levels/five_room_dungeon.tscn")]
+
 func generate_new_dungeon():
-	var new_dungeon = GlobalVariables.DungeonFloors.pick_random().instantiate()
+	var new_dungeon = DungeonFloors.pick_random().instantiate()
 	add_child(new_dungeon)
 	current_dungeon = new_dungeon
 
@@ -82,6 +87,10 @@ func _get_room_pos(room_no: int) -> Vector2:
 	assert(false, "Room index " + str(room_no) + " not >= 0 and <= 4")
 	return Vector2()
 
+func _complete_floor():
+	game_state = GameState.SELECT_REWARD
+	$GUI.draw_rewards(3)
+
 # Tile movement logic
 func _move_to_next_floor():
 	current_room = 0
@@ -107,7 +116,7 @@ func _start_moving_to_next_room():
 	print("Current Rooms: ", current_room)
 	print("Number of Rooms: ", _num_rooms())
 	if current_room > _num_rooms():
-		_move_to_next_floor()
+		_complete_floor()
 		return
 
 	# TODO: This should maybe be a path of nodes, otherwise a right angle will result in diagonal movement
@@ -231,3 +240,13 @@ func _on_go_button_pressed():
 func _on_event_completed():
 	print("event completed")
 	_start_moving_to_next_room()
+
+
+func _on_gui_reward_selected(card):
+	var card_type = GlobalVariables.Cards[card].type
+	match card_type:
+		GlobalVariables.CardType.BUFF:
+			GlobalVariables.SideDeck.append(card)
+		GlobalVariables.CardType.TILE:
+			GlobalVariables.Deck.append(card)
+	_move_to_next_floor()
