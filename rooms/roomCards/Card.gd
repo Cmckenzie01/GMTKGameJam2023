@@ -114,7 +114,7 @@ func make_card(card_id: String):
 			"ExpBoost":
 				card_text.add_text("Gives the hero " + str(GlobalVariables.exp_potion_amount) + " EXP")
 
-	card_name_node.text = card_data["name"]
+	card_name_node.text = card_data["name"].replace('Room', ' Room').replace('Potion', ' Potion').replace('Boost', ' Boost')
 
 	card_image.texture = card_data["image"]
 	card_name = card_data["name"]
