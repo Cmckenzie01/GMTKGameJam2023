@@ -178,10 +178,14 @@ func _do_event() -> bool:
 			break
 
 	var succeeded
+	print(chance)
 	if randf_range(0.0, 1.0) < chance:
 		Party.MotivateParty(current_event["reward_motivation"], current_event["reward_bonuses"])
 		Party.GrantExp(current_event["exp"], current_event["reward_bonuses"])
 		succeeded = true
+
+		if "HEAL" in current_event["reward_bonuses"]:
+			Party.HealParty(GlobalVariables.heal_amount)
 	else:
 		Party.DealPartyDamage(current_event["fail_damage"])
 		Party.DemotivateParty(current_event["fail_demotivation"]) # Extra demotivate if it's your preferred task?
