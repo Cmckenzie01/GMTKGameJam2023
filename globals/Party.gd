@@ -3,6 +3,7 @@ extends Node
 signal hero_died(hero_index: int)
 signal hero_resurrected(hero_index: int)
 signal hero_level_up(hero_index: int, hero_level: int)
+signal lose_game()
 
 # Resistance/Vulnerability Types
 enum BonusTypes {
@@ -113,14 +114,33 @@ func HealParty(heal: int):
 			hero_resurrected.emit(i)
 
 func DealPartyDamage(dmg: int):
+	var num_dead = 0
+
 	for i in range(len(Heroes)):
 		var hero = Heroes[i]
 
+		var previous_hero_hp = hero.hp
 		hero.hp -= dmg
 		hero.hp = max(hero.hp, 0)
 
-		if hero.hp == 0:
+		if hero.hp == 0 and previous_hero_hp > 0:
 			hero_died.emit(i)
+			num_dead += 1
+
+	if num_dead == len(Heroes):
+		lose_game.emit()
+
+func check_lose_con():
+	var num_dead = 0
+
+	for i in range(len(Heroes)):
+		var hero = Heroes[i]
+
+		if hero.hp <= 0:
+			num_dead += 1
+
+	if num_dead == len(Heroes):
+		lose_game.emit()
 
 func DemotivateParty(dmg: int):
 	for hero in Heroes:

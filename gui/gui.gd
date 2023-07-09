@@ -19,6 +19,7 @@ func _ready():
 	Party.hero_died.connect(hero_died)
 	Party.hero_resurrected.connect(hero_resurrected)
 	Party.hero_level_up.connect(set_hero_level)
+	Party.lose_game.connect(lose_game)
 
 # Note: This will play at different frame rates depending on the user. Probably fine for a jam game
 func _slide_to(current: int, target: int) -> int:
@@ -48,7 +49,7 @@ func _input(event):
 			GlobalVariables.tile_selected.stop_follow_mouse()
 
 func set_hero_level(hero_index, hero_level: int):
-	hero_huds[hero_index].get_node('LevelLabel').text = str(hero_level + 1)
+	hero_huds[hero_index].get_node('LevelLabel').text = 'Lvl ' + str(hero_level + 1)
 
 func hero_died(hero_index: int):
 	var hero_hud = hero_huds[hero_index]
@@ -61,6 +62,11 @@ func hero_resurrected(hero_index: int):
 
 	hero_hud.get_node('SkullIcon').visible = false
 	hero_hud.get_node('Sprite2D').modulate.a = 1.0 # Make them opaque
+
+func lose_game():
+	print("The game is lost!")
+	# TODO Dialogue
+	# TODO Scene change
 
 func left_click_empty_slot(room: Room):#: SlotClass):
 	room.set_card(GlobalVariables.tile_selected)
@@ -77,8 +83,9 @@ func draw_hand(count: int):
 		card.transform.origin = at
 		%Cards.add_child(card)
 		card.make_card(GlobalVariables.Deck[i])
+
 		at.x += 150
-		
+
 func draw_side_hand(count: int):
 	for c in %Cards2.get_children():
 		c.queue_free()
@@ -95,18 +102,17 @@ func draw_side_hand(count: int):
 		card.make_card(GlobalVariables.SideDeck[i])
 		card.process_mode = 4
 		at.x += 50
-		
+
 func deactivate_main_hand():
 	var offset = 0
 	for card in %Cards.get_children():
 		card.process_mode = 4
 		card.transform.origin = Vector2(51 + offset, 66)
 		offset += 50
-		
+
 func activate_side_hand():
 	var offset = 200
 	for card in %Cards2.get_children():
 		card.process_mode = 0
 		card.transform.origin.x -= offset
 		offset -= 50
-		
